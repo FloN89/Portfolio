@@ -7,42 +7,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
-  <link rel="stylesheet" href="/styles/main-page.css" />
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-glow"></div>
+ <!-- HEADER -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__left">
+      <img
+        src="assets/imgs/3. Language switch.png"
+        alt="Language switch"
+        class="site-header__lang-switch"
+      />
 
-  <div class="side-rail side-rail-left">
-    <span class="rail-dot"></span>
-  </div>
-
-  <div class="side-rail side-rail-right">
-    <span class="rail-text">hello@floriannarr.dev</span>
-    <div class="rail-icons">
-      <a href="#">in</a>
-      <a href="#">gh</a>
-      <a href="#">be</a>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#" class="logo">
-        <span class="logo-mark">FN</span>
-        <span class="logo-text">Florian Narr</span>
-      </a>
-
-      <nav class="main-nav">
-        <a href="#about">About me</a>
-        <a href="#projects">Works</a>
-        <a href="#contact">Contact</a>
+      <nav class="site-header__nav" aria-label="Hauptnavigation">
+        <a href="#about" class="site-header__link">About me</a>
+        <a href="#skills" class="site-header__link">Skills</a>
+        <a href="#projects" class="site-header__link">Projects</a>
       </nav>
     </div>
-  </header>
 
-    
+    <a href="/" class="site-header__logo" aria-label="Florian Narr Startseite">
+      <div class="site-header__logo-box">FN</div>
+      <div class="site-header__logo-text">
+        <span>Florian</span>
+        <span>Narr</span>
+      </div>
+    </a>
+  </div>
+</header>
 </body>
 </html>

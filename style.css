@@ -1,0 +1,136 @@
+/* =========================
+   TOP / HERO REDESIGN
+   ========================= */
+
+:root {
+  --bg-dark: #0a0d0f;
+  --bg-deep: #101416;
+  --text-main: #e6e7e3;
+  --text-soft: rgba(230, 231, 227, 0.86);
+  --text-dim: rgba(230, 231, 227, 0.68);
+  --accent: #43e8d7;
+  --accent-blue: #19b8ff;
+  --accent-line: rgba(67, 232, 215, 0.48);
+  --accent-line-soft: rgba(67, 232, 215, 0.28);
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-dark: rgba(255, 255, 255, 0.04);
+}
+
+body {
+  background:
+    radial-gradient(circle at 82% 12%, rgba(16, 139, 121, 0.38) 0%, rgba(16, 139, 121, 0.18) 22%, transparent 52%),
+    radial-gradient(circle at 48% 10%, rgba(40, 196, 181, 0.14) 0%, transparent 34%),
+    linear-gradient(90deg, #17181a 0%, #111516 28%, #0b1111 60%, #071514 100%);
+  color: var(--text-main);
+}
+
+.page-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 75% 18%, rgba(67, 232, 215, 0.14), transparent 22%),
+    radial-gradient(circle at 35% 0%, rgba(67, 232, 215, 0.08), transparent 26%);
+  z-index: 0;
+}
+
+
+.site-header {
+  height: 98px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  box-sizing: border-box;
+}
+
+.site-header__inner {
+  width: 100%;
+  max-width: 1440px;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+.site-header__left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-header__lang-switch {
+  display: block;
+  height: auto;
+  max-height: 40px;
+  width: auto;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-header__link {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: url("assets/imgs/Ellipse 2.png") center / contain no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.site-header__link:hover::after,
+.site-header__link:focus-visible::after {
+  opacity: 1;
+}
+
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.site-header__logo-box {
+  width: 56px;
+  height: 56px;
+  border: 3px solid #00f5d4;
+  color: #00f5d4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.site-header__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.95;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
