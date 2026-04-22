@@ -11,6 +11,8 @@
   rel="stylesheet"
 />
   <link rel="stylesheet" href="style.css" />
+
+  <script src="script.js" defer></script>
 </head>
 <body>
  <!-- HEADER -->
@@ -150,6 +152,185 @@
 
         <span class="hero__ticker-item">Open to work</span>
       </div>
+    </div>
+  </div>
+</section>
+<!-- ABOUT ME -->
+<section class="about" id="about">
+  <div class="about__inner">
+    <div class="about__media">
+      <div class="about__image-placeholder">
+        <span>Image Placeholder</span>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <p class="about__eyebrow">Who I Am</p>
+      <div class="about__card">
+        <h2 class="about__title">About me</h2>
+
+        <p class="about__intro">
+          Hey there, I’m Florian! Write some information about yourself that is related.
+          Why are you passionate about coding? What is your source of inspiration for
+          improving your programming skills?
+        </p>
+
+        <ul class="about__list">
+          <li class="about__item">
+            <div class="about__icon">
+              <img src="assets/imgs/about me/location_on.png" alt="Location icon">
+            </div>
+            <p>
+              Where are you based? Would you be open to working remotely or potentially relocating?
+            </p>
+          </li>
+
+          <li class="about__item">
+            <div class="about__icon">
+              <img src="assets/imgs/about me/Property 1=cognition.png" alt="Open minded icon">
+            </div>
+            <p>
+              Show that you are open-minded. Are you enthusiastic about learning new technologies
+              and continually improving your skills?
+            </p>
+          </li>
+
+          <li class="about__item">
+            <div class="about__icon">
+              <img src="assets/imgs/about me/new_releases.png" alt="Description icon">
+            </div>
+            <p>
+              A brief description of your problem-solving approach. Do you learn from each challenge
+              as you search for the most efficient or elegant solution? You can include some keywords
+              like: analytical thinking, creativity, persistence and collaboration.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Direkt UNTER deinem About-Me-Bereich einfügen -->
+<section class="skills-section" id="skills">
+  <div class="skills-wrapper">
+    <div class="skills-left">
+      <span class="skills-eyebrow">Technologies</span>
+
+      <div class="skills-card">
+        <h2 class="skills-title">Skill Set</h2>
+
+        <p class="skills-text">
+          A short introduction of your skills. Highlight your experience of using
+          different front-end technologies and emphasize your openness to learning
+          and adapting to new technologies. Show how important it is for you to
+          keep up with the rapid changes in web development.
+        </p>
+
+        <h3 class="skills-subtitle">
+          You need <span>another skill?</span>
+        </h3>
+
+        <p class="skills-small-text">
+          Feel free to contact me. I look forward to expanding on my previous
+          knowledge.
+        </p>
+
+        <a href="#contact" class="skills-btn">Let’s Talk</a>
+      </div>
+    </div>
+
+    <div class="skills-right">
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </div>
+</section>
+<section class="projects-section" id="projects">
+  <div class="projects-shell">
+    <div class="projects-header">
+      <span class="projects-eyebrow">Portfolio</span>
+      <h2 class="projects-title">Featured Projects</h2>
+      <p class="projects-intro">
+        Explore a selection of my work here - Interact with
+        projects to see my skills in action.
+      </p>
+    </div>
+
+    <div class="projects-list" id="projectsList"></div>
+  </div>
+</section>
+
+<div class="project-overlay" id="projectOverlay" aria-hidden="true">
+  <div class="project-overlay__backdrop" data-close-overlay></div>
+
+  <div
+    class="project-overlay__panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="projectOverlayTitle"
+  >
+    <button
+      type="button"
+      class="project-overlay__close"
+      id="projectOverlayClose"
+      aria-label="Overlay schließen"
+    >
+      ×
+    </button>
+
+    <span class="project-overlay__eyebrow">Project Details</span>
+    <h3 class="project-overlay__title" id="projectOverlayTitle">Projektname</h3>
+    <p class="project-overlay__text" id="projectOverlayText">
+      Inhalt folgt später.
+    </p>
+
+    <div class="project-overlay__stack" id="projectOverlayStack"></div>
+  </div>
+</div>
+<section class="references-section" id="references">
+  <div class="references-shell">
+    <span class="references-eyebrow">Testimonials</span>
+    <h2 class="references-title">What my colleagues say about me</h2>
+
+    <div class="references-stage" id="referencesStage" aria-live="polite"></div>
+
+    <div class="references-controls">
+      <button
+        type="button"
+        class="references-nav"
+        id="referencesPrev"
+        aria-label="Vorherige Referenz"
+      >
+        <img
+          class="references-nav__icon references-nav__icon--default"
+          src="assets/imgs/references/arrow_back-1.png"
+          alt=""
+        />
+        <img
+          class="references-nav__icon references-nav__icon--hover"
+          src="assets/imgs/references/arrow_back.png"
+          alt=""
+        />
+      </button>
+
+      <div class="references-dots" id="referencesDots"></div>
+
+      <button
+        type="button"
+        class="references-nav"
+        id="referencesNext"
+        aria-label="Nächste Referenz"
+      >
+        <img
+          class="references-nav__icon references-nav__icon--default"
+          src="assets/imgs/references/arrow_forward.png"
+          alt=""
+        />
+        <img
+          class="references-nav__icon references-nav__icon--hover"
+          src="assets/imgs/references/arrow_forward-1.png"
+          alt=""
+        />
+      </button>
     </div>
   </div>
 </section>
