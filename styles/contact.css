@@ -1,71 +1,56 @@
 .contact-section {
-  position: relative;
-  z-index: 1;
-  padding: 120px 0 140px;
-  background: linear-gradient(180deg, #0b0d10 0%, #090b0d 100%);
-  overflow: hidden;
-}
-
-.contact-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(67, 232, 215, 0.07), transparent 26%),
-    radial-gradient(circle at 82% 74%, rgba(67, 232, 215, 0.04), transparent 24%);
-  pointer-events: none;
+  padding: 0 0 116px;
 }
 
 .contact-shell {
-  position: relative;
-  width: min(1200px, calc(100% - 48px));
+  width: min(1280px, calc(100% - 48px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(280px, 390px) minmax(320px, 1fr);
-  gap: 84px;
+  grid-template-columns: minmax(320px, 470px) minmax(420px, 1fr);
+  gap: 120px;
   align-items: start;
 }
 
 .contact-copy {
-  padding-top: 18px;
+  padding-top: 14px;
 }
 
 .contact-eyebrow {
   display: inline-block;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
   color: var(--accent);
 }
 
 .contact-title {
-  margin: 0 0 28px;
-  max-width: 280px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(3.1rem, 5.7vw, 5.2rem);
-  line-height: 0.9;
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  color: #39e7d1;
+  margin: 0 0 34px;
+  max-width: 360px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(72px, 9vw, 96px);
+  line-height: 0.88;
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  color: var(--accent);
 }
 
 .contact-subtitle {
-  margin: 0 0 14px;
+  margin: 0 0 18px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 1.55rem;
+  font-size: 42px;
+  line-height: 1.15;
   font-weight: 600;
-  line-height: 1.2;
-  color: #39e7d1;
+  color: var(--accent);
 }
 
 .contact-text {
-  margin: 0 0 18px;
-  max-width: 330px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  line-height: 1.65;
-  color: rgba(230, 231, 227, 0.88);
+  margin: 0 0 22px;
+  max-width: 430px;
+  font-family: "Inter", sans-serif;
+  font-size: 21px;
+  line-height: 1.55;
+  color: rgba(240, 240, 234, 0.88);
 }
 
 .contact-text--small {
@@ -73,14 +58,9 @@
 }
 
 .contact-text a {
-  color: #39e7d1;
+  color: var(--accent);
   text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.contact-text a:hover,
-.contact-text a:focus-visible {
-  opacity: 0.82;
+  font-weight: 600;
 }
 
 .contact-form {
@@ -90,32 +70,22 @@
 }
 
 .contact-form__field {
-  padding: 16px 14px 14px;
-  border-top: 1px solid rgba(67, 232, 215, 0.75);
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-.contact-form__field:last-of-type {
-  border-bottom: 1px solid rgba(67, 232, 215, 0.38);
+  padding: 20px 0 20px;
+  border-top: 1px solid rgba(57, 232, 212, 0.76);
+  transition: border-color 0.24s ease, background 0.24s ease;
 }
 
 .contact-form__field:focus-within {
-  border-top-color: rgba(67, 232, 215, 1);
-  background: rgba(67, 232, 215, 0.025);
-}
-
-.contact-form__field--message {
-  padding-bottom: 18px;
+  border-top-color: rgba(57, 232, 212, 1);
 }
 
 .contact-form__label {
   display: block;
   margin-bottom: 14px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.1;
-  color: #39e7d1;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--accent);
 }
 
 .contact-form__input,
@@ -124,15 +94,15 @@
   padding: 0;
   border: 0;
   background: transparent;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+  font-size: 19px;
+  line-height: 1.7;
   color: #ffffff;
 }
 
 .contact-form__input::placeholder,
 .contact-form__textarea::placeholder {
-  color: rgba(230, 231, 227, 0.62);
+  color: rgba(240, 240, 234, 0.62);
 }
 
 .contact-form__input:focus,
@@ -141,19 +111,19 @@
 }
 
 .contact-form__textarea {
-  min-height: 64px;
+  min-height: 94px;
   resize: vertical;
 }
 
 .contact-form__privacy {
-  margin-top: -2px;
+  margin-top: 4px;
 }
 
 .contact-checkbox {
   position: relative;
   display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 12px;
+  grid-template-columns: 24px 1fr;
+  gap: 14px;
   align-items: start;
   cursor: pointer;
 }
@@ -165,11 +135,11 @@
 }
 
 .contact-checkbox__visual {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   margin-top: 1px;
   background: url("assets/imgs/contact form/check_box_outline_blank.png") center / contain no-repeat;
-  transition: transform 0.2s ease, background-image 0.2s ease, filter 0.2s ease;
+  transition: transform 0.2s ease, background-image 0.2s ease;
 }
 
 .contact-checkbox:hover .contact-checkbox__visual,
@@ -184,50 +154,61 @@
 }
 
 .contact-checkbox__text {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
-  line-height: 1.55;
-  color: rgba(230, 231, 227, 0.88);
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(240, 240, 234, 0.88);
 }
 
 .contact-checkbox__text a {
-  color: #39e7d1;
+  color: var(--accent);
   text-decoration: none;
-}
-
-.contact-checkbox__text a:hover,
-.contact-checkbox__text a:focus-visible {
-  text-decoration: underline;
 }
 
 .contact-form__submit {
   align-self: center;
-  min-width: 126px;
+  min-width: 140px;
   height: 46px;
   padding: 0 24px;
-  border: 1px solid rgba(230, 231, 227, 0.7);
+  border: 1px solid rgba(240, 240, 234, 0.76);
   border-radius: 999px;
   background: transparent;
-  color: rgba(230, 231, 227, 0.92);
+  color: rgba(240, 240, 234, 0.94);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 13px;
-  line-height: 1;
+  font-size: 18px;
   cursor: pointer;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+  transition: color 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
 }
 
 .contact-form__submit:hover,
 .contact-form__submit:focus-visible {
-  color: #39e7d1;
-  border-color: #39e7d1;
-  background: rgba(67, 232, 215, 0.04);
-  box-shadow: 0 0 18px rgba(57, 231, 209, 0.12);
+  color: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-2px);
   outline: none;
 }
 
+@media (max-width: 900px) {
+  .contact-shell {
+    width: calc(100% - 24px);
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .contact-title {
+    font-size: 58px;
+  }
+
+  .contact-subtitle {
+    font-size: 32px;
+  }
+
+  .contact-text,
+  .contact-form__label,
+  .contact-form__input,
+  .contact-form__textarea,
+  .contact-checkbox__text,
+  .contact-form__submit {
+    font-size: 16px;
+  }
+}

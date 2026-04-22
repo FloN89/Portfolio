@@ -1,15 +1,14 @@
 :root {
-  --bg-dark: #0a0d0f;
-  --bg-deep: #101416;
-  --text-main: #e6e7e3;
-  --text-soft: rgba(230, 231, 227, 0.86);
-  --text-dim: rgba(230, 231, 227, 0.68);
-  --accent: #43e8d7;
-  --accent-blue: #19b8ff;
-  --accent-line: rgba(67, 232, 215, 0.48);
-  --accent-line-soft: rgba(67, 232, 215, 0.28);
-  --glass: rgba(255, 255, 255, 0.08);
-  --glass-dark: rgba(255, 255, 255, 0.04);
+  --background-main: #0b0d0e;
+  --background-panel: #101617;
+  --text-main: #f0f0ea;
+  --text-soft: rgba(240, 240, 234, 0.88);
+  --text-dim: rgba(240, 240, 234, 0.68);
+  --accent: #39e8d4;
+  --accent-strong: #1ef7df;
+  --line: rgba(57, 232, 212, 0.38);
+  --line-soft: rgba(255, 255, 255, 0.09);
+  --shadow-large: 0 26px 80px rgba(0, 0, 0, 0.34);
 }
 
 * {
@@ -18,24 +17,66 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 120px;
+  scroll-padding-top: 104px;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
   color: var(--text-main);
   background:
-    linear-gradient(rgba(7, 12, 12, 0.62), rgba(7, 12, 12, 0.62)),
-    url("assets/imgs/12. Skill set Background.png") center top / cover no-repeat fixed;
-  background-color: #071514;
+    radial-gradient(1050px 520px at 85% 0%, rgba(57, 232, 212, 0.12), transparent 42%),
+    linear-gradient(180deg, #09100f 0%, #0b0d0e 22%, #0b0d0e 100%);
 }
 
-.page-glow {
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
+  z-index: -1;
   background:
-    radial-gradient(circle at 75% 18%, rgba(67, 232, 215, 0.14), transparent 22%),
-    radial-gradient(circle at 35% 0%, rgba(67, 232, 215, 0.08), transparent 26%);
-  z-index: 0;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 12%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 22%);
+  opacity: 0.22;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a,
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+section,
+header,
+footer,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background:
+      radial-gradient(620px 300px at 84% 0%, rgba(57, 232, 212, 0.1), transparent 48%),
+      linear-gradient(180deg, #09100f 0%, #0b0d0e 22%, #0b0d0e 100%);
+  }
 }

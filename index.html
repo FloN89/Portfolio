@@ -4,457 +4,429 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Florian Narr | Frontend Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/footer.css" />
   <link rel="stylesheet" href="/styles/hero.css" />
-  <link rel="stylesheet" href="/styles/about-me.css" />    
+  <link rel="stylesheet" href="/styles/about-me.css" />
   <link rel="stylesheet" href="/styles/skills.css" />
   <link rel="stylesheet" href="/styles/projects.css" />
   <link rel="stylesheet" href="/styles/references.css" />
   <link rel="stylesheet" href="/styles/contact.css" />
   <link rel="stylesheet" href="/styles/overlay.css" />
 
-
-
   <script src="script.js" defer></script>
 </head>
 <body>
- <!-- HEADER -->
-<header class="site-header">
-  <div class="site-header__inner">
-    <div class="site-header__left">
-      <img
-        src="assets/imgs/header/3. Language switch.png"
-        alt="Language switch"
-        class="site-header__lang-switch"
-      />
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__left">
+        <img
+          src="assets/imgs/header/3. Language switch.png"
+          alt="Language switch"
+          class="site-header__lang-switch"
+        />
 
-      <nav class="site-header__nav" aria-label="Hauptnavigation">
-        <a href="#about" class="site-header__link">About me</a>
-        <a href="#skills" class="site-header__link">Skills</a>
-        <a href="#projects" class="site-header__link">Projects</a>
+        <nav class="site-header__nav" aria-label="Hauptnavigation">
+          <a href="#about" class="site-header__link">About me</a>
+          <a href="#skills" class="site-header__link">Skills</a>
+          <a href="#projects" class="site-header__link">Projects</a>
+        </nav>
+      </div>
+
+      <a href="#hero" class="site-header__logo" aria-label="Florian Narr Startseite">
+        <img
+          src="assets/imgs/header/Logo Portfolio.png"
+          alt="Florian Narr Logo"
+          class="site-header__logo-image"
+        />
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <div class="hero__center">
+          <p class="hero__role">Frontend Developer</p>
+          <h1 class="hero__title">Florian Narr</h1>
+
+          <div class="hero__actions">
+            <a class="hero__button" href="#projects">
+              <span class="hero__button-text">Check my work</span>
+            </a>
+            <a class="hero__button" href="#contact">
+              <span class="hero__button-text">Contact me</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__left-rail">
+          <a class="hero__arrow" href="#about" aria-label="Zum nächsten Bereich scrollen">
+            <img src="assets/imgs/hero/Property 1=Default.png" alt="" />
+          </a>
+          <span class="hero__rail-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="hero__right-rail">
+          <span class="hero__rail-label">hello@floriannarr.dev</span>
+
+          <div class="hero__socials" aria-label="Social Links">
+            <a class="hero__social-link" href="mailto:hello@floriannarr.dev" aria-label="E-Mail">
+              <img
+                class="hero__social-icon hero__social-icon--default"
+                src="assets/imgs/hero/Property 1=Mail.png"
+                alt=""
+              />
+              <img
+                class="hero__social-icon hero__social-icon--hover"
+                src="assets/imgs/hero/Property 1=Mail Hover.png"
+                alt=""
+              />
+            </a>
+
+            <a
+              class="hero__social-link"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <img
+                class="hero__social-icon hero__social-icon--default"
+                src="assets/imgs/hero/Property 1=Linkedin.png"
+                alt=""
+              />
+              <img
+                class="hero__social-icon hero__social-icon--hover"
+                src="assets/imgs/hero/Property 1=Linkedin Hovevr.png"
+                alt=""
+              />
+            </a>
+
+            <a
+              class="hero__social-link"
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <img
+                class="hero__social-icon hero__social-icon--default"
+                src="assets/imgs/hero/Property 1=GitHub.png"
+                alt=""
+              />
+              <img
+                class="hero__social-icon hero__social-icon--hover"
+                src="assets/imgs/hero/Property 1=GitHub Hover.png"
+                alt=""
+              />
+            </a>
+          </div>
+
+          <span class="hero__rail-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="hero__ticker-wrap">
+          <div class="hero__ticker" aria-label="Status Banner">
+            <div class="hero__ticker-track">
+              <span class="hero__ticker-item">Based in Rosenheim</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Open to work</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Available for remote work</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Frontend Developer</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Based in Rosenheim</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Open to work</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Available for remote work</span>
+              <img class="hero__ticker-dot" src="assets/imgs/hero/radio_button_unchecked.png" alt="" />
+              <span class="hero__ticker-item">Frontend Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about__inner">
+        <div class="about__media">
+          <div class="about__image-frame">
+            <img
+              src="assets/imgs/about me/about-photo.png"
+              alt="Florian Narr working at his laptop"
+              class="about__image"
+            />
+          </div>
+        </div>
+
+        <div class="about__content">
+          <p class="about__eyebrow">Who I Am</p>
+
+          <div class="about__card">
+            <h2 class="about__title">About me</h2>
+
+            <p class="about__intro">
+              Hey there, I’m Florian. I build modern frontend interfaces with a clean
+              structure, strong visual consistency and a focus on smooth user interaction.
+            </p>
+
+            <ul class="about__list">
+              <li class="about__item">
+                <div class="about__icon">
+                  <img src="assets/imgs/about me/location_on.png" alt="Location icon" />
+                </div>
+                <p>I am based in Rosenheim and available for remote work.</p>
+              </li>
+
+              <li class="about__item">
+                <div class="about__icon">
+                  <img src="assets/imgs/about me/Property 1=cognition.png" alt="Mindset icon" />
+                </div>
+                <p>
+                  I enjoy learning new technologies and continuously improving my frontend
+                  workflow, code quality and design sense.
+                </p>
+              </li>
+
+              <li class="about__item">
+                <div class="about__icon">
+                  <img src="assets/imgs/about me/new_releases.png" alt="Approach icon" />
+                </div>
+                <p>
+                  I work in a structured, solution-oriented way and turn complex
+                  requirements into clear, thoughtful digital experiences.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+      <div class="skills-wrapper">
+        <div class="skills-left">
+          <span class="skills-eyebrow">Technologies</span>
+
+          <div class="skills-card">
+            <h2 class="skills-title">Skill Set</h2>
+
+            <p class="skills-text">
+              I build responsive frontend solutions with semantic HTML, scalable styling,
+              reusable components and an open mindset for new tools and workflows.
+            </p>
+
+            <h3 class="skills-subtitle">
+              You need <span>another skill?</span>
+            </h3>
+
+            <p class="skills-small-text">
+              Feel free to contact me. I look forward to expanding my previous knowledge.
+            </p>
+
+            <a href="#contact" class="skills-btn">Let&apos;s Talk</a>
+          </div>
+        </div>
+
+        <div class="skills-right">
+          <div class="skills-grid" id="skillsGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+      <div class="projects-shell">
+        <div class="projects-header">
+          <span class="projects-eyebrow">Portfolio</span>
+          <h2 class="projects-title">Featured Projects</h2>
+          <p class="projects-intro">
+            Explore a selection of my work here - interact with projects to see my skills in action.
+          </p>
+        </div>
+
+        <div class="projects-list" id="projectsList"></div>
+      </div>
+    </section>
+
+    <div class="project-overlay" id="projectOverlay" aria-hidden="true">
+      <div class="project-overlay__backdrop" data-close-overlay></div>
+
+      <div
+        class="project-overlay__panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="projectOverlayTitle"
+      >
+        <button
+          type="button"
+          class="project-overlay__close"
+          id="projectOverlayClose"
+          aria-label="Overlay schließen"
+        >
+          ×
+        </button>
+
+        <span class="project-overlay__eyebrow">Project Details</span>
+        <h3 class="project-overlay__title" id="projectOverlayTitle">Project name</h3>
+        <p class="project-overlay__text" id="projectOverlayText">Content follows later.</p>
+        <div class="project-overlay__stack" id="projectOverlayStack"></div>
+      </div>
+    </div>
+
+    <section class="references-section" id="references">
+      <div class="references-shell">
+        <span class="references-eyebrow">What my colleagues say about me</span>
+        <h2 class="references-title">What my colleagues say about me</h2>
+
+        <div class="references-stage" id="referencesStage" aria-live="polite"></div>
+
+        <div class="references-controls">
+          <button type="button" class="references-nav" id="referencesPreviousButton" aria-label="Vorherige Referenz">
+            <img
+              class="references-nav__icon references-nav__icon--default"
+              src="assets/imgs/references/arrow_back-1.png"
+              alt=""
+            />
+            <img
+              class="references-nav__icon references-nav__icon--hover"
+              src="assets/imgs/references/arrow_back.png"
+              alt=""
+            />
+          </button>
+
+          <div class="references-dots" id="referencesDots"></div>
+
+          <button type="button" class="references-nav" id="referencesNextButton" aria-label="Nächste Referenz">
+            <img
+              class="references-nav__icon references-nav__icon--default"
+              src="assets/imgs/references/arrow_forward.png"
+              alt=""
+            />
+            <img
+              class="references-nav__icon references-nav__icon--hover"
+              src="assets/imgs/references/arrow_forward-1.png"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contactTitle">
+      <div class="contact-shell">
+        <div class="contact-copy">
+          <span class="contact-eyebrow">Contact me</span>
+          <h2 class="contact-title" id="contactTitle">Let&apos;s work together</h2>
+          <h3 class="contact-subtitle">Got a problem to solve?</h3>
+
+          <p class="contact-text">
+            Encourage people to contact you and describe what role you are interested in.
+            Show that you will add value to their projects through your work.
+          </p>
+
+          <p class="contact-text contact-text--small">
+            Need a Frontend Developer?
+            <a href="mailto:hello@floriannarr.dev">Let&apos;s talk!</a>
+          </p>
+        </div>
+
+        <form class="contact-form" novalidate>
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contactName">What&apos;s your name?</label>
+            <input
+              class="contact-form__input"
+              type="text"
+              id="contactName"
+              name="name"
+              placeholder="Your name goes here"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contactEmail">What&apos;s your email?</label>
+            <input
+              class="contact-form__input"
+              type="email"
+              id="contactEmail"
+              name="email"
+              placeholder="youremail@email.com"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="contact-form__field contact-form__field--message">
+            <label class="contact-form__label" for="contactMessage">How can I help you?</label>
+            <textarea
+              class="contact-form__textarea"
+              id="contactMessage"
+              name="message"
+              placeholder="Hello Florian, I am interested in..."
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="contact-form__privacy">
+            <label class="contact-checkbox" for="contactPrivacy">
+              <input class="contact-checkbox__input" type="checkbox" id="contactPrivacy" name="privacy" />
+              <span class="contact-checkbox__visual" aria-hidden="true"></span>
+              <span class="contact-checkbox__text">
+                I&apos;ve read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.
+              </span>
+            </label>
+          </div>
+
+          <button class="contact-form__submit" type="button">Say Hello ;)</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__left">
+        <a href="#hero" class="site-footer__brand" aria-label="Zur Startseite">
+          <img
+            src="assets/imgs/header/Logo Portfolio.png"
+            alt="Florian Narr Logo"
+            class="site-footer__logo-image site-footer__logo-image--default"
+          />
+          <img
+            src="assets/imgs/header/logo portfolio hover.png"
+            alt="Florian Narr Logo"
+            class="site-footer__logo-image site-footer__logo-image--hover"
+          />
+        </a>
+
+        <div class="site-footer__meta">
+          <span>Web Developer</span>
+          <span>Rosenheim Germany</span>
+        </div>
+      </div>
+
+      <div class="site-footer__center">
+        <span>© Florian Narr 2025</span>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Footer Navigation">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:hello@floriannarr.dev">Email</a>
+        <a href="#">Legal Notice</a>
       </nav>
     </div>
-
-    <a href="/" class="site-header__logo" aria-label="Florian Narr Startseite">
-  <img
-    src="assets/imgs/header/Logo Portfolio.png"
-    alt="Florian Narr Logo"
-    class="site-header__logo-image"
-  />
-</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero__inner">
-    <div class="hero__center">
-      <p class="hero__role">Frontend Developer</p>
-
-      <h1 class="hero__title">Florian Narr</h1>
-
-      <div class="hero__actions">
-        <a class="hero__button" href="#projects">Check my work</a>
-        <a class="hero__button" href="#contact">Contact me</a>
-      </div>
-    </div>
-
-    <div class="hero__left-rail">
-      <a class="hero__arrow" href="#about" aria-label="Zum nächsten Bereich scrollen">
-        <img
-          src="assets/imgs/hero/Property 1=Default.png"
-          alt=""
-        />
-      </a>
-      <span class="hero__rail-line" aria-hidden="true"></span>
-    </div>
-
-    <div class="hero__right-rail">
-      <div class="hero__socials" aria-label="Social Links">
-        <a
-          class="hero__social-link"
-          href="mailto:deine@email.de"
-          aria-label="E-Mail"
-        >
-          <img
-            class="hero__social-icon hero__social-icon--default"
-            src="assets/imgs/hero/Property 1=Mail.png"
-            alt=""
-          />
-          <img
-            class="hero__social-icon hero__social-icon--hover"
-            src="assets/imgs/hero/Property 1=Mail Hover.png"
-            alt=""
-          />
-        </a>
-
-        <a
-          class="hero__social-link"
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <img
-            class="hero__social-icon hero__social-icon--default"
-            src="assets/imgs/hero/Property 1=Linkedin.png"
-            alt=""
-          />
-          <img
-            class="hero__social-icon hero__social-icon--hover"
-            src="assets/imgs/hero/Property 1=Linkedin Hovevr.png"
-            alt=""
-          />
-        </a>
-
-        <a
-          class="hero__social-link"
-          href="https://github.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <img
-            class="hero__social-icon hero__social-icon--default"
-            src="assets/imgs/hero/Property 1=GitHub.png"
-            alt=""
-          />
-          <img
-            class="hero__social-icon hero__social-icon--hover"
-            src="assets/imgs/hero/Property 1=GitHub Hover.png"
-            alt=""
-          />
-        </a>
-      </div>
-
-      <span class="hero__rail-line" aria-hidden="true"></span>
-    </div>
-
-    <div class="hero__ticker-wrap">
-      <div class="hero__ticker" aria-label="Status Banner">
-        <span class="hero__ticker-item">Available for remote work</span>
-        <img
-          class="hero__ticker-dot"
-          src="assets/imgs/hero/radio_button_unchecked.png"
-          alt=""
-        />
-
-        <span class="hero__ticker-item">Frontend Developer</span>
-        <img
-          class="hero__ticker-dot"
-          src="assets/imgs/hero/radio_button_unchecked.png"
-          alt=""
-        />
-
-        <span class="hero__ticker-item">Based in Rosenheim</span>
-        <img
-          class="hero__ticker-dot"
-          src="assets/imgs/hero/radio_button_unchecked.png"
-          alt=""
-        />
-
-        <span class="hero__ticker-item">Open to work</span>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ABOUT ME -->
-<section class="about" id="about">
-  <div class="about__inner">
-    <div class="about__media">
-      <div class="about__image-placeholder">
-        <span>Image Placeholder</span>
-      </div>
-    </div>
-
-    <div class="about__content">
-      <p class="about__eyebrow">Who I Am</p>
-      <div class="about__card">
-        <h2 class="about__title">About me</h2>
-
-        <p class="about__intro">
-          Hey there, I’m Florian! Write some information about yourself that is related.
-          Why are you passionate about coding? What is your source of inspiration for
-          improving your programming skills?
-        </p>
-
-        <ul class="about__list">
-          <li class="about__item">
-            <div class="about__icon">
-              <img src="assets/imgs/about me/location_on.png" alt="Location icon">
-            </div>
-            <p>
-              Where are you based? Would you be open to working remotely or potentially relocating?
-            </p>
-          </li>
-
-          <li class="about__item">
-            <div class="about__icon">
-              <img src="assets/imgs/about me/Property 1=cognition.png" alt="Open minded icon">
-            </div>
-            <p>
-              Show that you are open-minded. Are you enthusiastic about learning new technologies
-              and continually improving your skills?
-            </p>
-          </li>
-
-          <li class="about__item">
-            <div class="about__icon">
-              <img src="assets/imgs/about me/new_releases.png" alt="Description icon">
-            </div>
-            <p>
-              A brief description of your problem-solving approach. Do you learn from each challenge
-              as you search for the most efficient or elegant solution? You can include some keywords
-              like: analytical thinking, creativity, persistence and collaboration.
-            </p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Direkt UNTER deinem About-Me-Bereich einfügen -->
-<section class="skills-section" id="skills">
-  <div class="skills-wrapper">
-    <div class="skills-left">
-      <span class="skills-eyebrow">Technologies</span>
-
-      <div class="skills-card">
-        <h2 class="skills-title">Skill Set</h2>
-
-        <p class="skills-text">
-          A short introduction of your skills. Highlight your experience of using
-          different front-end technologies and emphasize your openness to learning
-          and adapting to new technologies. Show how important it is for you to
-          keep up with the rapid changes in web development.
-        </p>
-
-        <h3 class="skills-subtitle">
-          You need <span>another skill?</span>
-        </h3>
-
-        <p class="skills-small-text">
-          Feel free to contact me. I look forward to expanding on my previous
-          knowledge.
-        </p>
-
-        <a href="#contact" class="skills-btn">Let’s Talk</a>
-      </div>
-    </div>
-
-    <div class="skills-right">
-      <div class="skills-grid" id="skillsGrid"></div>
-    </div>
-  </div>
-</section>
-<section class="projects-section" id="projects">
-  <div class="projects-shell">
-    <div class="projects-header">
-      <span class="projects-eyebrow">Portfolio</span>
-      <h2 class="projects-title">Featured Projects</h2>
-      <p class="projects-intro">
-        Explore a selection of my work here - Interact with
-        projects to see my skills in action.
-      </p>
-    </div>
-
-    <div class="projects-list" id="projectsList"></div>
-  </div>
-</section>
-
-<div class="project-overlay" id="projectOverlay" aria-hidden="true">
-  <div class="project-overlay__backdrop" data-close-overlay></div>
-
-  <div
-    class="project-overlay__panel"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="projectOverlayTitle"
-  >
-    <button
-      type="button"
-      class="project-overlay__close"
-      id="projectOverlayClose"
-      aria-label="Overlay schließen"
-    >
-      ×
-    </button>
-
-    <span class="project-overlay__eyebrow">Project Details</span>
-    <h3 class="project-overlay__title" id="projectOverlayTitle">Projektname</h3>
-    <p class="project-overlay__text" id="projectOverlayText">
-      Inhalt folgt später.
-    </p>
-
-    <div class="project-overlay__stack" id="projectOverlayStack"></div>
-  </div>
-</div>
-<section class="references-section" id="references">
-  <div class="references-shell">
-    <span class="references-eyebrow">Testimonials</span>
-    <h2 class="references-title">What my colleagues say about me</h2>
-
-    <div class="references-stage" id="referencesStage" aria-live="polite"></div>
-
-    <div class="references-controls">
-      <button
-        type="button"
-        class="references-nav"
-        id="referencesPrev"
-        aria-label="Vorherige Referenz"
-      >
-        <img
-          class="references-nav__icon references-nav__icon--default"
-          src="assets/imgs/references/arrow_back-1.png"
-          alt=""
-        />
-        <img
-          class="references-nav__icon references-nav__icon--hover"
-          src="assets/imgs/references/arrow_back.png"
-          alt=""
-        />
-      </button>
-
-      <div class="references-dots" id="referencesDots"></div>
-
-      <button
-        type="button"
-        class="references-nav"
-        id="referencesNext"
-        aria-label="Nächste Referenz"
-      >
-        <img
-          class="references-nav__icon references-nav__icon--default"
-          src="assets/imgs/references/arrow_forward.png"
-          alt=""
-        />
-        <img
-          class="references-nav__icon references-nav__icon--hover"
-          src="assets/imgs/references/arrow_forward-1.png"
-          alt=""
-        />
-      </button>
-    </div>
-  </div>
-</section>
-<section class="contact-section" id="contact" aria-labelledby="contactTitle">
-  <div class="contact-shell">
-    <div class="contact-copy">
-      <span class="contact-eyebrow">Contact me</span>
-
-      <h2 class="contact-title" id="contactTitle">Let&apos;s work together</h2>
-
-      <h3 class="contact-subtitle">Got a problem to solve?</h3>
-
-      <p class="contact-text">
-        Encourage people to contact you and describe what role you are interested in.
-        Show that you will add value to their projects through your work.
-      </p>
-
-      <p class="contact-text contact-text--small">
-        Need a Frontend Developer?
-        <a href="mailto:deine@email.de">Let&apos;s talk!</a>
-      </p>
-    </div>
-
-    <form class="contact-form" novalidate>
-      <div class="contact-form__field">
-        <label class="contact-form__label" for="contactName">What&apos;s your name?</label>
-        <input
-          class="contact-form__input"
-          type="text"
-          id="contactName"
-          name="name"
-          placeholder="Your name goes here"
-          autocomplete="name"
-        />
-      </div>
-
-      <div class="contact-form__field">
-        <label class="contact-form__label" for="contactEmail">What&apos;s your email?</label>
-        <input
-          class="contact-form__input"
-          type="email"
-          id="contactEmail"
-          name="email"
-          placeholder="youremail@email.com"
-          autocomplete="email"
-        />
-      </div>
-
-      <div class="contact-form__field contact-form__field--message">
-        <label class="contact-form__label" for="contactMessage">How can I help you?</label>
-        <textarea
-          class="contact-form__textarea"
-          id="contactMessage"
-          name="message"
-          placeholder="Hello Lukas, I am interested in..."
-          rows="4"
-        ></textarea>
-      </div>
-
-      <div class="contact-form__privacy">
-        <label class="contact-checkbox" for="contactPrivacy">
-          <input
-            class="contact-checkbox__input"
-            type="checkbox"
-            id="contactPrivacy"
-            name="privacy"
-          />
-          <span class="contact-checkbox__visual" aria-hidden="true"></span>
-          <span class="contact-checkbox__text">
-            I&apos;ve read the
-            <a href="#">privacy policy</a>
-            and agree to the processing of my data as outlined.
-          </span>
-        </label>
-      </div>
-
-      <button class="contact-form__submit" type="button">Say Hello ;)</button>
-    </form>
-  </div>
-</section>
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__left">
-      <a href="/" class="site-footer__brand" aria-label="Zur Startseite">
-        <img
-          src="assets/imgs/Header/Logo Portfolio.png"
-          alt="Lukas Müller Logo"
-          class="site-footer__logo-image site-footer__logo-image--default"
-        />
-        <img
-          src="assets/imgs/Header/logo portfolio hover.png"
-          alt=""
-          class="site-footer__logo-image site-footer__logo-image--hover"
-        />
-      </a>
-
-      <div class="site-footer__meta">
-        <span>Web Developer</span>
-        <span>Rosenheim Germany</span>
-      </div>
-    </div>
-
-    <div class="site-footer__center">
-      <span>© Florian Narr 2025</span>
-    </div>
-
-    <nav class="site-footer__nav" aria-label="Footer Navigation">
-      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:deine@email.de">Email</a>
-      <a href="#">Legal Notice</a>
-    </nav>
-  </div>
-</footer>
+  </footer>
 </body>
-</html>
+</html>/styles/

@@ -1,79 +1,48 @@
 const skillsData = [
-  {
-    name: "HTML",
-    icon: "assets/imgs/Skills/Property 1=HTML.png",
-  },
-  {
-    name: "CSS",
-    icon: "assets/imgs/Skills/Property 1=CSS.png",
-  },
-  {
-    name: "JavaScript",
-    icon: "assets/imgs/Skills/Property 1=JavaScript.png",
-  },
-  {
-    name: "Firebase",
-    icon: "assets/imgs/Skills/Property 1=Firebase.png",
-  },
-  {
-    name: "REST-API",
-    icon: "assets/imgs/Skills/Property 1=Rest-Api.png",
-  },
-  {
-    name: "Scrum",
-    icon: "assets/imgs/Skills/Property 1=Scrum.png",
-  },
-  {
-    name: "Git",
-    icon: "assets/imgs/Skills/Property 1=Git.png",
-  },
-  {
-    name: "Growth mindset",
-    icon: "assets/imgs/Skills/Property 1=GrowthMindset.png",
-  },
+  { name: "HTML", icon: "assets/imgs/Skills/Property 1=HTML.png" },
+  { name: "CSS", icon: "assets/imgs/Skills/Property 1=CSS.png" },
+  { name: "JavaScript", icon: "assets/imgs/Skills/Property 1=JavaScript.png" },
+  { name: "Material Design", icon: "assets/imgs/Skills/Property 1=Material Design.png" },
+  { name: "Git", icon: "assets/imgs/Skills/Property 1=Git.png" },
+  { name: "REST-API", icon: "assets/imgs/Skills/Property 1=Rest-Api.png" },
+  { name: "Scrum", icon: "assets/imgs/Skills/Property 1=Scrum.png" },
+  { name: "Growth mindset", icon: "assets/imgs/Skills/Property 1=GrowthMindset.png" }
 ];
 
 const projectsData = [
   {
-    id: "join",
+    identifier: "join",
     title: "Join",
-    stack: ["Angular", "TypeScript", "HTML", "CSS", "Firebase"],
-    description:
-      "Für dieses Projekt ist das Overlay schon vorbereitet. Hier kannst du später deine Projektbeschreibung, Screenshots, Links und besondere Features einfügen.",
+    stack: ["JavaScript", "HTML", "CSS", "Firebase"],
+    description: "Task management app with drag and drop board, authentication flow and a clean component structure."
   },
   {
-    id: "el-pollo-loco",
+    identifier: "el-pollo-loco",
     title: "El Pollo Loco",
     stack: ["HTML", "CSS", "JavaScript"],
-    description:
-      "Hier kannst du später z. B. Gameplay, technische Herausforderungen und deinen Lösungsansatz ergänzen.",
+    description: "Two-dimensional browser game with object oriented JavaScript, collision logic and responsive canvas handling."
   },
   {
-    id: "da-bubble",
-    title: "DA Bubble",
+    identifier: "memory-game",
+    title: "Memory Game",
     stack: ["Angular", "Firebase", "TypeScript"],
-    description:
-      "Das Overlay ist bereits klickbar. Später kannst du hier Projektinfos, Rollen, Learnings oder einen Live-Link ergänzen.",
-  },
+    description: "Classic memory game implemented in Angular with a Firebase backend, featuring user authentication and real-time score tracking."
+  }
 ];
 
 const referencesData = [
   {
     text: "Florian has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.",
-    author: "H. Janisch - Team Partner",
+    author: "H. Janisch - Team Partner"
   },
   {
-    text: "Working with Florian was a very positive experience. He stayed calm, focused and solution-oriented throughout the project and always contributed strong ideas to the team.",
-    author: "M. Becker - Frontend Developer",
+    text: "I had the good fortune of working on a project with Florian. He always stayed calm, focused and supportive, and he made teamwork feel easy and productive.",
+    author: "Developer Akademie - Team Project"
   },
   {
-    text: "Florian is structured, dependable and easy to collaborate with. He communicates clearly, takes responsibility and always looks for efficient solutions.",
-    author: "T. Schulz - Frontend Developer",
-  },
-  {
-    text: "Florian quickly understands requirements and turns them into clean frontend solutions. I especially appreciated his reliability and thoughtful way of working.",
-    author: "A. Weber - Project Partner",
-  },
+    text: "Working with Florian was a great experience. He communicated clearly, kept the team aligned and delivered thoughtful frontend solutions.",
+    author: "T. Schulz - Frontend Developer"
+  }
 ];
 
 const skillsGrid = document.getElementById("skillsGrid");
@@ -82,114 +51,107 @@ const projectOverlay = document.getElementById("projectOverlay");
 const projectOverlayTitle = document.getElementById("projectOverlayTitle");
 const projectOverlayText = document.getElementById("projectOverlayText");
 const projectOverlayStack = document.getElementById("projectOverlayStack");
-const projectOverlayClose = document.getElementById("projectOverlayClose");
-
+const projectOverlayCloseButton = document.getElementById("projectOverlayClose");
 const referencesStage = document.getElementById("referencesStage");
 const referencesDots = document.getElementById("referencesDots");
-const referencesPrev = document.getElementById("referencesPrev");
-const referencesNext = document.getElementById("referencesNext");
+const referencesPreviousButton = document.getElementById("referencesPreviousButton");
+const referencesNextButton = document.getElementById("referencesNextButton");
 
 let currentReferenceIndex = 0;
 
+/* Create the markup for one skill item. */
+function createSkillMarkup(skill) {
+  return `
+    <div class="skill-item">
+      <div class="skill-icon-wrap">
+        <img src="${skill.icon}" alt="${skill.name}" class="skill-icon" />
+      </div>
+      <span class="skill-name">${skill.name}</span>
+    </div>
+  `;
+}
+
+/* Render all skill items into the skills grid. */
 function renderSkills() {
   if (!skillsGrid) return;
-
-  skillsGrid.innerHTML = skillsData
-    .map(
-      (skill) => `
-        <div class="skill-item">
-          <div class="skill-icon-wrap">
-            <img src="${skill.icon}" alt="${skill.name}" class="skill-icon" />
-          </div>
-          <span class="skill-name">${skill.name}</span>
-        </div>
-      `
-    )
-    .join("");
+  skillsGrid.innerHTML = skillsData.map(createSkillMarkup).join("");
 }
 
-function createProjectTags(stack) {
-  return stack
-    .map((tag, index) => {
-      const isLast = index === stack.length - 1;
-
-      return `
-        <span class="project-row__tag">${tag}</span>
-        ${!isLast ? '<span class="project-row__separator">|</span>' : ""}
-      `;
-    })
-    .join("");
+/* Create the markup for the project technology tags. */
+function createProjectTagsMarkup(stack) {
+  return stack.map(createProjectTagMarkup).join("");
 }
 
+/* Create the markup for one project technology tag. */
+function createProjectTagMarkup(tag, index, stack) {
+  const separator = index < stack.length - 1 ? '<span class="project-row__separator">|</span>' : "";
+  return `<span class="project-row__tag">${tag}</span>${separator}`;
+}
+
+/* Create the markup for one project row. */
+function createProjectMarkup(project) {
+  return `
+    <button type="button" class="project-row" data-project-identifier="${project.identifier}" aria-label="${project.title} öffnen">
+      <span class="project-row__title">${project.title}</span>
+      <span class="project-row__meta">${createProjectTagsMarkup(project.stack)}</span>
+    </button>
+  `;
+}
+
+/* Render all project rows into the project list. */
 function renderProjects() {
   if (!projectsList) return;
-
-  projectsList.innerHTML = projectsData
-    .map(
-      (project) => `
-        <button
-          type="button"
-          class="project-row"
-          data-project-id="${project.id}"
-          aria-label="${project.title} öffnen"
-        >
-          <span class="project-row__title">${project.title}</span>
-          <span class="project-row__meta">
-            ${createProjectTags(project.stack)}
-          </span>
-        </button>
-      `
-    )
-    .join("");
+  projectsList.innerHTML = projectsData.map(createProjectMarkup).join("");
 }
 
-function openProjectOverlay(projectId) {
-  if (
-    !projectOverlay ||
-    !projectOverlayTitle ||
-    !projectOverlayText ||
-    !projectOverlayStack
-  ) {
-    return;
-  }
+/* Find one project by its identifier. */
+function findProject(identifier) {
+  return projectsData.find(function (project) {
+    return project.identifier === identifier;
+  });
+}
 
-  const project = projectsData.find((item) => item.id === projectId);
-  if (!project) return;
-
+/* Update the project overlay with project content. */
+function fillProjectOverlay(project) {
   projectOverlayTitle.textContent = project.title;
   projectOverlayText.textContent = project.description;
-  projectOverlayStack.innerHTML = project.stack
-    .map(
-      (tech) => `<span class="project-overlay__stack-item">${tech}</span>`
-    )
-    .join("");
+  projectOverlayStack.innerHTML = project.stack.map(createOverlayTagMarkup).join("");
+}
 
+/* Create the markup for one overlay technology tag. */
+function createOverlayTagMarkup(technology) {
+  return `<span class="project-overlay__stack-item">${technology}</span>`;
+}
+
+/* Open the project overlay for the selected project. */
+function openProjectOverlay(identifier) {
+  const project = findProject(identifier);
+  if (!project || !projectOverlay) return;
+  fillProjectOverlay(project);
   projectOverlay.classList.add("is-open");
   projectOverlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("overlay-is-open");
 }
 
+/* Close the project overlay. */
 function closeProjectOverlay() {
   if (!projectOverlay) return;
-
   projectOverlay.classList.remove("is-open");
   projectOverlay.setAttribute("aria-hidden", "true");
   document.body.classList.remove("overlay-is-open");
 }
 
+/* Calculate a safe wrapped index for the slider. */
 function getWrappedIndex(index, length) {
   return (index + length) % length;
 }
 
-function createReferenceCard(reference, modifierClass) {
+/* Create the markup for one reference card. */
+function createReferenceMarkup(reference, modifierClass) {
   return `
     <article class="reference-card ${modifierClass}">
       <span class="reference-card__quote" aria-hidden="true">“</span>
-
-      <p class="reference-card__text">
-        ${reference.text}
-      </p>
-
+      <p class="reference-card__text">${reference.text}</p>
       <div class="reference-card__footer">
         <span class="reference-card__line" aria-hidden="true"></span>
         <span class="reference-card__author">${reference.author}</span>
@@ -198,111 +160,84 @@ function createReferenceCard(reference, modifierClass) {
   `;
 }
 
+/* Render the slider dots below the references. */
 function renderReferenceDots() {
   if (!referencesDots) return;
-
-  referencesDots.innerHTML = referencesData
-    .map((_, index) => {
-      const isActive = index === currentReferenceIndex;
-      const dotImage = isActive
-        ? "assets/imgs/references/Ellipse 2.png"
-        : "assets/imgs/references/Ellipse 3.png";
-
-      return `
-        <button
-          type="button"
-          class="references-dot"
-          data-reference-dot="${index}"
-          aria-label="Gehe zu Referenz ${index + 1}"
-          aria-pressed="${isActive}"
-        >
-          <img src="${dotImage}" alt="" />
-        </button>
-      `;
-    })
-    .join("");
+  referencesDots.innerHTML = referencesData.map(createReferenceDotMarkup).join("");
 }
 
+/* Create the markup for one reference dot. */
+function createReferenceDotMarkup(reference, index) {
+  const isActive = index === currentReferenceIndex;
+  const imagePath = isActive ? "assets/imgs/references/Ellipse 2.png" : "assets/imgs/references/Ellipse 3.png";
+  return `
+    <button type="button" class="references-dot" data-reference-index="${index}" aria-label="Gehe zu Referenz ${index + 1}" aria-pressed="${isActive}">
+      <img src="${imagePath}" alt="" />
+    </button>
+  `;
+}
+
+/* Render the visible reference cards. */
 function renderReferences() {
   if (!referencesStage || referencesData.length === 0) return;
-
-  const previousIndex = getWrappedIndex(
-    currentReferenceIndex - 1,
-    referencesData.length
-  );
-  const nextIndex = getWrappedIndex(
-    currentReferenceIndex + 1,
-    referencesData.length
-  );
-
+  const previousIndex = getWrappedIndex(currentReferenceIndex - 1, referencesData.length);
+  const nextIndex = getWrappedIndex(currentReferenceIndex + 1, referencesData.length);
   referencesStage.innerHTML = `
-    ${createReferenceCard(
-      referencesData[previousIndex],
-      "reference-card--side"
-    )}
-    ${createReferenceCard(
-      referencesData[currentReferenceIndex],
-      "reference-card--active"
-    )}
-    ${createReferenceCard(referencesData[nextIndex], "reference-card--side")}
+    ${createReferenceMarkup(referencesData[previousIndex], "reference-card--side")}
+    ${createReferenceMarkup(referencesData[currentReferenceIndex], "reference-card--active")}
+    ${createReferenceMarkup(referencesData[nextIndex], "reference-card--side")}
   `;
-
   renderReferenceDots();
 }
 
+/* Move the slider to the previous reference. */
 function showPreviousReference() {
-  currentReferenceIndex = getWrappedIndex(
-    currentReferenceIndex - 1,
-    referencesData.length
-  );
+  currentReferenceIndex = getWrappedIndex(currentReferenceIndex - 1, referencesData.length);
   renderReferences();
 }
 
+/* Move the slider to the next reference. */
 function showNextReference() {
-  currentReferenceIndex = getWrappedIndex(
-    currentReferenceIndex + 1,
-    referencesData.length
-  );
+  currentReferenceIndex = getWrappedIndex(currentReferenceIndex + 1, referencesData.length);
   renderReferences();
 }
 
-document.addEventListener("click", (event) => {
-  const projectButton = event.target.closest("[data-project-id]");
-  const closeTrigger = event.target.closest("[data-close-overlay]");
-  const referenceDot = event.target.closest("[data-reference-dot]");
-
-  if (projectButton) {
-    openProjectOverlay(projectButton.dataset.projectId);
-  }
-
-  if (closeTrigger) {
-    closeProjectOverlay();
-  }
-
-  if (referenceDot) {
-    currentReferenceIndex = Number(referenceDot.dataset.referenceDot);
-    renderReferences();
-  }
-});
-
-if (projectOverlayClose) {
-  projectOverlayClose.addEventListener("click", closeProjectOverlay);
+/* Open a project or change the reference by click. */
+function handleDocumentClick(event) {
+  const projectButton = event.target.closest("[data-project-identifier]");
+  const closeOverlayButton = event.target.closest("[data-close-overlay]");
+  const referenceDot = event.target.closest("[data-reference-index]");
+  if (projectButton) openProjectOverlay(projectButton.dataset.projectIdentifier);
+  if (closeOverlayButton) closeProjectOverlay();
+  if (referenceDot) updateReferenceIndex(referenceDot.dataset.referenceIndex);
 }
 
-if (referencesPrev) {
-  referencesPrev.addEventListener("click", showPreviousReference);
+/* Update the active reference index and re-render. */
+function updateReferenceIndex(index) {
+  currentReferenceIndex = Number(index);
+  renderReferences();
 }
 
-if (referencesNext) {
-  referencesNext.addEventListener("click", showNextReference);
+/* Close the overlay with the escape key. */
+function handleDocumentKeydown(event) {
+  if (event.key === "Escape") closeProjectOverlay();
 }
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeProjectOverlay();
-  }
-});
+/* Connect all page level event listeners. */
+function registerEventListeners() {
+  document.addEventListener("click", handleDocumentClick);
+  document.addEventListener("keydown", handleDocumentKeydown);
+  if (projectOverlayCloseButton) projectOverlayCloseButton.addEventListener("click", closeProjectOverlay);
+  if (referencesPreviousButton) referencesPreviousButton.addEventListener("click", showPreviousReference);
+  if (referencesNextButton) referencesNextButton.addEventListener("click", showNextReference);
+}
 
-renderSkills();
-renderProjects();
-renderReferences();
+/* Render the dynamic sections and start interactions. */
+function initializePage() {
+  renderSkills();
+  renderProjects();
+  renderReferences();
+  registerEventListeners();
+}
+
+initializePage();

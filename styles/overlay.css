@@ -23,84 +23,81 @@ body.overlay-is-open {
 
 .project-overlay__panel {
   position: relative;
-  width: min(720px, calc(100% - 32px));
+  width: min(760px, calc(100% - 32px));
   margin: 8vh auto 0;
-  padding: 34px 30px 28px;
-  border: 1px solid rgba(67, 232, 215, 0.45);
-  border-radius: 24px;
+  padding: 38px 34px 30px;
+  border: 1px solid rgba(57, 232, 212, 0.58);
+  border-radius: 30px;
   background:
-    linear-gradient(180deg, rgba(14, 18, 20, 0.96) 0%, rgba(9, 12, 14, 0.98) 100%);
+    linear-gradient(180deg, rgba(15, 21, 22, 0.96) 0%, rgba(8, 12, 14, 0.98) 100%);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.48),
-    inset 0 0 0 1px rgba(67, 232, 215, 0.06);
+    inset 0 0 0 1px rgba(57, 232, 212, 0.06);
 }
 
 .project-overlay__close {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(67, 232, 215, 0.3);
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(57, 232, 212, 0.34);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
   color: #ffffff;
-  font-size: 24px;
+  font-size: 28px;
   line-height: 1;
   cursor: pointer;
-  transition:
-    border-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: border-color 0.24s ease, color 0.24s ease, transform 0.24s ease;
 }
 
 .project-overlay__close:hover,
 .project-overlay__close:focus-visible {
-  border-color: #39e7d1;
-  color: #39e7d1;
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-1px);
   outline: none;
 }
 
 .project-overlay__eyebrow {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 13px;
-  color: #39e7d1;
+  font-size: 16px;
+  color: var(--accent);
 }
 
 .project-overlay__title {
-  margin: 0 0 14px;
+  margin: 0 0 18px;
   padding-right: 54px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
   color: #ffffff;
 }
 
 .project-overlay__text {
-  margin: 0 0 20px;
-  max-width: 560px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
+  margin: 0 0 24px;
+  max-width: 620px;
+  font-family: "Inter", sans-serif;
+  font-size: 19px;
   line-height: 1.7;
-  color: rgba(230, 231, 227, 0.84);
+  color: rgba(240, 240, 234, 0.88);
 }
 
 .project-overlay__stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .project-overlay__stack-item {
-  padding: 8px 12px;
-  border: 1px solid rgba(67, 232, 215, 0.24);
+  padding: 10px 14px;
+  border: 1px solid rgba(57, 232, 212, 0.28);
   border-radius: 999px;
-  background: rgba(67, 232, 215, 0.05);
+  background: rgba(57, 232, 212, 0.06);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  color: #e6e7e3;
+  font-size: 14px;
+  color: #f0f0ea;
 }
