@@ -1,0 +1,122 @@
+.projects-section {
+  position: relative;
+  z-index: 1;
+  padding: 110px 0 130px;
+  background:
+    linear-gradient(180deg, #0d0d0f 0%, #0b0d10 100%);
+  overflow: hidden;
+}
+
+.projects-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(67, 232, 215, 0.08), transparent 26%),
+    radial-gradient(circle at 82% 72%, rgba(67, 232, 215, 0.05), transparent 24%);
+  pointer-events: none;
+}
+
+.projects-shell {
+  position: relative;
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.projects-header {
+  max-width: 520px;
+  margin-bottom: 34px;
+}
+
+.projects-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: #39e7d1;
+}
+
+.projects-title {
+  margin: 0 0 18px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #39e7d1;
+}
+
+.projects-intro {
+  margin: 0;
+  max-width: 360px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(230, 231, 227, 0.86);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-row {
+  width: 100%;
+  padding: 22px 18px;
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  align-items: center;
+  gap: 24px;
+  border: 0;
+  border-top: 1px solid rgba(67, 232, 215, 0.48);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.project-row:last-child {
+  border-bottom: 1px solid rgba(67, 232, 215, 0.48);
+}
+
+.project-row:hover,
+.project-row:focus-visible {
+  background: rgba(67, 232, 215, 0.05);
+  border-color: rgba(67, 232, 215, 0.78);
+  outline: none;
+}
+
+.project-row:focus-visible {
+  box-shadow: inset 0 0 0 1px rgba(67, 232, 215, 0.32);
+}
+
+.project-row__title {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.project-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(230, 231, 227, 0.86);
+}
+
+.project-row__tag {
+  white-space: nowrap;
+}
+
+.project-row__separator {
+  color: rgba(67, 232, 215, 0.7);
+}

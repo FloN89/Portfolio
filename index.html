@@ -11,6 +11,17 @@
   rel="stylesheet"
 />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="stylesheet" href="/styles/hero.css" />
+  <link rel="stylesheet" href="/styles/about-me.css" />    
+  <link rel="stylesheet" href="/styles/skills.css" />
+  <link rel="stylesheet" href="/styles/projects.css" />
+  <link rel="stylesheet" href="/styles/references.css" />
+  <link rel="stylesheet" href="/styles/contact.css" />
+  <link rel="stylesheet" href="/styles/overlay.css" />
+
+
 
   <script src="script.js" defer></script>
 </head>
@@ -334,5 +345,116 @@
     </div>
   </div>
 </section>
+<section class="contact-section" id="contact" aria-labelledby="contactTitle">
+  <div class="contact-shell">
+    <div class="contact-copy">
+      <span class="contact-eyebrow">Contact me</span>
+
+      <h2 class="contact-title" id="contactTitle">Let&apos;s work together</h2>
+
+      <h3 class="contact-subtitle">Got a problem to solve?</h3>
+
+      <p class="contact-text">
+        Encourage people to contact you and describe what role you are interested in.
+        Show that you will add value to their projects through your work.
+      </p>
+
+      <p class="contact-text contact-text--small">
+        Need a Frontend Developer?
+        <a href="mailto:deine@email.de">Let&apos;s talk!</a>
+      </p>
+    </div>
+
+    <form class="contact-form" novalidate>
+      <div class="contact-form__field">
+        <label class="contact-form__label" for="contactName">What&apos;s your name?</label>
+        <input
+          class="contact-form__input"
+          type="text"
+          id="contactName"
+          name="name"
+          placeholder="Your name goes here"
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="contact-form__field">
+        <label class="contact-form__label" for="contactEmail">What&apos;s your email?</label>
+        <input
+          class="contact-form__input"
+          type="email"
+          id="contactEmail"
+          name="email"
+          placeholder="youremail@email.com"
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="contact-form__field contact-form__field--message">
+        <label class="contact-form__label" for="contactMessage">How can I help you?</label>
+        <textarea
+          class="contact-form__textarea"
+          id="contactMessage"
+          name="message"
+          placeholder="Hello Lukas, I am interested in..."
+          rows="4"
+        ></textarea>
+      </div>
+
+      <div class="contact-form__privacy">
+        <label class="contact-checkbox" for="contactPrivacy">
+          <input
+            class="contact-checkbox__input"
+            type="checkbox"
+            id="contactPrivacy"
+            name="privacy"
+          />
+          <span class="contact-checkbox__visual" aria-hidden="true"></span>
+          <span class="contact-checkbox__text">
+            I&apos;ve read the
+            <a href="#">privacy policy</a>
+            and agree to the processing of my data as outlined.
+          </span>
+        </label>
+      </div>
+
+      <button class="contact-form__submit" type="button">Say Hello ;)</button>
+    </form>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__left">
+      <a href="/" class="site-footer__brand" aria-label="Zur Startseite">
+        <img
+          src="assets/imgs/Header/Logo Portfolio.png"
+          alt="Lukas Müller Logo"
+          class="site-footer__logo-image site-footer__logo-image--default"
+        />
+        <img
+          src="assets/imgs/Header/logo portfolio hover.png"
+          alt=""
+          class="site-footer__logo-image site-footer__logo-image--hover"
+        />
+      </a>
+
+      <div class="site-footer__meta">
+        <span>Web Developer</span>
+        <span>Rosenheim Germany</span>
+      </div>
+    </div>
+
+    <div class="site-footer__center">
+      <span>© Florian Narr 2025</span>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer Navigation">
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:deine@email.de">Email</a>
+      <a href="#">Legal Notice</a>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>
