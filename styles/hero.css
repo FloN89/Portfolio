@@ -97,7 +97,8 @@
 .hero__button-text {
   display: inline-block;
   transform: translateX(0);
-  transition: transform 0.28s ease, opacity 0.28s ease;
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .hero__button:hover,
@@ -109,8 +110,7 @@
 
 .hero__button:hover .hero__button-text,
 .hero__button:focus-visible .hero__button-text {
-  opacity: 0;
-  transform: translateX(-130%);
+  transform: translateX(calc(-100% - 120px));
 }
 
 .hero__left-rail,
@@ -131,11 +131,37 @@
   right: 54px;
 }
 
-.hero__arrow img {
+.hero__arrow {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.hero__arrow-bg {
+  position: absolute;
+  inset: 0;
   width: 40px;
   height: 40px;
   object-fit: contain;
-  animation: hero-arrow-float 1.8s ease-in-out infinite;
+  animation: none;
+  transform: none;
+}
+
+.hero__arrow-vector {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  animation: hero-arrow-vector-float 1.45s ease-in-out infinite;
+  will-change: transform;
 }
 
 .hero__rail-line {
@@ -271,14 +297,14 @@
   }
 }
 
-@keyframes hero-arrow-float {
+@keyframes hero-arrow-vector-float {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate(-50%, -50%) translateY(-6px);
   }
 
   50% {
-    transform: translateY(9px);
+    transform: translate(-50%, -50%) translateY(6px);
   }
 }
 

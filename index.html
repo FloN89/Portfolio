@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,22 +23,74 @@
   <link rel="stylesheet" href="./styles/contact.css" />
   <link rel="stylesheet" href="./styles/overlay.css" />
 
-  <script src="script.js" defer></script>
+
+<script src="./scripts/data.js" defer></script>
+<script src="./scripts/state.js" defer></script>
+<script src="./scripts/helpers.js" defer></script>
+<script src="./scripts/render.js" defer></script>
+<script src="./scripts/language.js" defer></script>
+<script src="./scripts/cursor.js" defer></script>
+<script src="script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
       <div class="site-header__left">
-        <img
-          src="assets/imgs/header/3. Language switch.png"
-          alt="Language switch"
-          class="site-header__lang-switch"
-        />
+        <button
+          class="site-header__lang-button"
+          type="button"
+          aria-label="Switch language to German"
+          aria-pressed="false"
+        >
+          <img
+            src="assets/imgs/header/3. Language switch.png"
+            alt="Language switch"
+            class="site-header__lang-switch"
+          />
+        </button>
 
-        <nav class="site-header__nav" aria-label="Hauptnavigation">
-          <a href="#about" class="site-header__link">About me</a>
-          <a href="#skills" class="site-header__link">Skills</a>
-          <a href="#projects" class="site-header__link">Projects</a>
+        <nav class="site-header__nav" aria-label="Main navigation">
+          <a href="#about" class="site-header__link" aria-label="About me">
+            <img
+              class="site-header__link-image"
+              src="assets/imgs/Header/Text.png"
+              alt="About me"
+            />
+            <img
+              class="site-header__link-hover"
+              src="assets/imgs/Header/radio_button_unchecked.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
+
+          <a href="#skills" class="site-header__link" aria-label="Skills">
+            <img
+              class="site-header__link-image"
+              src="assets/imgs/Header/Text-1.png"
+              alt="Skills"
+            />
+            <img
+              class="site-header__link-hover"
+              src="assets/imgs/Header/radio_button_unchecked.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
+
+          <a href="#projects" class="site-header__link" aria-label="Projects">
+            <img
+              class="site-header__link-image"
+              src="assets/imgs/Header/Text-2.png"
+              alt="Projects"
+            />
+            <img
+              class="site-header__link-hover"
+              src="assets/imgs/Header/radio_button_unchecked.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
         </nav>
       </div>
 
@@ -70,8 +122,19 @@
         </div>
 
         <div class="hero__left-rail">
-          <a class="hero__arrow" href="#about" aria-label="Zum nächsten Bereich scrollen">
-            <img src="assets/imgs/hero/Property 1=Default.png" alt="" />
+          <a class="hero__arrow" href="#about" aria-label="Scroll to next section">
+            <img
+              class="hero__arrow-bg"
+              src="assets/imgs/hero/Rectangle 38.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              class="hero__arrow-vector"
+              src="assets/imgs/hero/Vector 8.png"
+              alt=""
+              aria-hidden="true"
+            />
           </a>
           <span class="hero__rail-line" aria-hidden="true"></span>
         </div>
@@ -429,4 +492,4 @@
     </div>
   </footer>
 </body>
-</html>/styles/
+</html>

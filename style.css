@@ -67,6 +67,41 @@ main {
   z-index: 1;
 }
 
+.cursor-shadow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 5000;
+  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgba(57, 232, 212, 0.34) 0%,
+    rgba(57, 232, 212, 0.16) 38%,
+    rgba(57, 232, 212, 0) 72%
+  );
+  box-shadow:
+    0 0 18px rgba(57, 232, 212, 0.42),
+    0 0 44px rgba(57, 232, 212, 0.28);
+  mix-blend-mode: screen;
+  transform: translate3d(-50%, -50%, 0);
+  transition: opacity 0.18s ease;
+  will-change: transform;
+}
+
+body.cursor-shadow-visible .cursor-shadow {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .cursor-shadow {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   html {
     scroll-padding-top: 88px;
