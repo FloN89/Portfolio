@@ -122,7 +122,7 @@
 .contact-checkbox {
   position: relative;
   display: grid;
-  grid-template-columns: 24px 1fr;
+  grid-template-columns: 24px minmax(0, 1fr);
   gap: 14px;
   align-items: start;
   cursor: pointer;
@@ -130,26 +130,34 @@
 
 .contact-checkbox__input {
   position: absolute;
+  width: 1px;
+  height: 1px;
   opacity: 0;
   pointer-events: none;
 }
 
 .contact-checkbox__visual {
+  display: block;
   width: 24px;
   height: 24px;
   margin-top: 1px;
-  background: url("assets/imgs/contact form/check_box_outline_blank.png") center / contain no-repeat;
+  flex-shrink: 0;
+  background-image: url("../assets/imgs/contact form/check_box_outline_blank.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   transition: transform 0.2s ease, background-image 0.2s ease;
 }
 
 .contact-checkbox:hover .contact-checkbox__visual,
 .contact-checkbox__input:focus-visible + .contact-checkbox__visual {
-  background-image: url("assets/imgs/contact form/Property 1=Default hover.png");
+  background-image: url("../assets/imgs/contact form/Property 1=Default hover.png");
   transform: translateY(-1px);
 }
 
-.contact-checkbox__input:checked + .contact-checkbox__visual {
-  background-image: url("assets/imgs/contact form/Property 1=Checked.png");
+.contact-checkbox__input:checked + .contact-checkbox__visual,
+.contact-checkbox:hover .contact-checkbox__input:checked + .contact-checkbox__visual {
+  background-image: url("../assets/imgs/contact form/Property 1=Checked.png");
   transform: none;
 }
 

@@ -1,3 +1,17 @@
+const cursorShadowClickableSelector = [
+  "a[href]",
+  "button:not(:disabled)",
+  "label",
+  "summary",
+  '[role="button"]',
+  '[role="link"]',
+  '[tabindex]:not([tabindex="-1"])',
+  "[data-close-overlay]",
+  "[data-project-identifier]",
+  ".references-dot",
+  ".references-nav"
+].join(",");
+
 /* Create the cursor shadow element. */
 function createCursorShadowElement() {
   cursorShadowElement = document.createElement("div");
@@ -5,11 +19,22 @@ function createCursorShadowElement() {
   document.body.appendChild(cursorShadowElement);
 }
 
-/* Store the cursor target position. */
+/* Check if the cursor is currently over something clickable. */
+function isCursorShadowClickableTarget(target) {
+  if (!(target instanceof Element)) return false;
+  return Boolean(target.closest(cursorShadowClickableSelector));
+}
+
+/* Store the cursor target position and only show the shadow on clickable elements. */
 function handlePointerMove(event) {
   cursorShadowTargetX = event.clientX;
   cursorShadowTargetY = event.clientY;
-  document.body.classList.add("cursor-shadow-visible");
+
+  if (isCursorShadowClickableTarget(event.target)) {
+    document.body.classList.add("cursor-shadow-visible");
+  } else {
+    document.body.classList.remove("cursor-shadow-visible");
+  }
 }
 
 /* Hide the cursor shadow when the pointer leaves. */

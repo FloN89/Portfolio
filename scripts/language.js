@@ -21,11 +21,26 @@ function applyHeroTickerTexts(tickerTexts) {
   });
 }
 
+/* Update one hero button including duplicated marquee text. */
+function setHeroButtonText(position, text) {
+  const button = selectAllElements(".hero__button")[position];
+  if (!button) return;
+
+  button.setAttribute("aria-label", text);
+
+  const sizeText = button.querySelector(".hero__button-size");
+  if (sizeText) sizeText.textContent = text;
+
+  button.querySelectorAll(".hero__button-text").forEach((textElement) => {
+    textElement.textContent = text;
+  });
+}
+
 /* Update hero section texts and labels. */
 function applyHeroTexts(translations) {
   setElementText(".hero__role", translations.hero.role);
-  setElementTextByPosition(".hero__button-text", 0, translations.hero.buttons[0]);
-  setElementTextByPosition(".hero__button-text", 1, translations.hero.buttons[1]);
+  setHeroButtonText(0, translations.hero.buttons[0]);
+  setHeroButtonText(1, translations.hero.buttons[1]);
   setElementAttribute(".hero__arrow", "aria-label", translations.hero.arrowLabel);
   applyHeroTickerTexts(translations.hero.ticker);
 }

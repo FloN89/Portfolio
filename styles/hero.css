@@ -21,7 +21,7 @@
   inset: 0;
   background:
     linear-gradient(180deg, rgba(4, 8, 10, 0.16) 0%, rgba(4, 8, 10, 0.56) 80%, rgba(10, 12, 14, 0.96) 100%),
-    url("assets/imgs/12. Skill set Background.png") center top / cover no-repeat;
+    url("../assets/imgs/12. Skill set Background.png") center top / cover no-repeat;
   opacity: 0.96;
   pointer-events: none;
 }
@@ -75,6 +75,8 @@
 }
 
 .hero__button {
+  --hero-button-marquee-gap: 40px;
+
   position: relative;
   min-width: 174px;
   height: 50px;
@@ -91,26 +93,51 @@
   font-family: "IBM Plex Mono", monospace;
   font-size: 16px;
   line-height: 1;
-  transition: border-color 0.24s ease, background 0.24s ease, transform 0.24s ease;
+  white-space: nowrap;
+  transition:
+    color 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    transform 0.24s ease;
+}
+
+.hero__button-size {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero__button-marquee {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  width: max-content;
+  transform: translate(-50%, -50%);
+  will-change: transform;
 }
 
 .hero__button-text {
-  display: inline-block;
-  transform: translateX(0);
-  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__button-text + .hero__button-text {
+  position: absolute;
+  left: calc(100% + var(--hero-button-marquee-gap));
+  top: 0;
 }
 
 .hero__button:hover,
 .hero__button:focus-visible {
+  color: var(--accent);
   border-color: var(--accent);
   background: rgba(57, 232, 212, 0.05);
   transform: translateY(-2px);
 }
 
-.hero__button:hover .hero__button-text,
-.hero__button:focus-visible .hero__button-text {
-  transform: translateX(calc(-100% - 120px));
+.hero__button:hover .hero__button-marquee,
+.hero__button:focus-visible .hero__button-marquee {
+  animation: hero-button-text-run 1.8s linear infinite;
 }
 
 .hero__left-rail,
@@ -287,6 +314,16 @@
   flex-shrink: 0;
 }
 
+@keyframes hero-button-text-run {
+  from {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) translateX(calc(-100% - var(--hero-button-marquee-gap)));
+  }
+}
+
 @keyframes hero-ticker-run {
   from {
     transform: translateX(0);
@@ -345,8 +382,11 @@
   }
 
   .hero__button {
+    --hero-button-marquee-gap: 34px;
+
     min-width: 148px;
     height: 46px;
+    padding: 0 20px;
     font-size: 14px;
   }
 
