@@ -23,15 +23,15 @@
   <link rel="stylesheet" href="./styles/contact.css" />
   <link rel="stylesheet" href="./styles/overlay.css" />
 
-
-<script src="./scripts/data.js" defer></script>
-<script src="./scripts/state.js" defer></script>
-<script src="./scripts/helpers.js" defer></script>
-<script src="./scripts/render.js" defer></script>
-<script src="./scripts/language.js" defer></script>
-<script src="./scripts/cursor.js" defer></script>
-<script src="script.js" defer></script>
+  <script src="./scripts/data.js" defer></script>
+  <script src="./scripts/state.js" defer></script>
+  <script src="./scripts/helpers.js" defer></script>
+  <script src="./scripts/render.js" defer></script>
+  <script src="./scripts/language.js" defer></script>
+  <script src="./scripts/cursor.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <div class="site-header__inner">
@@ -112,22 +112,22 @@
           <h1 class="hero__title">Florian Narr</h1>
 
           <div class="hero__actions">
-  <a class="hero__button" href="#projects" aria-label="Check my work">
-    <span class="hero__button-size" aria-hidden="true">Check my work</span>
-    <span class="hero__button-marquee" aria-hidden="true">
-      <span class="hero__button-text">Check my work</span>
-      <span class="hero__button-text">Check my work</span>
-    </span>
-  </a>
+            <a class="hero__button" href="#projects" aria-label="Check my work">
+              <span class="hero__button-size" aria-hidden="true">Check my work</span>
+              <span class="hero__button-marquee" aria-hidden="true">
+                <span class="hero__button-text">Check my work</span>
+                <span class="hero__button-text">Check my work</span>
+              </span>
+            </a>
 
-  <a class="hero__button" href="#contact" aria-label="Contact me">
-    <span class="hero__button-size" aria-hidden="true">Contact me</span>
-    <span class="hero__button-marquee" aria-hidden="true">
-      <span class="hero__button-text">Contact me</span>
-      <span class="hero__button-text">Contact me</span>
-    </span>
-  </a>
-</div>
+            <a class="hero__button" href="#contact" aria-label="Contact me">
+              <span class="hero__button-size" aria-hidden="true">Contact me</span>
+              <span class="hero__button-marquee" aria-hidden="true">
+                <span class="hero__button-text">Contact me</span>
+                <span class="hero__button-text">Contact me</span>
+              </span>
+            </a>
+          </div>
         </div>
 
         <div class="hero__left-rail">
@@ -335,7 +335,7 @@
     <div class="project-overlay" id="projectOverlay" aria-hidden="true">
       <div class="project-overlay__backdrop" data-close-overlay></div>
 
-      <div
+      <article
         class="project-overlay__panel"
         role="dialog"
         aria-modal="true"
@@ -346,15 +346,62 @@
           class="project-overlay__close"
           id="projectOverlayClose"
           aria-label="Overlay schließen"
+          data-close-overlay
         >
-          ×
+          <span></span>
+          <span></span>
         </button>
 
-        <span class="project-overlay__eyebrow">Project Details</span>
-        <h3 class="project-overlay__title" id="projectOverlayTitle">Project name</h3>
-        <p class="project-overlay__text" id="projectOverlayText">Content follows later.</p>
-        <div class="project-overlay__stack" id="projectOverlayStack"></div>
-      </div>
+        <div class="project-overlay__content">
+          <div class="project-overlay__copy">
+            <span class="project-overlay__number" id="projectOverlayNumber">01</span>
+
+            <h3 class="project-overlay__title" id="projectOverlayTitle">Join</h3>
+
+            <h4 class="project-overlay__question" id="projectOverlayQuestion">
+              What is this project about?
+            </h4>
+
+            <p class="project-overlay__text" id="projectOverlayText">
+              Task manager inspired by the Kanban System. Create and organize tasks using drag
+              and drop functions, assign users and categories.
+            </p>
+
+            <div class="project-overlay__stack" id="projectOverlayStack"></div>
+
+            <div class="project-overlay__actions">
+              <a
+                class="project-overlay__button"
+                id="projectOverlayGithub"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+
+              <a
+                class="project-overlay__button"
+                id="projectOverlayLive"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live Test <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-overlay__media">
+            <div class="project-overlay__preview" id="projectOverlayPreview"></div>
+          </div>
+        </div>
+
+        <button type="button" class="project-overlay__next" id="projectOverlayNext">
+          <span id="projectOverlayNextText">Next project</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </article>
     </div>
 
     <section class="references-section" id="references">
@@ -365,7 +412,12 @@
         <div class="references-stage" id="referencesStage" aria-live="polite"></div>
 
         <div class="references-controls">
-          <button type="button" class="references-nav" id="referencesPreviousButton" aria-label="Vorherige Referenz">
+          <button
+            type="button"
+            class="references-nav"
+            id="referencesPreviousButton"
+            aria-label="Vorherige Referenz"
+          >
             <img
               class="references-nav__icon references-nav__icon--default"
               src="assets/imgs/references/arrow_back-1.png"
@@ -380,7 +432,12 @@
 
           <div class="references-dots" id="referencesDots"></div>
 
-          <button type="button" class="references-nav" id="referencesNextButton" aria-label="Nächste Referenz">
+          <button
+            type="button"
+            class="references-nav"
+            id="referencesNextButton"
+            aria-label="Nächste Referenz"
+          >
             <img
               class="references-nav__icon references-nav__icon--default"
               src="assets/imgs/references/arrow_forward.png"
@@ -452,7 +509,12 @@
 
           <div class="contact-form__privacy">
             <label class="contact-checkbox" for="contactPrivacy">
-              <input class="contact-checkbox__input" type="checkbox" id="contactPrivacy" name="privacy" />
+              <input
+                class="contact-checkbox__input"
+                type="checkbox"
+                id="contactPrivacy"
+                name="privacy"
+              />
               <span class="contact-checkbox__visual" aria-hidden="true"></span>
               <span class="contact-checkbox__text">
                 I&apos;ve read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.

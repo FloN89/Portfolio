@@ -88,6 +88,29 @@
   color: var(--accent);
 }
 
+.contact-form__error {
+  display: block;
+  margin: -4px 0 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
+  line-height: 1.35;
+  color: #ff7b7b;
+}
+
+.contact-form__error[hidden] {
+  display: none;
+}
+
+.contact-form__field.is-invalid .contact-form__label,
+.contact-form__privacy.is-invalid .contact-checkbox__text {
+  color: var(--accent);
+}
+
+.contact-form__field.is-invalid .contact-form__input::placeholder,
+.contact-form__field.is-invalid .contact-form__textarea::placeholder {
+  color: rgba(255, 123, 123, 0.72);
+}
+
 .contact-form__input,
 .contact-form__textarea {
   width: 100%;
@@ -161,6 +184,11 @@
   transform: none;
 }
 
+.contact-form__privacy .contact-form__error {
+  margin: 10px 0 0;
+  padding-left: 0;
+}
+
 .contact-checkbox__text {
   font-family: "Inter", sans-serif;
   font-size: 18px;
@@ -216,6 +244,7 @@
   .contact-form__input,
   .contact-form__textarea,
   .contact-checkbox__text,
+  .contact-form__error,
   .contact-form__submit {
     font-size: 16px;
   }

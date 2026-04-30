@@ -12,8 +12,8 @@ const skillsData = [
     names: { en: "JavaScript", de: "JavaScript" }
   },
   {
-    icon: "assets/imgs/Skills/Property 1=Material Design.png",
-    names: { en: "Material Design", de: "Material Design" }
+    icon: "assets/imgs/Skills/Property 1=Firebase.png",
+    names: { en: "Firebase", de: "Firebase" }
   },
   {
     icon: "assets/imgs/Skills/Property 1=Git.png",
@@ -29,7 +29,16 @@ const skillsData = [
   },
   {
     icon: "assets/imgs/Skills/Property 1=GrowthMindset.png",
-    names: { en: "Growth mindset", de: "Growth Mindset" }
+    names: { en: "Growth mindset", de: "Growth Mindset" },
+    modifier: "growth-mindset",
+    hoverHeadline: {
+      en: "I have a special interest in learning",
+      de: "Ich habe besonderes Interesse daran zu lernen"
+    },
+    hoverSkills: [
+      { label: "React", icon: "react", shortLabel: "Re" },
+      { label: "Vue Js", icon: "vue", shortLabel: "Vue" }
+    ]
   }
 ];
 
@@ -37,16 +46,38 @@ const projectsData = [
   {
     identifier: "join",
     title: { en: "Join", de: "Join" },
-    stack: ["JavaScript", "HTML", "CSS", "Firebase"],
+    stack: ["CSS", "HTML", "Firebase", "Angular", "TypeScript"],
+    githubUrl: "https://github.com/",
+    liveUrl: "https://deine-live-url.de/",
+    preview: {
+      type: "image",
+      src: "assets/imgs/projects/Rectangle 30.png",
+      alt: { en: "Join project preview", de: "Join Projektvorschau" }
+    },
+    overlayQuestion: {
+      en: "What is this project about?",
+      de: "Worum geht es in diesem Projekt?"
+    },
     description: {
-      en: "Task management app with drag and drop board, authentication flow and a clean component structure.",
-      de: "Task-Management-App mit Drag-and-Drop-Board, Authentifizierungsflow und sauberer Komponentenstruktur."
+      en: "Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
+      de: "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben per Drag-and-Drop, weise Nutzer und Kategorien zu."
     }
   },
   {
     identifier: "el-pollo-loco",
     title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     stack: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/",
+    liveUrl: "https://deine-live-url.de/",
+    preview: {
+      type: "image",
+      src: "assets/imgs/projects/El Pollo.png",
+      alt: { en: "El Pollo Loco project preview", de: "El Pollo Loco Projektvorschau" }
+    },
+    overlayQuestion: {
+      en: "What is this project about?",
+      de: "Worum geht es in diesem Projekt?"
+    },
     description: {
       en: "Two-dimensional browser game with object oriented JavaScript, collision logic and responsive canvas handling.",
       de: "Zweidimensionales Browser-Game mit objektorientiertem JavaScript, Kollisionslogik und responsivem Canvas-Handling."
@@ -54,8 +85,18 @@ const projectsData = [
   },
   {
     identifier: "memory-game",
-    title: { en: "Memory Game", de: "Memory Game" },
+    title: { en: "Memory", de: "Memory" },
     stack: ["Angular", "Firebase", "TypeScript"],
+    githubUrl: "https://github.com/",
+    liveUrl: "https://deine-live-url.de/",
+    preview: {
+      type: "text",
+      text: { en: "Stay tuned", de: "Stay tuned" }
+    },
+    overlayQuestion: {
+      en: "What is this project about?",
+      de: "Worum geht es in diesem Projekt?"
+    },
     description: {
       en: "Classic memory game implemented in Angular with a Firebase backend, featuring user authentication and real-time score tracking.",
       de: "Klassisches Memory-Spiel in Angular mit Firebase-Backend, Nutzer-Authentifizierung und Echtzeit-Score-Tracking."
@@ -146,6 +187,10 @@ const pageTranslations = {
       overlayEyebrow: "Project Details",
       overlayTitle: "Project name",
       overlayText: "Content follows later.",
+      overlayQuestion: "What is this project about?",
+      githubLabel: "GitHub",
+      liveTestLabel: "Live Test",
+      nextProject: "Next project",
       closeLabel: "Close overlay"
     },
     references: {
@@ -171,7 +216,14 @@ const pageTranslations = {
         "Hello Florian, I am interested in..."
       ],
       privacy: 'I&apos;ve read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.',
-      button: "Say Hello ;)"
+      button: "Say Hello ;)",
+      errors: {
+        name: "Oops! it seems your name is missing",
+        emailRequired: "Hoppla! your email is required",
+        emailInvalid: "Please enter a valid email address.",
+        message: "What do you need to develop?",
+        privacy: "Please accept the privacy policy."
+      }
     },
     footer: {
       brandLabel: "Back to homepage",
@@ -227,6 +279,10 @@ const pageTranslations = {
       overlayEyebrow: "Projektdetails",
       overlayTitle: "Projektname",
       overlayText: "Inhalt folgt später.",
+      overlayQuestion: "Worum geht es in diesem Projekt?",
+      githubLabel: "GitHub",
+      liveTestLabel: "Live Test",
+      nextProject: "Nächstes Projekt",
       closeLabel: "Overlay schließen"
     },
     references: {
@@ -252,7 +308,14 @@ const pageTranslations = {
         "Hallo Florian, ich interessiere mich für..."
       ],
       privacy: 'Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
-      button: "Absenden ;)"
+      button: "Absenden ;)",
+      errors: {
+        name: "Oops! Dein Name fehlt.",
+        emailRequired: "Hoppla! Deine E-Mail wird benötigt.",
+        emailInvalid: "Bitte gib eine gültige E-Mail-Adresse ein.",
+        message: "Was möchtest du entwickeln?",
+        privacy: "Bitte akzeptiere die Datenschutzerklärung."
+      }
     },
     footer: {
       brandLabel: "Zur Startseite",

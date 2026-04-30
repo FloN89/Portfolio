@@ -109,11 +109,18 @@
 }
 
 .skill-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
   text-align: center;
+}
+
+.skill-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 10px;
+  border-radius: 18px;
 }
 
 .skill-icon-wrap {
@@ -131,11 +138,13 @@
   transition: filter 0.22s ease, transform 0.22s ease;
 }
 
-.skill-icon-wrap:hover {
+.skill-item:hover .skill-icon-wrap,
+.skill-item:focus-visible .skill-icon-wrap {
   transform: scale(1.12);
 }
 
-.skill-icon-wrap:hover .skill-icon {
+.skill-item:hover .skill-icon,
+.skill-item:focus-visible .skill-icon {
   filter: brightness(0) invert(1);
   transform: scale(1.03);
 }
@@ -146,6 +155,131 @@
   font-size: 18px;
   line-height: 1.4;
   color: rgba(240, 240, 234, 0.9);
+  transition: color 0.22s ease;
+}
+
+.skill-item--growth-mindset {
+  z-index: 2;
+}
+
+.skill-item--growth-mindset:hover,
+.skill-item--growth-mindset:focus-visible {
+  z-index: 8;
+}
+
+.skill-item--growth-mindset:hover .skill-name,
+.skill-item--growth-mindset:focus-visible .skill-name {
+  color: var(--accent);
+}
+
+.skill-item--growth-mindset:hover .skill-icon,
+.skill-item--growth-mindset:focus-visible .skill-icon {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(80%) saturate(745%) hue-rotate(112deg) brightness(99%) contrast(89%);
+}
+
+.skill-growth-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  width: 188px;
+  min-height: 112px;
+  padding: 11px 12px 10px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px) scale(0.96);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.skill-growth-overlay::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  transform: translateX(-50%) rotate(45deg);
+  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.skill-item--growth-mindset:hover .skill-growth-overlay,
+.skill-item--growth-mindset:focus-visible .skill-growth-overlay {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.skill-growth-overlay__headline {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 164px;
+  margin: 0 auto 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.22;
+  font-weight: 500;
+  text-align: center;
+  color: var(--accent);
+}
+
+.skill-growth-overlay__list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.skill-growth-overlay__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 46px;
+}
+
+.skill-growth-overlay__icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+}
+
+.skill-growth-overlay__item--react .skill-growth-overlay__icon {
+  color: #39d9ff;
+}
+
+.skill-growth-overlay__brand-icon {
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+.skill-growth-overlay__fallback-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.skill-growth-overlay__name {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
 }
 
 @media (max-width: 1100px) {
@@ -196,5 +330,9 @@
   .skill-icon {
     width: 42px;
     height: 42px;
+  }
+
+  .skill-growth-overlay {
+    width: min(230px, calc(100vw - 40px));
   }
 }
