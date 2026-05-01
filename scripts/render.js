@@ -1,20 +1,21 @@
 const skillHoverIconMarkup = {
-  react: `
-    <svg class="skill-growth-overlay__brand-icon" viewBox="-11.5 -10.23174 23 20.46348" aria-hidden="true" focusable="false">
-      <circle cx="0" cy="0" r="2.05" fill="currentColor"></circle>
-      <g stroke="currentColor" stroke-width="1" fill="none">
-        <ellipse rx="11" ry="4.2"></ellipse>
-        <ellipse rx="11" ry="4.2" transform="rotate(60)"></ellipse>
-        <ellipse rx="11" ry="4.2" transform="rotate(120)"></ellipse>
-      </g>
-    </svg>
+  python: `
+    <img
+      class="skill-growth-overlay__brand-icon"
+      src="assets/imgs/Skills/python.png"
+      alt=""
+      aria-hidden="true"
+      onerror="this.remove()"
+    />
   `,
-  vue: `
-    <svg class="skill-growth-overlay__brand-icon" viewBox="0 0 256 221" aria-hidden="true" focusable="false">
-      <path fill="#41B883" d="M204.8 0H256L128 220.8 0 0h97.9L128 51.2 157.4 0h47.4Z"></path>
-      <path fill="#35495E" d="M0 0 128 220.8 256 0h-51.2L128 132.5 50.6 0H0Z"></path>
-      <path fill="#41B883" d="M50.6 0 128 132.5 204.8 0h-47.4L128 51.2 97.9 0H50.6Z"></path>
-    </svg>
+  typescript: `
+    <img
+      class="skill-growth-overlay__brand-icon"
+      src="assets/imgs/Skills/Property 1=TypeScript.png"
+      alt=""
+      aria-hidden="true"
+      onerror="this.remove()"
+    />
   `
 };
 

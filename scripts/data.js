@@ -20,6 +20,10 @@ const skillsData = [
     names: { en: "Git", de: "Git" }
   },
   {
+    icon: "assets/imgs/Skills/Linux.png",
+    names: { en: "Linux", de: "Linux" }
+  },
+  {
     icon: "assets/imgs/Skills/Property 1=Rest-Api.png",
     names: { en: "REST-API", de: "REST-API" }
   },
@@ -36,8 +40,8 @@ const skillsData = [
       de: "Ich habe besonderes Interesse daran zu lernen"
     },
     hoverSkills: [
-      { label: "React", icon: "react", shortLabel: "Re" },
-      { label: "Vue Js", icon: "vue", shortLabel: "Vue" }
+      { label: "Python", icon: "python", shortLabel: "Py" },
+      { label: "TypeScript", icon: "typescript", shortLabel: "TS" }
     ]
   }
 ];

@@ -250,14 +250,11 @@
   color: var(--accent);
 }
 
-.skill-growth-overlay__item--react .skill-growth-overlay__icon {
-  color: #39d9ff;
-}
-
 .skill-growth-overlay__brand-icon {
   width: 34px;
   height: 34px;
   display: block;
+  object-fit: contain;
 }
 
 .skill-growth-overlay__fallback-icon {
