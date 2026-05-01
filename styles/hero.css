@@ -3,13 +3,14 @@
   justify-content: center;
   padding: 0 0 72px;
   overflow: hidden;
+  margin-top: -76px;
 }
 
 .hero__inner {
   position: relative;
-  width: min(1440px, calc(100% - 28px));
+  width: 100%;
   min-height: 900px;
-  padding: 28px 42px 148px;
+  padding: 104px 96px 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,9 +21,9 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(4, 8, 10, 0.16) 0%, rgba(4, 8, 10, 0.56) 80%, rgba(10, 12, 14, 0.96) 100%),
+    linear-gradient(180deg, rgba(4, 8, 10, 0.08) 0%, rgba(4, 8, 10, 0.48) 78%, rgba(18, 19, 19, 0.98) 100%),
     url("../assets/imgs/12. Skill set Background.png") center top / cover no-repeat;
-  opacity: 0.96;
+  opacity: 0.98;
   pointer-events: none;
 }
 
@@ -31,8 +32,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 82% 16%, rgba(57, 232, 212, 0.18) 0%, rgba(57, 232, 212, 0.05) 20%, transparent 42%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.34) 0%, transparent 42%);
+    radial-gradient(circle at 82% 15%, rgba(57, 232, 212, 0.2) 0%, rgba(57, 232, 212, 0.07) 22%, transparent 44%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.38) 0%, transparent 42%);
   pointer-events: none;
 }
 
@@ -51,26 +52,26 @@
 .hero__role {
   margin: 0 0 28px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(22px, 2.4vw, 34px);
+  font-size: clamp(22px, 2.35vw, 34px);
   line-height: 1;
   letter-spacing: 0.08em;
-  color: rgba(240, 240, 234, 0.92);
+  color: rgba(241, 241, 237, 0.9);
 }
 
 .hero__title {
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: clamp(86px, 11vw, 132px);
+  font-size: clamp(86px, 9.2vw, 132px);
   line-height: 0.9;
   font-weight: 800;
-  letter-spacing: -0.08em;
-  color: #ecece7;
+  letter-spacing: -0.075em;
+  color: #ededeb;
 }
 
 .hero__actions {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 48px;
   margin-top: 42px;
 }
 
@@ -85,7 +86,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid rgba(240, 240, 234, 0.76);
+  border: 1px solid rgba(241, 241, 237, 0.78);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.01);
   color: #ffffff;
@@ -151,11 +152,11 @@
 }
 
 .hero__left-rail {
-  left: 56px;
+  left: 96px;
 }
 
 .hero__right-rail {
-  right: 54px;
+  right: 96px;
 }
 
 .hero__arrow {
@@ -175,8 +176,6 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
-  animation: none;
-  transform: none;
 }
 
 .hero__arrow-vector {
@@ -207,7 +206,7 @@
 }
 
 .hero__right-rail .hero__rail-line {
-  height: 120px;
+  height: 188px;
   margin-top: 24px;
 }
 
@@ -216,7 +215,7 @@
   font-family: "IBM Plex Mono", monospace;
   font-size: 16px;
   line-height: 1;
-  color: rgba(240, 240, 234, 0.96);
+  color: rgba(241, 241, 237, 0.96);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   letter-spacing: 0.04em;
@@ -225,7 +224,7 @@
 .hero__socials {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 16px;
   align-items: center;
 }
 
@@ -271,8 +270,8 @@
 
 .hero__ticker-wrap {
   position: absolute;
-  left: -34px;
-  right: -34px;
+  left: -42px;
+  right: -42px;
   bottom: 28px;
   z-index: 2;
   overflow: hidden;
@@ -281,7 +280,7 @@
 }
 
 .hero__ticker {
-  width: calc(100% + 68px);
+  width: calc(100% + 84px);
   padding: 14px 0;
   overflow: hidden;
   background: rgba(225, 232, 230, 0.14);
@@ -294,7 +293,7 @@
 .hero__ticker-track {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 52px;
   width: max-content;
   animation: hero-ticker-run 22s linear infinite;
 }
@@ -302,14 +301,14 @@
 .hero__ticker-item {
   white-space: nowrap;
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(18px, 1.9vw, 24px);
+  font-size: clamp(18px, 1.55vw, 24px);
   line-height: 1;
   color: var(--accent);
 }
 
 .hero__ticker-dot {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -342,60 +341,5 @@
 
   50% {
     transform: translate(-50%, -50%) translateY(6px);
-  }
-}
-
-@media (max-width: 1100px) {
-  .hero__inner {
-    min-height: 820px;
-    padding: 24px 28px 140px;
-  }
-
-  .hero__left-rail {
-    left: 28px;
-  }
-
-  .hero__right-rail {
-    right: 28px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding-bottom: 44px;
-  }
-
-  .hero__inner {
-    width: calc(100% - 16px);
-    min-height: 760px;
-    padding: 20px 16px 120px;
-  }
-
-  .hero__center {
-    transform: translateY(-18px);
-  }
-
-  .hero__actions {
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero__button {
-    --hero-button-marquee-gap: 34px;
-
-    min-width: 148px;
-    height: 46px;
-    padding: 0 20px;
-    font-size: 14px;
-  }
-
-  .hero__left-rail,
-  .hero__right-rail {
-    display: none;
-  }
-
-  .hero__ticker-item {
-    font-size: 16px;
   }
 }

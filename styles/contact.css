@@ -3,11 +3,11 @@
 }
 
 .contact-shell {
-  width: min(1280px, calc(100% - 48px));
+  width: min(1280px, calc(100% - 96px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(320px, 470px) minmax(420px, 1fr);
-  gap: 120px;
+  grid-template-columns: 470px 1fr;
+  gap: 160px;
   align-items: start;
 }
 
@@ -28,7 +28,7 @@
   margin: 0 0 34px;
   max-width: 360px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(72px, 9vw, 96px);
+  font-size: 70px;
   line-height: 0.88;
   font-weight: 600;
   letter-spacing: -0.08em;
@@ -38,7 +38,7 @@
 .contact-subtitle {
   margin: 0 0 18px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 42px;
+  font-size: 26px;
   line-height: 1.15;
   font-weight: 600;
   color: var(--accent);
@@ -48,9 +48,9 @@
   margin: 0 0 22px;
   max-width: 430px;
   font-family: "Inter", sans-serif;
-  font-size: 21px;
+  font-size: 16px;
   line-height: 1.55;
-  color: rgba(240, 240, 234, 0.88);
+  color: rgba(241, 241, 237, 0.88);
 }
 
 .contact-text--small {
@@ -118,14 +118,14 @@
   border: 0;
   background: transparent;
   font-family: "Inter", sans-serif;
-  font-size: 19px;
+  font-size: 15px;
   line-height: 1.7;
   color: #ffffff;
 }
 
 .contact-form__input::placeholder,
 .contact-form__textarea::placeholder {
-  color: rgba(240, 240, 234, 0.62);
+  color: rgba(241, 241, 237, 0.62);
 }
 
 .contact-form__input:focus,
@@ -191,9 +191,9 @@
 
 .contact-checkbox__text {
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.6;
-  color: rgba(240, 240, 234, 0.88);
+  color: rgba(241, 241, 237, 0.88);
 }
 
 .contact-checkbox__text a {
@@ -206,12 +206,12 @@
   min-width: 140px;
   height: 46px;
   padding: 0 24px;
-  border: 1px solid rgba(240, 240, 234, 0.76);
+  border: 1px solid rgba(241, 241, 237, 0.76);
   border-radius: 999px;
   background: transparent;
-  color: rgba(240, 240, 234, 0.94);
+  color: rgba(241, 241, 237, 0.94);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   transition: color 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
 }
@@ -222,30 +222,4 @@
   border-color: var(--accent);
   transform: translateY(-2px);
   outline: none;
-}
-
-@media (max-width: 900px) {
-  .contact-shell {
-    width: calc(100% - 24px);
-    grid-template-columns: 1fr;
-    gap: 52px;
-  }
-
-  .contact-title {
-    font-size: 58px;
-  }
-
-  .contact-subtitle {
-    font-size: 32px;
-  }
-
-  .contact-text,
-  .contact-form__label,
-  .contact-form__input,
-  .contact-form__textarea,
-  .contact-checkbox__text,
-  .contact-form__error,
-  .contact-form__submit {
-    font-size: 16px;
-  }
 }

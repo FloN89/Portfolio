@@ -3,11 +3,11 @@
 }
 
 .skills-wrapper {
-  width: min(1280px, calc(100% - 48px));
+  width: min(1280px, calc(100% - 96px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(340px, 520px) 1fr;
-  gap: 84px;
+  grid-template-columns: 520px 1fr;
+  gap: 120px;
   align-items: start;
 }
 
@@ -26,6 +26,8 @@
 }
 
 .skills-card {
+  width: 520px;
+  min-height: 506px;
   padding: 38px 32px 30px;
   border-radius: 32px;
   border: 1px solid rgba(57, 232, 212, 0.82);
@@ -37,7 +39,7 @@
 .skills-title {
   margin: 0 0 28px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: clamp(72px, 9vw, 96px);
+  font-size: 70px;
   line-height: 0.84;
   font-weight: 600;
   letter-spacing: -0.08em;
@@ -48,9 +50,9 @@
 .skills-small-text {
   margin: 0;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 19px;
+  font-size: 16px;
   line-height: 1.55;
-  color: rgba(240, 240, 234, 0.86);
+  color: rgba(241, 241, 237, 0.86);
 }
 
 .skills-text {
@@ -60,7 +62,7 @@
 .skills-subtitle {
   margin: 0 0 16px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 34px;
+  font-size: 27px;
   line-height: 1.2;
   font-weight: 600;
   color: #ffffff;
@@ -83,7 +85,7 @@
   height: 48px;
   padding: 0 24px;
   border-radius: 999px;
-  border: 1px solid rgba(240, 240, 234, 0.74);
+  border: 1px solid rgba(241, 241, 237, 0.74);
   color: #ffffff;
   text-decoration: none;
   font-family: "IBM Plex Mono", monospace;
@@ -99,13 +101,14 @@
 }
 
 .skills-right {
-  padding-top: 42px;
+  padding-top: 68px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(118px, 1fr));
-  gap: 40px 24px;
+  grid-template-columns: repeat(4, 118px);
+  justify-content: space-between;
+  gap: 44px 46px;
 }
 
 .skill-item {
@@ -124,8 +127,8 @@
 }
 
 .skill-icon-wrap {
-  width: 92px;
-  height: 92px;
+  width: 70px;
+  height: 70px;
   display: grid;
   place-items: center;
   transition: transform 0.22s ease;
@@ -153,8 +156,8 @@
   max-width: 150px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 18px;
-  line-height: 1.4;
-  color: rgba(240, 240, 234, 0.9);
+  line-height: 1.25;
+  color: rgba(241, 241, 237, 0.9);
   transition: color 0.22s ease;
 }
 
@@ -277,59 +280,4 @@
   font-weight: 500;
   color: var(--accent);
   white-space: nowrap;
-}
-
-@media (max-width: 1100px) {
-  .skills-wrapper {
-    grid-template-columns: 1fr;
-    gap: 42px;
-  }
-
-  .skills-right {
-    padding-top: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-wrapper {
-    width: calc(100% - 24px);
-  }
-
-  .skills-card {
-    padding: 26px 22px 24px;
-    border-radius: 24px;
-  }
-
-  .skills-title {
-    font-size: 58px;
-  }
-
-  .skills-text,
-  .skills-small-text,
-  .skill-name {
-    font-size: 15px;
-  }
-
-  .skills-subtitle {
-    font-size: 28px;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
-    gap: 28px 20px;
-  }
-
-  .skill-icon-wrap {
-    width: 70px;
-    height: 70px;
-  }
-
-  .skill-icon {
-    width: 42px;
-    height: 42px;
-  }
-
-  .skill-growth-overlay {
-    width: min(230px, calc(100vw - 40px));
-  }
 }

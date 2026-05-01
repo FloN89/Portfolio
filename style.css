@@ -1,12 +1,12 @@
 :root {
-  --background-main: #0b0d0e;
-  --background-panel: #101617;
-  --text-main: #f0f0ea;
-  --text-soft: rgba(240, 240, 234, 0.88);
-  --text-dim: rgba(240, 240, 234, 0.68);
+  --background-main: #0f1111;
+  --background-panel: #132422;
+  --text-main: #f1f1ed;
+  --text-soft: rgba(241, 241, 237, 0.88);
+  --text-dim: rgba(241, 241, 237, 0.68);
   --accent: #39e8d4;
   --accent-strong: #1ef7df;
-  --line: rgba(57, 232, 212, 0.38);
+  --line: rgba(57, 232, 212, 0.56);
   --line-soft: rgba(255, 255, 255, 0.09);
   --shadow-large: 0 26px 80px rgba(0, 0, 0, 0.34);
 }
@@ -17,7 +17,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 82px;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -27,20 +27,20 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text-main);
   background:
-    radial-gradient(1050px 520px at 85% 0%, rgba(57, 232, 212, 0.12), transparent 42%),
-    linear-gradient(180deg, #09100f 0%, #0b0d0e 22%, #0b0d0e 100%);
+    radial-gradient(940px 460px at 88% 0%, rgba(57, 232, 212, 0.12), transparent 46%),
+    linear-gradient(180deg, #08100f 0%, #121313 24%, #121313 100%);
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: -1;
+  pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 12%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 22%);
-  opacity: 0.22;
+    linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0) 24%),
+    radial-gradient(720px 380px at 78% 5%, rgba(57, 232, 212, 0.09), transparent 62%);
+  opacity: 0.9;
 }
 
 img {
@@ -115,23 +115,5 @@ body.cursor-shadow-visible .cursor-shadow {
 @media (pointer: coarse) {
   .cursor-shadow {
     display: none;
-  }
-}
-
-@media (max-width: 1024px) {
-  html {
-    scroll-padding-top: 76px;
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    scroll-padding-top: 68px;
-  }
-
-  body {
-    background:
-      radial-gradient(620px 300px at 84% 0%, rgba(57, 232, 212, 0.1), transparent 48%),
-      linear-gradient(180deg, #09100f 0%, #0b0d0e 22%, #0b0d0e 100%);
   }
 }
