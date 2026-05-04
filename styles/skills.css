@@ -312,6 +312,7 @@
   height: 34px;
   display: block;
   object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(82%) sepia(80%) saturate(745%) hue-rotate(112deg) brightness(99%) contrast(89%);
 }
 
 .skill-growth-overlay__fallback-icon {

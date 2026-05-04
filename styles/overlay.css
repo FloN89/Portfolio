@@ -235,14 +235,17 @@ body.overlay-is-open {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1;
-  color: var(--accent);
+  color: #ffffff;
   cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-.project-overlay__next span:last-child {
-  font-size: 28px;
-  line-height: 0;
+.project-overlay__next-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .project-overlay__next:hover,

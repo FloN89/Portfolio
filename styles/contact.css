@@ -178,7 +178,7 @@
   flex-shrink: 0;
   background-image: url("../assets/imgs/contact form/check_box_outline_blank.png");
   background-position: center;
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: transform 0.2s ease, background-image 0.2s ease;
 }

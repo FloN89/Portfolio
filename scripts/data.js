@@ -52,7 +52,7 @@ const projectsData = [
     title: { en: "Join", de: "Join" },
     stack: ["CSS", "HTML", "Firebase", "JavaScript"],
     githubUrl: "https://github.com/",
-    liveUrl: "https://deine-live-url.de/",
+    liveUrl: "",
     preview: {
       type: "image",
       src: "assets/imgs/projects/Rectangle 30.png",
@@ -72,7 +72,7 @@ const projectsData = [
     title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     stack: ["HTML", "CSS", "JavaScript"],
     githubUrl: "https://github.com/",
-    liveUrl: "https://deine-live-url.de/",
+    liveUrl: "",
     preview: {
       type: "image",
       src: "assets/imgs/projects/El Pollo.png",
@@ -91,8 +91,8 @@ const projectsData = [
     identifier: "memory-game",
     title: { en: "Memory", de: "Memory" },
     stack: ["Angular", "Firebase", "TypeScript"],
-    githubUrl: "https://github.com/",
-    liveUrl: "https://deine-live-url.de/",
+    githubUrl: "",
+    liveUrl: "",
     preview: {
       type: "text",
       text: { en: "Stay tuned", de: "Stay tuned" }
