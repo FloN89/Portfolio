@@ -55,7 +55,6 @@ body.overlay-is-open {
   width: 34px;
   height: 34px;
   padding: 0;
-  border: 0;
   background: transparent;
   cursor: pointer;
 }
@@ -128,7 +127,6 @@ body.overlay-is-open {
   font-family: "Inter", sans-serif;
   font-size: 17px;
   line-height: 1.45;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.92);
 }
 
@@ -154,7 +152,6 @@ body.overlay-is-open {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  display: block;
 }
 
 .project-overlay__actions {
@@ -172,28 +169,47 @@ body.overlay-is-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
   font-family: "Inter", sans-serif;
   font-size: 17px;
   line-height: 1;
   text-decoration: none;
   color: #ffffff;
   background: transparent;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-overlay__button span {
+  display: none;
+}
+
+.project-overlay__button::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+  background: url("../assets/imgs/projects/arrow_outward green.png") center / contain no-repeat;
+  transition: transform 0.22s ease;
 }
 
 .project-overlay__button:hover,
 .project-overlay__button:focus-visible {
   color: var(--accent);
   border-color: var(--accent);
-  transform: translateY(-2px);
+  background: rgba(57, 232, 212, 0.04);
   outline: none;
+}
+
+.project-overlay__button:hover::after,
+.project-overlay__button:focus-visible::after {
+  transform: translate(4px, -4px);
 }
 
 .project-overlay__media {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .project-overlay__preview {
@@ -210,7 +226,6 @@ body.overlay-is-open {
 .project-overlay__preview-image {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: contain;
 }
 
@@ -227,30 +242,33 @@ body.overlay-is-open {
 .project-overlay__next {
   margin: 60px 8px 0 auto;
   padding: 0;
-  border: 0;
-  background: transparent;
   display: flex;
   align-items: center;
   gap: 14px;
+  background: transparent;
   font-family: "Inter", sans-serif;
   font-size: 18px;
   line-height: 1;
   color: #ffffff;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .project-overlay__next-icon {
   width: 28px;
   height: 28px;
-  display: block;
   object-fit: contain;
   flex-shrink: 0;
+  transition: transform 0.22s ease;
 }
 
 .project-overlay__next:hover,
 .project-overlay__next:focus-visible {
-  transform: translateX(4px);
   color: #ffffff;
   outline: none;
+}
+
+.project-overlay__next:hover .project-overlay__next-icon,
+.project-overlay__next:focus-visible .project-overlay__next-icon {
+  transform: translateX(6px);
 }

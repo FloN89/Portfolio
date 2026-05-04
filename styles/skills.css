@@ -7,8 +7,8 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 520px 1fr;
-  gap: 120px;
   align-items: start;
+  gap: 120px;
 }
 
 .skills-left {
@@ -29,10 +29,14 @@
   width: 520px;
   min-height: 506px;
   padding: 38px 32px 30px;
-  border-radius: 32px;
   border: 1px solid rgba(57, 232, 212, 0.82);
-  background:
-    linear-gradient(90deg, rgba(17, 39, 39, 0.96) 0%, rgba(12, 26, 28, 0.92) 48%, rgba(8, 14, 16, 0.98) 100%);
+  border-radius: 32px;
+  background: linear-gradient(
+    90deg,
+    rgba(17, 39, 39, 0.96) 0%,
+    rgba(12, 26, 28, 0.92) 48%,
+    rgba(8, 14, 16, 0.98) 100%
+  );
   box-shadow: var(--shadow-large);
 }
 
@@ -113,8 +117,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  display: inline-block;
   width: max-content;
+  display: inline-block;
   transform: translate(-50%, -50%);
   will-change: transform;
 }
@@ -142,16 +146,6 @@
 .skills-btn:hover .skills-btn__marquee,
 .skills-btn:focus-visible .skills-btn__marquee {
   animation: skills-button-text-run 1.8s linear infinite;
-}
-
-@keyframes skills-button-text-run {
-  from {
-    transform: translate(-50%, -50%) translateX(0);
-  }
-
-  to {
-    transform: translate(-50%, -50%) translateX(calc(-100% - var(--skills-button-marquee-gap)));
-  }
 }
 
 .skills-right {
@@ -230,7 +224,8 @@
 }
 
 .skill-item--growth-mindset:hover .skill-icon,
-.skill-item--growth-mindset:focus-visible .skill-icon {
+.skill-item--growth-mindset:focus-visible .skill-icon,
+.skill-growth-overlay__brand-icon {
   filter: brightness(0) saturate(100%) invert(82%) sepia(80%) saturate(745%) hue-rotate(112deg) brightness(99%) contrast(89%);
 }
 
@@ -292,36 +287,34 @@
 }
 
 .skill-growth-overlay__item {
+  min-width: 46px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  min-width: 46px;
 }
 
-.skill-growth-overlay__icon {
+.skill-growth-overlay__icon,
+.skill-growth-overlay__fallback-icon {
   width: 34px;
   height: 34px;
   display: grid;
   place-items: center;
+}
+
+.skill-growth-overlay__icon {
   color: var(--accent);
 }
 
 .skill-growth-overlay__brand-icon {
   width: 34px;
   height: 34px;
-  display: block;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(82%) sepia(80%) saturate(745%) hue-rotate(112deg) brightness(99%) contrast(89%);
 }
 
 .skill-growth-overlay__fallback-icon {
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
   border: 1px solid var(--accent);
+  border-radius: 999px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 11px;
   font-weight: 700;
@@ -335,4 +328,14 @@
   font-weight: 500;
   color: var(--accent);
   white-space: nowrap;
+}
+
+@keyframes skills-button-text-run {
+  from {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) translateX(calc(-100% - var(--skills-button-marquee-gap)));
+  }
 }

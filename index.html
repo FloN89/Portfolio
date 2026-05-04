@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="./styles/references.css" />
   <link rel="stylesheet" href="./styles/contact.css" />
   <link rel="stylesheet" href="./styles/overlay.css" />
+  <link rel="stylesheet" href="./styles/responsive.css" />
 
   <script src="./scripts/data.js" defer></script>
   <script src="./scripts/state.js" defer></script>
@@ -34,80 +35,77 @@
 
 <body>
   <header class="site-header">
-    <div class="site-header__inner">
-      <div class="site-header__left">
-        <button
-          class="site-header__lang-button"
-          type="button"
-          aria-label="Switch language to German"
-          aria-pressed="false"
-        >
+  <div class="site-header__inner">
+    <div class="site-header__left" id="siteHeaderMobileMenu">
+      <button
+        class="site-header__lang-button"
+        type="button"
+        aria-label="Switch language to German"
+        aria-pressed="false"
+      >
+        <img
+          src="assets/imgs/header/3. Language switch.png"
+          alt="Language switch"
+          class="site-header__lang-switch"
+        />
+      </button>
+
+      <nav class="site-header__nav" aria-label="Main navigation">
+        <a href="#about" class="site-header__link" aria-label="About me">
           <img
-            src="assets/imgs/header/3. Language switch.png"
-            alt="Language switch"
-            class="site-header__lang-switch"
+            class="site-header__link-hover"
+            src="assets/imgs/Header/radio_button_unchecked.png"
+            alt=""
+            aria-hidden="true"
           />
-        </button>
+        </a>
 
-        <nav class="site-header__nav" aria-label="Main navigation">
-          <a href="#about" class="site-header__link" aria-label="About me">
-            <img
-              class="site-header__link-image"
-              src="assets/imgs/Header/Text.png"
-              alt="About me"
-            />
-            <img
-              class="site-header__link-hover"
-              src="assets/imgs/Header/radio_button_unchecked.png"
-              alt=""
-              aria-hidden="true"
-            />
-          </a>
+        <a href="#skills" class="site-header__link" aria-label="Skills">
+          <img
+            class="site-header__link-hover"
+            src="assets/imgs/Header/radio_button_unchecked.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
 
-          <a href="#skills" class="site-header__link" aria-label="Skills">
-            <img
-              class="site-header__link-image"
-              src="assets/imgs/Header/Text-1.png"
-              alt="Skills"
-            />
-            <img
-              class="site-header__link-hover"
-              src="assets/imgs/Header/radio_button_unchecked.png"
-              alt=""
-              aria-hidden="true"
-            />
-          </a>
-
-          <a href="#projects" class="site-header__link" aria-label="Projects">
-            <img
-              class="site-header__link-image"
-              src="assets/imgs/Header/Text-2.png"
-              alt="Projects"
-            />
-            <img
-              class="site-header__link-hover"
-              src="assets/imgs/Header/radio_button_unchecked.png"
-              alt=""
-              aria-hidden="true"
-            />
-          </a>
-        </nav>
-      </div>
-
-      <a href="#hero" class="site-header__logo" aria-label="Florian Narr Startseite">
-        <img
-          src="assets/imgs/header/Logo Portfolio.png"
-          alt="Florian Narr Logo"
-          class="site-header__logo-image site-header__logo-image--default"
-        />
-        <img
-          src="assets/imgs/header/logo portfolio hover.png"
-          alt="Florian Narr Logo"
-          class="site-header__logo-image site-header__logo-image--hover"
-        />
-      </a>
+        <a href="#projects" class="site-header__link" aria-label="Projects">
+          <img
+            class="site-header__link-hover"
+            src="assets/imgs/Header/radio_button_unchecked.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
+      </nav>
     </div>
-  </header>
+
+    <a href="#hero" class="site-header__logo" aria-label="Florian Narr Startseite">
+      <img
+        src="assets/imgs/header/Logo Portfolio.png"
+        alt="Florian Narr Logo"
+        class="site-header__logo-image site-header__logo-image--default"
+      />
+      <img
+        src="assets/imgs/header/logo portfolio hover.png"
+        alt="Florian Narr Logo"
+        class="site-header__logo-image site-header__logo-image--hover"
+      />
+    </a>
+
+    <button
+      class="site-header__menu-toggle"
+      type="button"
+      aria-label="Navigation öffnen"
+      aria-expanded="false"
+      aria-controls="siteHeaderMobileMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
 
   <main>
     <section class="hero" id="hero">
@@ -533,7 +531,7 @@
               />
               <span class="contact-checkbox__visual" aria-hidden="true"></span>
               <span class="contact-checkbox__text">
-                I&apos;ve read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.
+                I&apos;ve read the <a href="#" class="contact-checkbox__privacy-link" aria-label="Privacy policy"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="privacy policy" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> and agree to the processing of my data as outlined.
               </span>
             </label>
           </div>

@@ -26,12 +26,12 @@
 }
 
 .references-stage {
+  width: 100%;
+  margin-left: 0;
   display: flex;
   align-items: stretch;
   justify-content: center;
   gap: 42px;
-  width: 100%;
-  margin-left: 0;
 }
 
 .reference-card {
@@ -49,8 +49,11 @@
 .reference-card--active {
   flex-basis: 634px;
   border: 1px solid rgba(57, 232, 212, 0.82);
-  background:
-    linear-gradient(180deg, rgba(40, 107, 98, 0.96) 0%, rgba(35, 101, 93, 0.96) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(40, 107, 98, 0.96) 0%,
+    rgba(35, 101, 93, 0.96) 100%
+  );
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
   opacity: 1;
   transform: translateY(0);
@@ -58,8 +61,11 @@
 
 .reference-card--side {
   border: 1px solid rgba(57, 232, 212, 0.42);
-  background:
-    linear-gradient(90deg, rgba(20, 38, 39, 0.94) 0%, rgba(8, 14, 16, 0.98) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(20, 38, 39, 0.94) 0%,
+    rgba(8, 14, 16, 0.98) 100%
+  );
   opacity: 0.58;
   transform: translateY(12px);
 }
@@ -100,9 +106,9 @@
 
 .reference-card__line {
   flex: 1;
+  max-width: 340px;
   height: 1px;
   background: rgba(255, 255, 255, 0.62);
-  max-width: 340px;
 }
 
 .reference-card__author {
@@ -121,16 +127,20 @@
   margin-top: 28px;
 }
 
-.references-nav {
-  position: relative;
-  width: 26px;
-  height: 26px;
+.references-nav,
+.references-dot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   background: transparent;
   cursor: pointer;
+}
+
+.references-nav {
+  position: relative;
+  width: 26px;
+  height: 26px;
 }
 
 .references-nav__icon {
@@ -182,16 +192,9 @@
 .references-dot {
   width: 12px;
   height: 12px;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .references-dot img {
-  display: block;
   width: 10px;
   height: 10px;
   object-fit: contain;

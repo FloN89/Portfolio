@@ -32,8 +32,8 @@
 }
 
 .projects-intro {
-  margin: 0;
   max-width: 540px;
+  margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 16px;
   line-height: 1.5;
@@ -53,16 +53,16 @@
   position: relative;
   width: 100%;
   min-height: 108px;
+  padding: 34px 32px;
   display: grid;
   grid-template-columns: 300px 1fr;
   align-items: center;
   gap: 24px;
-  padding: 34px 32px;
-  background: transparent;
   border: 0;
   border-bottom: 1px solid rgba(57, 232, 212, 0.66);
-  cursor: pointer;
+  background: transparent;
   text-align: left;
+  cursor: pointer;
   transition: background 0.24s ease, box-shadow 0.24s ease;
 }
 
@@ -76,26 +76,24 @@
 .project-row__title {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 26px;
   line-height: 1;
   font-weight: 700;
   color: #ffffff;
-  transition: color 0.24s ease;
 }
 
 .project-row__title::after {
-  content: "↗";
-  color: #ffffff;
+  content: "";
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  flex-shrink: 0;
   opacity: 0;
+  background: url("../assets/imgs/projects/arrow_outward white.png") center / contain no-repeat;
   transform: translate(-5px, 5px);
   transition: opacity 0.24s ease, transform 0.24s ease;
-}
-
-.project-row:hover .project-row__title,
-.project-row:focus-visible .project-row__title {
-  color: #ffffff;
 }
 
 .project-row:hover .project-row__title::after,
@@ -167,7 +165,6 @@
 .project-row__preview-image {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
 }
 

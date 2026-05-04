@@ -8,7 +8,7 @@
     180deg,
     rgba(8, 11, 12, 0.7) 0%,
     rgba(8, 11, 12, 0.34) 72%,
-    rgba(8, 11, 12, 0) 100%
+    transparent 100%
   );
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -23,34 +23,35 @@
   gap: 28px;
 }
 
-.site-header__left {
+.site-header__left,
+.site-header__nav,
+.site-header__lang-button,
+.site-header__link,
+.site-header__logo {
   display: flex;
   align-items: center;
+}
+
+.site-header__left {
   gap: 28px;
+}
+
+.site-header__nav {
+  gap: 30px;
 }
 
 .site-header__lang-button {
   width: 84px;
   height: 32px;
   padding: 0;
-  border: 0;
-  background: transparent;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-}
-
-.site-header__lang-button:focus-visible {
-  outline: 1px solid rgba(57, 232, 212, 0.88);
-  outline-offset: 8px;
-  border-radius: 999px;
+  background: transparent;
 }
 
 .site-header__lang-switch {
   width: 84px;
   height: auto;
   object-fit: contain;
-  display: block;
   transition: transform 0.24s ease;
 }
 
@@ -59,68 +60,85 @@
   transform: translateY(-1px) scale(1.03);
 }
 
-.site-header__nav {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
 .site-header__link {
   position: relative;
   width: 112px;
-  min-height: 36px;
-  display: inline-flex;
-  align-items: center;
+  min-height: 42px;
   justify-content: center;
   text-decoration: none;
 }
 
-.site-header__link-image {
-  display: block;
+.site-header__link::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 112px;
   height: 22px;
-  object-fit: contain;
-  object-position: center;
-  flex-shrink: 0;
+  pointer-events: none;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
   transition: transform 0.28s ease, filter 0.28s ease;
+}
+
+.site-header__link[href="#about"]::before {
+  background-image: url("../assets/imgs/Header/about me.png");
+}
+
+.site-header__link[href="#about"].is-active::before,
+.site-header__link[href="#about"]:active::before {
+  background-image: url("../assets/imgs/Header/about me klick.png");
+}
+
+.site-header__link[href="#skills"]::before {
+  background-image: url("../assets/imgs/Header/skills.png");
+}
+
+.site-header__link[href="#skills"].is-active::before,
+.site-header__link[href="#skills"]:active::before {
+  background-image: url("../assets/imgs/Header/skills klick.png");
+}
+
+.site-header__link[href="#projects"]::before {
+  background-image: url("../assets/imgs/Header/projects.png");
+}
+
+.site-header__link[href="#projects"].is-active::before,
+.site-header__link[href="#projects"]:active::before {
+  background-image: url("../assets/imgs/Header/projects klick.png");
 }
 
 .site-header__link-hover {
   position: absolute;
   left: 50%;
-  top: calc(100% + 6px);
+  top: calc(100% + 2px);
   width: 12px;
   height: 12px;
   object-fit: contain;
   opacity: 0;
+  pointer-events: none;
   transform: translate(-50%, -4px) scale(0.75);
   transition: opacity 0.24s ease, transform 0.24s ease;
-  pointer-events: none;
 }
 
-.site-header__link:hover .site-header__link-image,
-.site-header__link:focus-visible .site-header__link-image {
-  transform: translateY(-2px);
+.site-header__link:hover::before,
+.site-header__link:focus-visible::before {
+  transform: translate(-50%, calc(-50% - 2px));
 }
 
 .site-header__link:hover .site-header__link-hover,
-.site-header__link:focus-visible .site-header__link-hover {
+.site-header__link:focus-visible .site-header__link-hover,
+.site-header__link.is-active .site-header__link-hover {
   opacity: 1;
   transform: translate(-50%, 0) scale(1);
-}
-
-.site-header__link:focus-visible {
-  outline: 1px solid rgba(57, 232, 212, 0.88);
-  outline-offset: 10px;
-  border-radius: 999px;
 }
 
 .site-header__logo {
   position: relative;
   width: 150px;
   height: 58px;
-  display: inline-flex;
-  align-items: center;
   justify-content: flex-end;
   text-decoration: none;
 }
@@ -155,8 +173,18 @@
   transform: scale(1.02);
 }
 
+.site-header__lang-button:focus-visible,
+.site-header__link:focus-visible,
 .site-header__logo:focus-visible {
   outline: 1px solid rgba(57, 232, 212, 0.88);
-  outline-offset: 8px;
   border-radius: 999px;
+}
+
+.site-header__lang-button:focus-visible,
+.site-header__logo:focus-visible {
+  outline-offset: 8px;
+}
+
+.site-header__link:focus-visible {
+  outline-offset: 10px;
 }

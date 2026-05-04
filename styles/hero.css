@@ -1,9 +1,9 @@
 .hero {
   display: flex;
   justify-content: center;
+  margin-top: -76px;
   padding: 0 0 72px;
   overflow: hidden;
-  margin-top: -76px;
 }
 
 .hero__inner {
@@ -17,33 +17,33 @@
   justify-content: center;
 }
 
-.hero__inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(4, 8, 10, 0.08) 0%, rgba(4, 8, 10, 0.48) 78%, rgba(18, 19, 19, 0.98) 100%),
-    url("../assets/imgs/12. Skill set Background.png") center top / cover no-repeat;
-  opacity: 0.98;
-  pointer-events: none;
-}
-
+.hero__inner::before,
 .hero__inner::after {
   content: "";
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
+
+.hero__inner::before {
+  opacity: 0.98;
+  background:
+    linear-gradient(180deg, rgba(4, 8, 10, 0.08) 0%, rgba(4, 8, 10, 0.48) 78%, rgba(18, 19, 19, 0.98) 100%),
+    url("../assets/imgs/12. Skill set Background.png") center top / cover no-repeat;
+}
+
+.hero__inner::after {
   background:
     radial-gradient(circle at 82% 15%, rgba(57, 232, 212, 0.2) 0%, rgba(57, 232, 212, 0.07) 22%, transparent 44%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.38) 0%, transparent 42%);
-  pointer-events: none;
 }
 
 .hero__center {
   position: relative;
   z-index: 2;
-  display: flex;
   width: 100%;
   max-width: 920px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -112,8 +112,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  display: inline-block;
   width: max-content;
+  display: inline-block;
   transform: translate(-50%, -50%);
   will-change: transform;
 }
@@ -225,8 +225,8 @@
 .hero__socials {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   align-items: center;
+  gap: 16px;
 }
 
 .hero__social-link {
@@ -296,10 +296,10 @@
 }
 
 .hero__ticker-track {
+  width: max-content;
   display: flex;
   align-items: center;
   gap: 52px;
-  width: max-content;
   animation: hero-ticker-run 22s linear infinite;
 }
 

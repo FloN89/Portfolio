@@ -12,16 +12,24 @@ const skillsData = [
     names: { en: "JavaScript", de: "JavaScript" }
   },
   {
+    icon: "assets/imgs/Skills/Property 1=Material Design.png",
+    names: { en: "Material Design", de: "Material Design" }
+  },
+  {
+    icon: "assets/imgs/Skills/Property 1=TypeScript.png",
+    names: { en: "TypeScript", de: "TypeScript" }
+  },
+  {
+    icon: "assets/imgs/Skills/Property 1=Angular.png",
+    names: { en: "Angular", de: "Angular" }
+  },
+  {
     icon: "assets/imgs/Skills/Property 1=Firebase.png",
     names: { en: "Firebase", de: "Firebase" }
   },
   {
     icon: "assets/imgs/Skills/Property 1=Git.png",
     names: { en: "Git", de: "Git" }
-  },
-  {
-    icon: "assets/imgs/Skills/Linux.png",
-    names: { en: "Linux", de: "Linux" }
   },
   {
     icon: "assets/imgs/Skills/Property 1=Rest-Api.png",
@@ -34,15 +42,7 @@ const skillsData = [
   {
     icon: "assets/imgs/Skills/Property 1=GrowthMindset.png",
     names: { en: "Growth mindset", de: "Growth Mindset" },
-    modifier: "growth-mindset",
-    hoverHeadline: {
-      en: "I have a special interest in learning",
-      de: "Ich habe besonderes Interesse daran zu lernen"
-    },
-    hoverSkills: [
-      { label: "Python", icon: "python", shortLabel: "Py" },
-      { label: "TypeScript", icon: "typescript", shortLabel: "TS" }
-    ]
+    modifier: "growth-mindset"
   }
 ];
 
@@ -219,7 +219,7 @@ const pageTranslations = {
         "youremail@email.com",
         "Hello Florian, I am interested in..."
       ],
-      privacy: 'I&apos;ve read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.',
+      privacy: 'I&apos;ve read the <a href="#" class="contact-checkbox__privacy-link" aria-label="Privacy policy"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="privacy policy" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> and agree to the processing of my data as outlined.',
       button: "Say Hello ;)",
       errors: {
         name: "Oops! it seems your name is missing",
@@ -311,7 +311,7 @@ const pageTranslations = {
         "deineemail@email.com",
         "Hallo Florian, ich interessiere mich für..."
       ],
-      privacy: 'Ich habe die <a href="#">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
+      privacy: 'Ich habe die <a href="#" class="contact-checkbox__privacy-link" aria-label="Datenschutzerklärung"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="Datenschutzerklärung" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
       button: "Absenden ;)",
       errors: {
         name: "Oops! Dein Name fehlt.",

@@ -9,9 +9,6 @@ function applyHeaderTexts(translations) {
   setElementAttribute('.site-header__link[href="#about"]', "aria-label", translations.header.about);
   setElementAttribute('.site-header__link[href="#skills"]', "aria-label", translations.header.skills);
   setElementAttribute('.site-header__link[href="#projects"]', "aria-label", translations.header.projects);
-  setElementAttribute('.site-header__link[href="#about"] .site-header__link-image', "alt", translations.header.about);
-  setElementAttribute('.site-header__link[href="#skills"] .site-header__link-image', "alt", translations.header.skills);
-  setElementAttribute('.site-header__link[href="#projects"] .site-header__link-image', "alt", translations.header.projects);
 }
 
 /* Update ticker texts in the hero section. */

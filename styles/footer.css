@@ -14,29 +14,31 @@
   gap: 24px;
 }
 
-.site-footer__left {
+.site-footer__left,
+.site-footer__meta,
+.site-footer__nav {
   display: flex;
   flex-direction: column;
+}
+
+.site-footer__left {
   align-items: flex-start;
   gap: 18px;
 }
 
 .site-footer__brand {
   position: relative;
+  width: 164px;
+  height: 58px;
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  width: 150px;
-  height: 58px;
   text-decoration: none;
 }
 
 .site-footer__logo-image {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 150px;
-  height: auto;
+  left: -22px;
   transition: opacity 0.24s ease, transform 0.24s ease;
 }
 
@@ -61,12 +63,11 @@
 }
 
 .site-footer__meta {
-  display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
-.site-footer__meta span {
+.site-footer__meta span,
+.site-footer__nav a {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.3;
@@ -76,8 +77,8 @@
 .site-footer__center {
   align-self: stretch;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .site-footer__center span {
@@ -89,8 +90,6 @@
 }
 
 .site-footer__nav {
-  display: flex;
-  flex-direction: column;
   align-items: flex-end;
   gap: 10px;
 }
@@ -101,10 +100,6 @@
   padding-left: 18px;
   display: inline-flex;
   align-items: center;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.3;
-  color: rgba(241, 241, 237, 0.9);
   text-decoration: none;
   transition: color 0.22s ease, transform 0.22s ease;
 }
@@ -116,8 +111,8 @@
   top: 50%;
   width: 10px;
   height: 10px;
-  background: url("../assets/imgs/Header/radio_button_unchecked.png") center / contain no-repeat;
   opacity: 0;
+  background: url("../assets/imgs/Header/radio_button_unchecked.png") center / contain no-repeat;
   transform: translate(-6px, -50%) scale(0.72);
   transition: opacity 0.22s ease, transform 0.22s ease;
 }
