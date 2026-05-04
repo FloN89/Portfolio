@@ -4,7 +4,7 @@
 }
 
 .references-shell {
-  width: 100%;
+  width: min(1440px, calc(100% - 96px));
   margin: 0 auto;
   overflow: hidden;
 }
@@ -29,9 +29,9 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  gap: 64px;
-  width: calc(100% + 520px);
-  margin-left: -260px;
+  gap: 42px;
+  width: 100%;
+  margin-left: 0;
 }
 
 .reference-card {
@@ -160,6 +160,16 @@
 .references-nav:focus-visible .references-nav__icon--hover {
   opacity: 1;
   transform: scale(1.05);
+}
+
+#referencesPreviousButton:hover .references-nav__icon--hover,
+#referencesPreviousButton:focus-visible .references-nav__icon--hover {
+  transform: translateX(-4px) scale(1.05);
+}
+
+#referencesNextButton:hover .references-nav__icon--hover,
+#referencesNextButton:focus-visible .references-nav__icon--hover {
+  transform: translateX(4px) scale(1.05);
 }
 
 .references-dots {

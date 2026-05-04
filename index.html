@@ -98,7 +98,12 @@
         <img
           src="assets/imgs/header/Logo Portfolio.png"
           alt="Florian Narr Logo"
-          class="site-header__logo-image"
+          class="site-header__logo-image site-header__logo-image--default"
+        />
+        <img
+          src="assets/imgs/header/logo portfolio hover.png"
+          alt="Florian Narr Logo"
+          class="site-header__logo-image site-header__logo-image--hover"
         />
       </a>
     </div>
@@ -152,7 +157,7 @@
           <span class="hero__rail-label">hello@floriannarr.dev</span>
 
           <div class="hero__socials" aria-label="Social Links">
-            <a class="hero__social-link" href="mailto:hello@floriannarr.dev" aria-label="E-Mail">
+            <a class="hero__social-link hero__social-link--email" href="mailto:hello@floriannarr.dev" aria-label="E-Mail">
               <img
                 class="hero__social-icon hero__social-icon--default"
                 src="assets/imgs/hero/Property 1=Mail.png"
@@ -308,7 +313,13 @@
               Feel free to contact me. I look forward to expanding my previous knowledge.
             </p>
 
-            <a href="#contact" class="skills-btn">Let&apos;s Talk</a>
+            <a href="#contact" class="skills-btn" aria-label="Let&apos;s Talk">
+              <span class="skills-btn__size" aria-hidden="true">Let&apos;s Talk</span>
+              <span class="skills-btn__marquee" aria-hidden="true">
+                <span class="skills-btn__text">Let&apos;s Talk</span>
+                <span class="skills-btn__text">Let&apos;s Talk</span>
+              </span>
+            </a>
           </div>
         </div>
 

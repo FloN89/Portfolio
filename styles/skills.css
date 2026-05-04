@@ -3,7 +3,7 @@
 }
 
 .skills-wrapper {
-  width: min(1280px, calc(100% - 96px));
+  width: min(1440px, calc(100% - 96px));
   margin: 0 auto;
   display: grid;
   grid-template-columns: 520px 1fr;
@@ -78,26 +78,80 @@
 }
 
 .skills-btn {
+  --skills-button-marquee-gap: 40px;
+
+  position: relative;
+  min-width: 142px;
+  height: 50px;
+  padding: 0 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 132px;
-  height: 48px;
-  padding: 0 24px;
+  overflow: hidden;
+  border: 1px solid rgba(241, 241, 237, 0.78);
   border-radius: 999px;
-  border: 1px solid rgba(241, 241, 237, 0.74);
+  background: rgba(255, 255, 255, 0.01);
   color: #ffffff;
   text-decoration: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 17px;
-  transition: color 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    transform 0.24s ease;
+}
+
+.skills-btn__size {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.skills-btn__marquee {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  width: max-content;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.skills-btn__text {
+  display: block;
+  white-space: nowrap;
+}
+
+.skills-btn__text + .skills-btn__text {
+  position: absolute;
+  left: calc(100% + var(--skills-button-marquee-gap));
+  top: 0;
 }
 
 .skills-btn:hover,
 .skills-btn:focus-visible {
   color: var(--accent);
   border-color: var(--accent);
+  background: rgba(57, 232, 212, 0.05);
   transform: translateY(-2px);
+  outline: none;
+}
+
+.skills-btn:hover .skills-btn__marquee,
+.skills-btn:focus-visible .skills-btn__marquee {
+  animation: skills-button-text-run 1.8s linear infinite;
+}
+
+@keyframes skills-button-text-run {
+  from {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) translateX(calc(-100% - var(--skills-button-marquee-gap)));
+  }
 }
 
 .skills-right {

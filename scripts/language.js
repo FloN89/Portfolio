@@ -61,6 +61,22 @@ function applyAboutTexts(translations) {
   applyAboutItemTexts(translations.about.items);
 }
 
+/* Update the animated skills button text. */
+function setSkillsButtonText(text) {
+  const button = selectElement(".skills-btn");
+  if (!button) return;
+
+  const plainText = text.replace(/&apos;/g, "'");
+  button.setAttribute("aria-label", plainText);
+
+  const sizeText = button.querySelector(".skills-btn__size");
+  if (sizeText) sizeText.innerHTML = text;
+
+  button.querySelectorAll(".skills-btn__text").forEach((textElement) => {
+    textElement.innerHTML = text;
+  });
+}
+
 /* Update skills section texts. */
 function applySkillsTexts(translations) {
   setElementText(".skills-eyebrow", translations.skills.eyebrow);
@@ -68,7 +84,7 @@ function applySkillsTexts(translations) {
   setElementText(".skills-text", translations.skills.text);
   setElementMarkup(".skills-subtitle", translations.skills.subtitle);
   setElementText(".skills-small-text", translations.skills.smallText);
-  setElementMarkup(".skills-btn", translations.skills.button);
+  setSkillsButtonText(translations.skills.button);
 }
 
 /* Update projects section texts. */

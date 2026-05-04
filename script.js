@@ -71,24 +71,45 @@ function isValidEmailAddress(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+/* Return the required message for one field. */
+function getRequiredContactMessage(control, messages) {
+  if (control.errorKey === "email") return messages.emailRequired;
+  return messages[control.errorKey];
+}
+
+/* Show the required message for one empty field. */
+function showRequiredContactError(control, messages) {
+  const message = getRequiredContactMessage(control, messages);
+  showContactError(control, message);
+}
+
+/* Check if one email field contains an invalid email. */
+function hasInvalidContactEmail(control, value) {
+  return control.errorKey === "email" && !isValidEmailAddress(value);
+}
+
 /* Validate one normal text field. */
 function validateContactField(control) {
   const messages = getContactErrorMessages();
   const value = control.input.value.trim();
 
-  if (!value) {
-    const message = control.errorKey === "email" ? messages.emailRequired : messages[control.errorKey];
-    showContactError(control, message);
-    return false;
-  }
-
-  if (control.errorKey === "email" && !isValidEmailAddress(value)) {
-    showContactError(control, messages.emailInvalid);
-    return false;
-  }
+  if (!value) return showEmptyContactField(control, messages);
+  if (hasInvalidContactEmail(control, value)) return showInvalidContactEmail(control, messages);
 
   hideContactError(control);
   return true;
+}
+
+/* Show the validation message for one empty field. */
+function showEmptyContactField(control, messages) {
+  showRequiredContactError(control, messages);
+  return false;
+}
+
+/* Show the validation message for one invalid email. */
+function showInvalidContactEmail(control, messages) {
+  showContactError(control, messages.emailInvalid);
+  return false;
 }
 
 /* Validate the privacy policy checkbox. */
@@ -132,31 +153,43 @@ function refreshContactValidationMessages() {
   });
 }
 
+/* Create all contact validation controls. */
+function createContactValidationControls() {
+  return [
+    createFieldValidationControl("contactName", "name"),
+    createFieldValidationControl("contactEmail", "email"),
+    createFieldValidationControl("contactMessage", "message"),
+    createPrivacyValidationControl()
+  ].filter(Boolean);
+}
+
+/* Validate one control again when an error is visible. */
+function validateVisibleContactError(control) {
+  if (!control.errorElement.hidden) validateContactControl(control);
+}
+
+/* Register one contact control event. */
+function registerContactControlEvent(control) {
+  const eventName = control.errorKey === "privacy" ? "change" : "input";
+  control.input.addEventListener(eventName, () => validateVisibleContactError(control));
+}
+
+/* Register all contact form events. */
+function registerContactFormEvents(form, controls) {
+  controls.forEach(registerContactControlEvent);
+  form.addEventListener("submit", validateContactForm);
+  form.querySelector(".contact-form__submit")?.addEventListener("click", validateContactForm);
+}
+
 /* Register contact validation events. */
 function initializeContactValidation() {
   const form = document.querySelector(".contact-form");
   if (!form) return;
 
   form.setAttribute("novalidate", "novalidate");
-
-  const controls = [
-    createFieldValidationControl("contactName", "name"),
-    createFieldValidationControl("contactEmail", "email"),
-    createFieldValidationControl("contactMessage", "message"),
-    createPrivacyValidationControl()
-  ].filter(Boolean);
-
+  const controls = createContactValidationControls();
   contactValidationControls.push(...controls);
-
-  controls.forEach((control) => {
-    const eventName = control.errorKey === "privacy" ? "change" : "input";
-    control.input.addEventListener(eventName, () => {
-      if (!control.errorElement.hidden) validateContactControl(control);
-    });
-  });
-
-  form.addEventListener("submit", validateContactForm);
-  form.querySelector(".contact-form__submit")?.addEventListener("click", validateContactForm);
+  registerContactFormEvents(form, controls);
 }
 
 const originalApplyPageLanguage = applyPageLanguage;

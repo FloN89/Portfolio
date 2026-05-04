@@ -50,7 +50,7 @@ const projectsData = [
   {
     identifier: "join",
     title: { en: "Join", de: "Join" },
-    stack: ["CSS", "HTML", "Firebase", "Angular", "TypeScript"],
+    stack: ["CSS", "HTML", "Firebase", "JavaScript"],
     githubUrl: "https://github.com/",
     liveUrl: "https://deine-live-url.de/",
     preview: {

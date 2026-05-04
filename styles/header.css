@@ -62,13 +62,13 @@
 .site-header__nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 30px;
 }
 
 .site-header__link {
   position: relative;
-  width: 104px;
-  min-height: 34px;
+  width: 112px;
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -77,9 +77,11 @@
 
 .site-header__link-image {
   display: block;
-  width: 104px;
-  height: 20px;
-  object-fit: fill;
+  width: 112px;
+  height: 22px;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
   transition: transform 0.28s ease, filter 0.28s ease;
 }
 
@@ -114,6 +116,9 @@
 }
 
 .site-header__logo {
+  position: relative;
+  width: 150px;
+  height: 58px;
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
@@ -121,7 +126,37 @@
 }
 
 .site-header__logo-image {
-  width: auto;
-  height: 58px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 150px;
+  height: auto;
   object-fit: contain;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.site-header__logo-image--default {
+  opacity: 1;
+}
+
+.site-header__logo-image--hover {
+  opacity: 0;
+}
+
+.site-header__logo:hover .site-header__logo-image--default,
+.site-header__logo:focus-visible .site-header__logo-image--default {
+  opacity: 0;
+  transform: scale(1.02);
+}
+
+.site-header__logo:hover .site-header__logo-image--hover,
+.site-header__logo:focus-visible .site-header__logo-image--hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.site-header__logo:focus-visible {
+  outline: 1px solid rgba(57, 232, 212, 0.88);
+  outline-offset: 8px;
+  border-radius: 999px;
 }

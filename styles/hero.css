@@ -8,8 +8,9 @@
 
 .hero__inner {
   position: relative;
-  width: 100%;
+  width: min(1440px, 100%);
   min-height: 900px;
+  margin: 0 auto;
   padding: 104px 96px 150px;
   display: flex;
   align-items: center;
@@ -238,6 +239,10 @@
   text-decoration: none;
 }
 
+.hero__social-link--email {
+  display: none;
+}
+
 .hero__social-icon {
   position: absolute;
   inset: 0;
@@ -270,8 +275,8 @@
 
 .hero__ticker-wrap {
   position: absolute;
-  left: -42px;
-  right: -42px;
+  left: 0;
+  right: 0;
   bottom: 28px;
   z-index: 2;
   overflow: hidden;
@@ -280,7 +285,7 @@
 }
 
 .hero__ticker {
-  width: calc(100% + 84px);
+  width: 100%;
   padding: 14px 0;
   overflow: hidden;
   background: rgba(225, 232, 230, 0.14);
@@ -341,5 +346,11 @@
 
   50% {
     transform: translate(-50%, -50%) translateY(6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__social-link--email {
+    display: inline-flex;
   }
 }

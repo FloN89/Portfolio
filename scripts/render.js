@@ -19,7 +19,7 @@ const skillHoverIconMarkup = {
   `
 };
 
-/* Return the icon markup for one Growth Mindset overlay skill. */
+/* Return the icon markup for a skill shown inside the growth overlay. */
 function getSkillHoverIconMarkup(hoverSkill) {
   if (hoverSkill.icon && skillHoverIconMarkup[hoverSkill.icon]) {
     return skillHoverIconMarkup[hoverSkill.icon];
@@ -28,7 +28,7 @@ function getSkillHoverIconMarkup(hoverSkill) {
   return `<span class="skill-growth-overlay__fallback-icon">${hoverSkill.shortLabel || hoverSkill.label}</span>`;
 }
 
-/* Create the markup for one skill hover item. */
+/* Create the markup for one extra skill in the growth overlay. */
 function createSkillHoverSkillMarkup(hoverSkill) {
   const modifierClass = hoverSkill.icon ? ` skill-growth-overlay__item--${hoverSkill.icon}` : "";
 
@@ -40,7 +40,7 @@ function createSkillHoverSkillMarkup(hoverSkill) {
   `;
 }
 
-/* Create the optional Growth Mindset hover overlay. */
+/* Create the optional growth overlay for one skill card. */
 function createSkillHoverOverlayMarkup(skill) {
   if (!skill.hoverSkills || skill.hoverSkills.length === 0) return "";
   const hoverHeadline = readTranslatedText(skill.hoverHeadline);
@@ -54,31 +54,40 @@ function createSkillHoverOverlayMarkup(skill) {
   `;
 }
 
-/* Create the markup for one skill item. */
-function createSkillMarkup(skill) {
-  const skillName = readTranslatedText(skill.names);
-  const modifierClass = skill.modifier ? ` skill-item--${skill.modifier}` : "";
-  const focusAttribute = skill.hoverSkills ? ' tabindex="0"' : "";
-  const hoverOverlay = createSkillHoverOverlayMarkup(skill);
-
-  return `
-    <div class="skill-item${modifierClass}"${focusAttribute}>
-      <div class="skill-icon-wrap">
-        <img src="${skill.icon}" alt="${skillName}" class="skill-icon" />
-      </div>
-      <span class="skill-name">${skillName}</span>
-      ${hoverOverlay}
-    </div>
-  `;
+/* Return the modifier class for one skill item. */
+function getSkillModifierClass(skill) {
+  if (!skill.modifier) return "";
+  return ` skill-item--${skill.modifier}`;
 }
 
-/* Render all skill items into the skills grid. */
+/* Make skill cards keyboard-focusable when they have hover content. */
+function getSkillFocusAttribute(skill) {
+  if (!skill.hoverSkills) return "";
+  return ' tabindex="0"';
+}
+
+/* Create the complete markup for one skill card. */
+function createSkillMarkup(skill) {
+  const skillName = readTranslatedText(skill.names);
+  const modifierClass = getSkillModifierClass(skill);
+  const focusAttribute = getSkillFocusAttribute(skill);
+  const hoverOverlay = createSkillHoverOverlayMarkup(skill);
+
+  return `<div class="skill-item${modifierClass}"${focusAttribute}>
+    <div class="skill-icon-wrap">
+      <img src="${skill.icon}" alt="${skillName}" class="skill-icon" />
+    </div>
+    <span class="skill-name">${skillName}</span>${hoverOverlay}
+  </div>`;
+}
+
+/* Render all skill cards into the skills grid. */
 function renderSkills() {
   if (!pageElements.skillsGrid) return;
   pageElements.skillsGrid.innerHTML = skillsData.map(createSkillMarkup).join("");
 }
 
-/* Create one project technology separator. */
+/* Return a separator when another project technology follows. */
 function createProjectTechnologySeparator(index, technologies) {
   const hasNextTechnology = index < technologies.length - 1;
   return hasNextTechnology ? '<span class="project-row__separator">|</span>' : "";
@@ -90,24 +99,24 @@ function createProjectTechnologyMarkup(technology, index, technologies) {
   return `<span class="project-row__tag">${technology}</span>${separator}`;
 }
 
-/* Create the markup for all project technology tags. */
+/* Create all technology tags for one project row. */
 function createProjectTechnologiesMarkup(technologies) {
   return technologies.map(createProjectTechnologyMarkup).join("");
 }
 
-/* Create an image preview for one project row. */
+/* Create an image preview for a project row. */
 function createProjectImagePreviewMarkup(preview) {
   const previewAlt = readTranslatedText(preview.alt);
   return `<img src="${preview.src}" alt="${previewAlt}" class="project-row__preview-image" />`;
 }
 
-/* Create a text preview for one project row. */
+/* Create a text preview for a project row. */
 function createProjectTextPreviewMarkup(preview) {
   const previewText = readTranslatedText(preview.text);
   return `<span class="project-row__preview-text">${previewText}</span>`;
 }
 
-/* Create the hover preview markup for one project row. */
+/* Create the preview block for one project row. */
 function createProjectPreviewMarkup(project) {
   if (!project.preview) return "";
   const previewContent = project.preview.type === "image"
@@ -121,7 +130,7 @@ function createProjectPreviewMarkup(project) {
   `;
 }
 
-/* Create the markup for one project row. */
+/* Create the complete markup for one project row button. */
 function createProjectMarkup(project) {
   const projectTitle = readTranslatedText(project.title);
   const projectTechnologies = createProjectTechnologiesMarkup(project.stack);
@@ -136,7 +145,7 @@ function createProjectMarkup(project) {
   `;
 }
 
-/* Render all project rows into the project list. */
+/* Render all project rows and refresh their accessibility labels. */
 function renderProjects() {
   if (!pageElements.projectsList) return;
   pageElements.projectsList.innerHTML = projectsData.map(createProjectMarkup).join("");
@@ -157,19 +166,30 @@ function findProject(identifier) {
   return projectsData.find((project) => project.identifier === identifier);
 }
 
-/* Find the index of one project. */
+/* Find the index of one project by its identifier. */
 function findProjectIndex(identifier) {
   return projectsData.findIndex((project) => project.identifier === identifier);
 }
 
-/* Get the next project identifier for the overlay navigation. */
+/* Return the identifier of the next project in the overlay loop. */
 function getNextProjectIdentifier() {
   const currentIndex = findProjectIndex(currentProjectIdentifier);
   const nextIndex = getWrappedIndex(currentIndex + 1, projectsData.length);
   return projectsData[nextIndex]?.identifier;
 }
 
-/* Create the markup for one overlay technology tag. */
+/* Create the icon markup for one overlay technology. */
+function createOverlayTechnologyIconMarkup(iconPath) {
+  return `<img
+    class="project-overlay__stack-icon"
+    src="${iconPath}"
+    alt=""
+    aria-hidden="true"
+    onerror="this.remove()"
+  />`;
+}
+
+/* Create one technology item for the project overlay. */
 function createOverlayTechnologyMarkup(technology) {
   const iconPath = technologyIconPaths[technology];
 
@@ -177,71 +197,84 @@ function createOverlayTechnologyMarkup(technology) {
     return `<span class="project-overlay__stack-item">${technology}</span>`;
   }
 
-  return `
-    <span class="project-overlay__stack-item">
-      <img
-        class="project-overlay__stack-icon"
-        src="${iconPath}"
-        alt=""
-        aria-hidden="true"
-        onerror="this.remove()"
-      />
-      <span>${technology}</span>
-    </span>
-  `;
+  const iconMarkup = createOverlayTechnologyIconMarkup(iconPath);
+  return `<span class="project-overlay__stack-item">${iconMarkup}<span>${technology}</span></span>`;
 }
 
-/* Create the preview markup for the overlay. */
+/* Create an image preview for the project overlay. */
+function createOverlayImagePreviewMarkup(preview) {
+  const previewAlt = readTranslatedText(preview.alt);
+
+  return `<img
+    class="project-overlay__preview-image"
+    src="${preview.src}"
+    alt="${previewAlt}"
+  />`;
+}
+
+/* Create the correct overlay preview for the active project. */
 function createOverlayPreviewMarkup(project) {
   if (!project.preview) return "";
-
   if (project.preview.type === "image") {
-    const previewAlt = readTranslatedText(project.preview.alt);
-
-    return `
-      <img
-        class="project-overlay__preview-image"
-        src="${project.preview.src}"
-        alt="${previewAlt}"
-      />
-    `;
+    return createOverlayImagePreviewMarkup(project.preview);
   }
 
   const previewText = readTranslatedText(project.preview.text);
-
   return `<span class="project-overlay__preview-text">${previewText}</span>`;
 }
 
-/* Update one overlay link. */
+/* Update one overlay link while keeping a safe fallback URL. */
 function updateOverlayLink(linkElement, url) {
   if (!linkElement) return;
   linkElement.href = url || "#";
 }
 
-/* Update the project overlay with project content. */
-function fillProjectOverlay(project) {
-  const projectIndex = findProjectIndex(project.identifier);
-  const translations = getLanguageTranslations(currentLanguage);
-  const projectQuestion = project.overlayQuestion
-    ? readTranslatedText(project.overlayQuestion)
-    : translations.projects.overlayQuestion;
+/* Return the project-specific overlay question or the default translation. */
+function getProjectOverlayQuestion(project, translations) {
+  if (project.overlayQuestion) return readTranslatedText(project.overlayQuestion);
+  return translations.projects.overlayQuestion;
+}
 
+/* Update the overlay headline, number, question and description. */
+function updateProjectOverlayTexts(project, projectIndex, question) {
   pageElements.projectOverlayNumber.textContent = String(projectIndex + 1).padStart(2, "0");
   pageElements.projectOverlayTitle.textContent = readTranslatedText(project.title);
-  pageElements.projectOverlayQuestion.textContent = projectQuestion;
+  pageElements.projectOverlayQuestion.textContent = question;
   pageElements.projectOverlayText.textContent = readTranslatedText(project.description);
+}
+
+/* Update the overlay technology stack and preview area. */
+function updateProjectOverlayContent(project) {
   pageElements.projectOverlayStack.innerHTML = project.stack.map(createOverlayTechnologyMarkup).join("");
   pageElements.projectOverlayPreview.innerHTML = createOverlayPreviewMarkup(project);
+}
 
+/* Update overlay button labels for the current language. */
+function updateProjectOverlayButtons(translations) {
   pageElements.projectOverlayGithub.innerHTML = `${translations.projects.githubLabel} <span aria-hidden="true">↗</span>`;
   pageElements.projectOverlayLive.innerHTML = `${translations.projects.liveTestLabel} <span aria-hidden="true">↗</span>`;
   pageElements.projectOverlayNextText.textContent = translations.projects.nextProject;
+}
 
+/* Update overlay GitHub and live preview links. */
+function updateProjectOverlayLinks(project) {
   updateOverlayLink(pageElements.projectOverlayGithub, project.githubUrl);
   updateOverlayLink(pageElements.projectOverlayLive, project.liveUrl);
 }
 
-/* Open the project overlay for the selected project. */
+/* Fill the overlay with all content for one project. */
+function fillProjectOverlay(project) {
+  const projectIndex = findProjectIndex(project.identifier);
+  const translations = getLanguageTranslations(currentLanguage);
+  const question = getProjectOverlayQuestion(project, translations);
+
+  updateProjectOverlayTexts(project, projectIndex, question);
+  updateProjectOverlayContent(project);
+  updateProjectOverlayButtons(translations);
+  updateProjectOverlayLinks(project);
+}
+
+/* Open the project overlay for a selected project. */
 function openProjectOverlay(identifier) {
   const project = findProject(identifier);
   if (!project || !pageElements.projectOverlay) return;
@@ -254,7 +287,7 @@ function openProjectOverlay(identifier) {
   document.body.classList.add("overlay-is-open");
 }
 
-/* Close the project overlay. */
+/* Close the project overlay and reset its active state. */
 function closeProjectOverlay() {
   if (!pageElements.projectOverlay) return;
 
@@ -264,19 +297,19 @@ function closeProjectOverlay() {
   document.body.classList.remove("overlay-is-open");
 }
 
-/* Show the next project inside the overlay. */
+/* Show the next project inside the already opened overlay. */
 function showNextProjectInOverlay() {
   const nextProjectIdentifier = getNextProjectIdentifier();
   if (nextProjectIdentifier) openProjectOverlay(nextProjectIdentifier);
 }
 
-/* Refresh project content when the language changes. */
+/* Refresh the open overlay after a language change. */
 function refreshOpenProjectOverlay() {
   const project = findProject(currentProjectIdentifier);
   if (project && pageElements.projectOverlay) fillProjectOverlay(project);
 }
 
-/* Calculate a safe wrapped index for the slider. */
+/* Wrap an index so carousel navigation can loop endlessly. */
 function getWrappedIndex(index, length) {
   return (index + length) % length;
 }
@@ -295,7 +328,7 @@ function createReferenceMarkup(reference, modifierClass) {
   `;
 }
 
-/* Create the markup for one reference dot. */
+/* Create one navigation dot for the references carousel. */
 function createReferenceDotMarkup(reference, index) {
   const isActive = index === currentReferenceIndex;
   const imagePath = isActive ? "assets/imgs/references/Ellipse 2.png" : "assets/imgs/references/Ellipse 3.png";
@@ -306,13 +339,13 @@ function createReferenceDotMarkup(reference, index) {
   `;
 }
 
-/* Render the slider dots below the references. */
+/* Render all reference navigation dots. */
 function renderReferenceDots() {
   if (!pageElements.referencesDots) return;
   pageElements.referencesDots.innerHTML = referencesData.map(createReferenceDotMarkup).join("");
 }
 
-/* Render the visible reference cards. */
+/* Render the visible reference cards and their navigation dots. */
 function renderReferences() {
   if (!pageElements.referencesStage || referencesData.length === 0) return;
   const previousIndex = getWrappedIndex(currentReferenceIndex - 1, referencesData.length);
@@ -326,55 +359,55 @@ function renderReferences() {
   updateGeneratedAriaLabels();
 }
 
-/* Move the slider to the previous reference. */
+/* Move the references carousel to the previous item. */
 function showPreviousReference() {
   currentReferenceIndex = getWrappedIndex(currentReferenceIndex - 1, referencesData.length);
   renderReferences();
 }
 
-/* Move the slider to the next reference. */
+/* Move the references carousel to the next item. */
 function showNextReference() {
   currentReferenceIndex = getWrappedIndex(currentReferenceIndex + 1, referencesData.length);
   renderReferences();
 }
 
-/* Update the active reference index and render again. */
+/* Move the references carousel to a selected dot index. */
 function updateReferenceIndex(rawIndex) {
   currentReferenceIndex = Number(rawIndex);
   renderReferences();
 }
 
-/* Open a project when a project row is clicked. */
+/* Open a project overlay when a project row was clicked. */
 function handleProjectButtonClick(event) {
   const projectButton = event.target.closest("[data-project-identifier]");
   if (projectButton) openProjectOverlay(projectButton.dataset.projectIdentifier);
 }
 
-/* Close the overlay when the backdrop or close button is clicked. */
+/* Close the overlay when a close target was clicked. */
 function handleOverlayCloseClick(event) {
   const closeTarget = event.target.closest("[data-close-overlay]");
   if (closeTarget) closeProjectOverlay();
 }
 
-/* Change the reference when a dot is clicked. */
+/* Update the active reference when a dot was clicked. */
 function handleReferenceDotClick(event) {
   const referenceDot = event.target.closest("[data-reference-index]");
   if (referenceDot) updateReferenceIndex(referenceDot.dataset.referenceIndex);
 }
 
-/* Handle all delegated document clicks. */
+/* Route document click events to the matching page handler. */
 function handleDocumentClick(event) {
   handleProjectButtonClick(event);
   handleOverlayCloseClick(event);
   handleReferenceDotClick(event);
 }
 
-/* Close the overlay with the escape key. */
+/* Handle keyboard shortcuts for global page interactions. */
 function handleDocumentKeydown(event) {
   if (event.key === "Escape") closeProjectOverlay();
 }
 
-/* Connect all page level event listeners. */
+/* Register all page-level click and keyboard interactions. */
 function registerPageEventListeners() {
   document.addEventListener("click", handleDocumentClick);
   document.addEventListener("keydown", handleDocumentKeydown);
@@ -384,7 +417,7 @@ function registerPageEventListeners() {
   pageElements.referencesNextButton?.addEventListener("click", showNextReference);
 }
 
-/* Render dynamic sections and start interactions. */
+/* Render the dynamic page areas and connect their events. */
 function initializePage() {
   renderSkills();
   renderProjects();
