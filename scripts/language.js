@@ -205,9 +205,21 @@ function applyPageLanguage(language) {
   updateLanguageButton();
 }
 
+/* Remove the temporary no-transition state after language updates. */
+function removeLanguageSwitchingState() {
+  document.body.classList.remove("is-language-switching");
+}
+
+/* Prevent responsive menu animation jumps during language updates. */
+function markLanguageSwitchingState() {
+  document.body.classList.add("is-language-switching");
+  window.requestAnimationFrame(removeLanguageSwitchingState);
+}
+
 /* Toggle between English and German. */
 function handleLanguageButtonClick() {
   const nextLanguage = currentLanguage === "de" ? "en" : "de";
+  markLanguageSwitchingState();
   applyPageLanguage(nextLanguage);
 }
 

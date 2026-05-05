@@ -3,7 +3,7 @@
 }
 
 .contact-shell {
-  width: min(1248px, calc(100% - 200px));
+  width: min(1248px, calc(100% - 126px));
   margin: 0 auto;
   display: grid;
   grid-template-columns: 470px 1fr;

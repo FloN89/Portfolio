@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Florian Narr | Frontend Developer</title>
+  
+  <link rel="icon" type="image/png" href="assets/imgs/Header/logo responsive.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="preload" href="./Karla-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="./Karla-Bold.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="./FiraCode-Bold.ttf" as="font" type="font/ttf" crossorigin />
 
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="./styles/header.css" />
@@ -22,6 +21,7 @@
 <link rel="stylesheet" href="./styles/references.css" />
 <link rel="stylesheet" href="./styles/contact.css" />
 <link rel="stylesheet" href="./styles/overlay.css" />
+<link rel="stylesheet" href="./styles/legal.css">
 
 <script src="./scripts/data.js" defer></script>
 <script src="./scripts/state.js" defer></script>
@@ -160,10 +160,10 @@
         </div>
 
         <div class="hero__right-rail">
-          <span class="hero__rail-label">hello@floriannarr.dev</span>
+          <span class="hero__rail-label">f.narr@gmx.de</span>
 
           <div class="hero__socials" aria-label="Social Links">
-            <a class="hero__social-link hero__social-link--email" href="mailto:hello@floriannarr.dev" aria-label="E-Mail">
+            <a class="hero__social-link hero__social-link--email" href="mailto:f.narr@gmx.de" aria-label="E-Mail">
               <img
                 class="hero__social-icon hero__social-icon--default"
                 src="assets/imgs/hero/Property 1=Mail.png"
@@ -178,7 +178,7 @@
 
             <a
               class="hero__social-link"
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/florian-narr-74b0b42a6/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -197,7 +197,7 @@
 
             <a
               class="hero__social-link"
-              href="https://github.com/"
+              href="https://github.com/FloN89"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -489,7 +489,7 @@
 
           <p class="contact-text contact-text--small">
             Need a Frontend Developer?
-            <a href="mailto:hello@floriannarr.dev">Let&apos;s talk!</a>
+            <a href="mailto:f.narr@gmx.de">Let&apos;s talk!</a>
           </p>
         </div>
 
@@ -556,12 +556,12 @@
     <div class="site-footer__left">
       <a href="#hero" class="site-footer__brand" aria-label="Back to homepage">
         <img
-          src="assets/imgs/footer/Logo.png"
+          src="assets/imgs/Header/Logo Portfolio.png"
           alt="Florian Narr Logo"
           class="site-footer__logo-image site-footer__logo-image--default"
         />
         <img
-          src="assets/imgs/footer/Logo hover.png"
+          src="assets/imgs/Header/logo portfolio hover.png"
           alt="Florian Narr Logo"
           class="site-footer__logo-image site-footer__logo-image--hover"
         />
@@ -574,14 +574,14 @@
     </div>
 
     <div class="site-footer__center">
-      <span>© Florian Narr 2025</span>
+      <span>© Florian Narr 2026</span>
     </div>
 
     <nav class="site-footer__nav" aria-label="Footer navigation">
       <a href="#about">About me</a>
       <a href="#skills">Skill Set</a>
       <a href="#projects">Projects</a>
-      <a href="#">Legal Notice</a>
+      <a href="/html/legal.html">Legal Notice</a>
     </nav>
   </div>
 </footer>

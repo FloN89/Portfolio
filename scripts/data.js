@@ -42,7 +42,15 @@ const skillsData = [
   {
     icon: "assets/imgs/Skills/Property 1=GrowthMindset.png",
     names: { en: "Growth mindset", de: "Growth Mindset" },
-    modifier: "growth-mindset"
+    modifier: "growth-mindset",
+    hoverHeadline: {
+      en: "I have a special interest in learning",
+      de: "Ich habe besonderes Interesse daran, zu lernen"
+    },
+    hoverSkills: [
+      { label: "Python", icon: "python" },
+      { label: "TypeScript", icon: "typescript" }
+    ]
   }
 ];
 
@@ -51,7 +59,7 @@ const projectsData = [
     identifier: "join",
     title: { en: "Join", de: "Join" },
     stack: ["CSS", "HTML", "Firebase", "JavaScript"],
-    githubUrl: "https://github.com/",
+    githubUrl: "https://github.com/FloN89",
     liveUrl: "",
     preview: {
       type: "image",
@@ -71,7 +79,7 @@ const projectsData = [
     identifier: "el-pollo-loco",
     title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     stack: ["HTML", "CSS", "JavaScript"],
-    githubUrl: "https://github.com/",
+    githubUrl: "https://github.com/FloN89",
     liveUrl: "",
     preview: {
       type: "image",
@@ -91,7 +99,7 @@ const projectsData = [
     identifier: "memory-game",
     title: { en: "Memory", de: "Memory" },
     stack: ["Angular", "Firebase", "TypeScript"],
-    githubUrl: "",
+    githubUrl: "https://github.com/FloN89",
     liveUrl: "",
     preview: {
       type: "text",
@@ -208,7 +216,7 @@ const pageTranslations = {
       title: "Let&apos;s work together",
       subtitle: "Got a problem to solve?",
       text: "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.",
-      smallText: 'Need a Frontend Developer? <a href="mailto:hello@floriannarr.dev">Let&apos;s talk!</a>',
+      smallText: 'Need a Frontend Developer? <a href="mailto:f.narr@gmx.de">Let&apos;s talk!</a>',
       labels: [
         "What&apos;s your name?",
         "What&apos;s your email?",
@@ -300,7 +308,7 @@ const pageTranslations = {
       title: "Lass uns zusammenarbeiten",
       subtitle: "Hast du ein Problem zu lösen?",
       text: "Erzähl mir gerne von deinem Projekt und davon, welche Unterstützung du suchst. Ich bringe Struktur, sauberen Code und ein gutes Gespür für Frontend-Lösungen mit.",
-      smallText: 'Brauchst du einen Frontend Entwickler? <a href="mailto:hello@floriannarr.dev">Lass uns sprechen!</a>',
+      smallText: 'Brauchst du einen Frontend Entwickler? <a href="mailto:f.narr@gmx.de">Lass uns sprechen!</a>',
       labels: [
         "Wie heißt du?",
         "Wie lautet deine E-Mail?",

@@ -3,7 +3,7 @@
 }
 
 .projects-shell {
-  width: min(1440px, calc(100% - 96px));
+  width: min(1440px, calc(100% - 126px));
   margin: 0 auto;
 }
 

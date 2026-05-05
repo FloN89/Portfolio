@@ -37,18 +37,19 @@ function getSkillModifierClass(skill) {
   return skill.modifier ? ` skill-item--${skill.modifier}` : "";
 }
 
-/* Make skill cards keyboard-focusable when they have hover content. */
-function getSkillFocusAttribute(skill) {
-  return skill.hoverSkills ? ' tabindex="0"' : "";
+/* Return interaction attributes for skills with overlay content. */
+function getSkillInteractionAttributes(skill) {
+  if (!skill.hoverSkills?.length) return "";
+  return ' tabindex="0" role="button" aria-expanded="false" data-growth-overlay-item';
 }
 
 /* Create the complete markup for one skill card. */
 function createSkillMarkup(skill) {
   const skillName = readTranslatedText(skill.names);
   const modifierClass = getSkillModifierClass(skill);
-  const focusAttribute = getSkillFocusAttribute(skill);
+  const interactionAttributes = getSkillInteractionAttributes(skill);
   const overlay = createSkillHoverOverlayMarkup(skill);
-  return `<div class="skill-item${modifierClass}"${focusAttribute}><div class="skill-icon-wrap"><img src="${skill.icon}" alt="${skillName}" class="skill-icon" /></div><span class="skill-name">${skillName}</span>${overlay}</div>`;
+  return `<div class="skill-item${modifierClass}"${interactionAttributes}><div class="skill-icon-wrap"><img src="${skill.icon}" alt="${skillName}" class="skill-icon" /></div><span class="skill-name">${skillName}</span>${overlay}</div>`;
 }
 
 /* Render all skill cards into the skills grid. */
@@ -233,6 +234,54 @@ function refreshOpenProjectOverlay() {
   if (project && pageElements.projectOverlay) fillProjectOverlay(project);
 }
 
+/* Return the growth mindset card from one event target. */
+function getGrowthMindsetCard(target) {
+  if (!(target instanceof Element)) return null;
+  return target.closest("[data-growth-overlay-item]");
+}
+
+/* Set the visible state for one growth mindset overlay. */
+function setGrowthMindsetOverlayOpen(card, isOpen) {
+  const overlay = card.querySelector(".skill-growth-overlay");
+  card.classList.toggle("is-growth-overlay-open", isOpen);
+  card.setAttribute("aria-expanded", String(isOpen));
+  if (overlay) overlay.setAttribute("aria-hidden", String(!isOpen));
+}
+
+/* Close every open growth mindset overlay except one optional card. */
+function closeOpenGrowthMindsetOverlay(exceptCard = null) {
+  selectAllElements("[data-growth-overlay-item].is-growth-overlay-open").forEach((card) => {
+    if (card !== exceptCard) setGrowthMindsetOverlayOpen(card, false);
+  });
+}
+
+/* Toggle the growth mindset overlay for one card. */
+function toggleGrowthMindsetOverlay(card) {
+  const isOpen = card.classList.contains("is-growth-overlay-open");
+  closeOpenGrowthMindsetOverlay(card);
+  setGrowthMindsetOverlayOpen(card, !isOpen);
+}
+
+/* Handle click and tap interaction for the growth mindset card. */
+function handleGrowthMindsetClick(event) {
+  const card = getGrowthMindsetCard(event.target);
+  if (!card) return closeOpenGrowthMindsetOverlay();
+  toggleGrowthMindsetOverlay(card);
+}
+
+/* Check whether one key should toggle the growth overlay. */
+function isGrowthMindsetToggleKey(event) {
+  return event.key === "Enter" || event.key === " ";
+}
+
+/* Handle keyboard interaction for the growth mindset card. */
+function handleGrowthMindsetKeydown(event) {
+  const card = getGrowthMindsetCard(event.target);
+  if (!card || !isGrowthMindsetToggleKey(event)) return;
+  event.preventDefault();
+  toggleGrowthMindsetOverlay(card);
+}
+
 /* Create the markup for one reference card. */
 function createReferenceMarkup(reference, modifierClass) {
   return `<article class="reference-card ${modifierClass}"><span class="reference-card__quote" aria-hidden="true">“</span><p class="reference-card__text">${readTranslatedText(reference.text)}</p><div class="reference-card__footer"><span class="reference-card__line" aria-hidden="true"></span><span class="reference-card__author">${readTranslatedText(reference.author)}</span></div></article>`;
@@ -307,11 +356,19 @@ function handleDocumentClick(event) {
   handleProjectButtonClick(event);
   handleOverlayCloseClick(event);
   handleReferenceDotClick(event);
+  handleGrowthMindsetClick(event);
+}
+
+/* Close all open overlays when Escape is pressed. */
+function closeAllOpenOverlays() {
+  closeProjectOverlay();
+  closeOpenGrowthMindsetOverlay();
 }
 
 /* Handle keyboard shortcuts for global page interactions. */
 function handleDocumentKeydown(event) {
-  if (event.key === "Escape") closeProjectOverlay();
+  if (event.key === "Escape") return closeAllOpenOverlays();
+  handleGrowthMindsetKeydown(event);
 }
 
 /* Register all page-level click and keyboard interactions. */

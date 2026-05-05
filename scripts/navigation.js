@@ -139,21 +139,22 @@ function registerMobileMenuLinks(mobileMenu) {
   });
 }
 
+/* Register the global events for the responsive menu. */
+function registerMobileMenuGlobalEvents(mobileMenu, menuButton) {
+  window.addEventListener("resize", handleMobileMenuResize);
+  document.addEventListener("keydown", handleMobileMenuKeydown);
+  document.addEventListener("click", (event) => handleMobileMenuOutsideClick(event, mobileMenu, menuButton));
+}
+
 /* Prepare the burger button and responsive menu overlay. */
 function initializeMobileHeaderMenu() {
   const menuButton = document.querySelector(".site-header__menu-toggle");
   const mobileMenu = document.getElementById("siteHeaderMobileMenu");
-
   if (!menuButton || !mobileMenu) return;
-
   refreshMobileMenuLabel();
-
   menuButton.addEventListener("click", toggleMobileMenu);
   registerMobileMenuLinks(mobileMenu);
-
-  window.addEventListener("resize", handleMobileMenuResize);
-  document.addEventListener("keydown", handleMobileMenuKeydown);
-  document.addEventListener("click", (event) => handleMobileMenuOutsideClick(event, mobileMenu, menuButton));
+  registerMobileMenuGlobalEvents(mobileMenu, menuButton);
 }
 
 const navigationApplyPageLanguage = applyPageLanguage;
