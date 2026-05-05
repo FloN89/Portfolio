@@ -143,6 +143,15 @@
   text-decoration: none;
 }
 
+.site-header__logo picture {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 150px;
+  height: 58px;
+}
+
 .site-header__logo-image {
   position: absolute;
   right: 0;
@@ -206,6 +215,7 @@
   }
 
   .site-header__logo,
+  .site-header__logo picture,
   .site-header__logo-image {
     width: 140px;
   }
@@ -239,11 +249,13 @@
   }
 
   .site-header__logo,
+  .site-header__logo picture,
   .site-header__logo-image {
     width: 126px;
   }
 
-  .site-header__logo {
+  .site-header__logo,
+  .site-header__logo picture {
     height: 50px;
   }
 }
@@ -289,21 +301,46 @@
 
   .site-header__logo {
     order: 1;
-    width: 54px;
-    height: 58px;
+    width: 64px;
+    height: 64px;
     margin: 0;
-    overflow: hidden;
+    overflow: visible;
     justify-content: flex-start;
+  }
+
+  .site-header__logo picture {
+    left: 0;
+    right: auto;
+    top: 0;
+    width: 64px;
+    height: 64px;
   }
 
   .site-header__logo-image {
     left: 0;
     right: auto;
-    width: 132px;
+    top: 0;
+    width: 64px;
     max-width: none;
   }
 
+  .site-header__logo-image--default {
+    content: url("../assets/imgs/Header/logo responsive.png");
+  }
+
+  .site-header__logo-image--hover {
+    display: none;
+  }
+
+  .site-header__logo:hover .site-header__logo-image--default,
+  .site-header__logo:focus-visible .site-header__logo-image--default {
+    opacity: 1;
+    transform: none;
+  }
+
   .site-header__menu-toggle {
+    position: relative;
+    z-index: 1003;
     order: 2;
     width: 44px;
     height: 44px;
@@ -321,43 +358,39 @@
     height: 2px;
     border-radius: 999px;
     background: var(--accent);
-    transition: transform 0.24s ease, opacity 0.24s ease;
+    transition: opacity 0.24s ease;
   }
 
-  body.mobile-menu-open .site-header__menu-toggle span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  body.mobile-menu-open .site-header__menu-toggle span:nth-child(2) {
-    opacity: 0;
-  }
-
+  body.mobile-menu-open .site-header__menu-toggle span:nth-child(1),
+  body.mobile-menu-open .site-header__menu-toggle span:nth-child(2),
   body.mobile-menu-open .site-header__menu-toggle span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    opacity: 1;
+    transform: none;
   }
 
   .site-header__left {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 59px;
+    right: 14px;
     left: auto;
-    z-index: 1001;
-    width: 176px;
-    min-height: 220px;
-    padding: 32px 0 22px;
-    border: 1px solid rgba(57, 232, 212, 0.88);
-    border-radius: 0 0 0 24px;
+    z-index: 1002;
+    width: 238px;
+    min-height: 252px;
+    padding: 42px 0 37px;
+    border: 1px solid var(--accent);
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 28px;
     background:
-      radial-gradient(circle at 100% 0%, rgba(57, 232, 212, 0.18), transparent 54%),
-      linear-gradient(180deg, rgba(13, 31, 29, 0.98), rgba(23, 24, 24, 0.98));
-    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.46);
+      radial-gradient(circle at 100% 0%, rgba(57, 232, 212, 0.2), transparent 52%),
+      linear-gradient(105deg, rgba(28, 29, 29, 0.98) 0%, rgba(25, 27, 27, 0.98) 43%, rgba(5, 66, 56, 0.98) 100%);
+    box-shadow: none;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-12px);
+    transform: translateY(-8px);
     transition: opacity 0.24s ease, transform 0.24s ease;
   }
 
@@ -372,12 +405,12 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 29px;
   }
 
   .site-header__link {
     width: auto;
-    min-height: 18px;
+    min-height: 20px;
     justify-content: center;
   }
 
@@ -388,8 +421,10 @@
     background: none !important;
     transform: none;
     font-family: "IBM Plex Mono", monospace;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     color: #ffffff;
   }
 
@@ -418,8 +453,7 @@
   }
 
   .site-header__link:hover::before,
-  .site-header__link:focus-visible::before,
-  .site-header__link.is-active::before {
+  .site-header__link:focus-visible::before {
     color: var(--accent);
     transform: none;
   }
@@ -430,10 +464,13 @@
 
   .site-header__lang-button {
     order: 2;
+    width: 84px;
+    height: 30px;
+    margin-top: 2px;
   }
 
-  .site-header__lang-button,
   .site-header__lang-switch {
-    width: 64px;
+    width: 84px;
+    height: auto;
   }
 }

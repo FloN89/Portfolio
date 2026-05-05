@@ -426,6 +426,20 @@
   .skills-btn {
     min-width: 122px;
     height: 48px;
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(57, 232, 212, 0.05);
+  }
+
+  .skills-btn .skills-btn__marquee {
+    animation: skills-button-text-run 1.8s linear infinite;
+  }
+
+  .skills-btn:hover,
+  .skills-btn:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(57, 232, 212, 0.05);
   }
 
   .skills-grid {
@@ -469,26 +483,17 @@
 
 @media (max-width: 360px) {
   .skills-grid {
-    gap: 30px 12px;
+    gap: 30px 14px;
   }
 
   .skill-icon-wrap {
-    width: 58px;
-    height: 58px;
+    width: 60px;
+    height: 60px;
   }
 
   .skill-icon {
-    width: 48px;
-    height: 48px;
-  }
-
-  .skill-name {
-    font-size: 14px;
-  }
-
-  .skills-card {
-    padding-right: 22px;
-    padding-left: 22px;
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -505,11 +510,5 @@
 
   88% {
     transform: scale(0.97);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skill-icon-wrap {
-    animation: none;
   }
 }

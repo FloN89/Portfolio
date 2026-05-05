@@ -82,11 +82,18 @@
     </div>
 
     <a href="#hero" class="site-header__logo" aria-label="Florian Narr Startseite">
-      <img
-        src="assets/imgs/header/Logo Portfolio.png"
-        alt="Florian Narr Logo"
-        class="site-header__logo-image site-header__logo-image--default"
-      />
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="assets/imgs/Header/logo responsive.png"
+        />
+        <img
+          src="assets/imgs/header/Logo Portfolio.png"
+          alt="Florian Narr Logo"
+          class="site-header__logo-image site-header__logo-image--default"
+        />
+      </picture>
+
       <img
         src="assets/imgs/header/logo portfolio hover.png"
         alt="Florian Narr Logo"
@@ -532,7 +539,8 @@
               />
               <span class="contact-checkbox__visual" aria-hidden="true"></span>
               <span class="contact-checkbox__text">
-                I&apos;ve read the <a href="#" class="contact-checkbox__privacy-link" aria-label="Privacy policy"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="privacy policy" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> and agree to the processing of my data as outlined.
+                I&apos;ve read the <a href="#" class="contact-checkbox__privacy-link" aria-label="Privacy policy"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="privacy policy" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> and agree to the processing of my
+                data as outlined.
               </span>
             </label>
           </div>
@@ -544,38 +552,38 @@
   </main>
 
   <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div class="site-footer__left">
-        <a href="#hero" class="site-footer__brand" aria-label="Zur Startseite">
-          <img
-            src="assets/imgs/header/Logo Portfolio.png"
-            alt="Florian Narr Logo"
-            class="site-footer__logo-image site-footer__logo-image--default"
-          />
-          <img
-            src="assets/imgs/header/logo portfolio hover.png"
-            alt="Florian Narr Logo"
-            class="site-footer__logo-image site-footer__logo-image--hover"
-          />
-        </a>
+  <div class="site-footer__inner">
+    <div class="site-footer__left">
+      <a href="#hero" class="site-footer__brand" aria-label="Back to homepage">
+        <img
+          src="assets/imgs/footer/Logo.png"
+          alt="Florian Narr Logo"
+          class="site-footer__logo-image site-footer__logo-image--default"
+        />
+        <img
+          src="assets/imgs/footer/Logo hover.png"
+          alt="Florian Narr Logo"
+          class="site-footer__logo-image site-footer__logo-image--hover"
+        />
+      </a>
 
-        <div class="site-footer__meta">
-          <span>Web Developer</span>
-          <span>Rosenheim Germany</span>
-        </div>
+      <div class="site-footer__meta">
+        <span>Web Developer</span>
+        <span>Rosenheim Germany</span>
       </div>
-
-      <div class="site-footer__center">
-        <span>© Florian Narr 2025</span>
-      </div>
-
-      <nav class="site-footer__nav" aria-label="Footer Navigation">
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Github</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:hello@floriannarr.dev">Email</a>
-        <a href="#">Legal Notice</a>
-      </nav>
     </div>
-  </footer>
+
+    <div class="site-footer__center">
+      <span>© Florian Narr 2025</span>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      <a href="#about">About me</a>
+      <a href="#skills">Skill Set</a>
+      <a href="#projects">Projects</a>
+      <a href="#">Legal Notice</a>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>

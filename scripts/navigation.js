@@ -17,10 +17,12 @@ function setActiveHeaderNavigationLink(hash) {
 function getCurrentHeaderNavigationHash() {
   const activationLine = Math.min(window.innerHeight * 0.42, 320);
   let currentHash = "#about";
+
   headerNavigationSectionIds.forEach((sectionId) => {
     const section = document.getElementById(sectionId);
     if (section?.getBoundingClientRect().top <= activationLine) currentHash = `#${sectionId}`;
   });
+
   return currentHash;
 }
 
@@ -53,9 +55,11 @@ function getInitialHeaderNavigationHash() {
 function initializeHeaderNavigation() {
   const nav = document.querySelector(".site-header__nav");
   if (!nav) return;
+
   nav.addEventListener("click", handleHeaderNavigationClick);
   window.addEventListener("scroll", requestHeaderNavigationScrollUpdate, { passive: true });
   window.addEventListener("resize", requestHeaderNavigationScrollUpdate);
+
   setActiveHeaderNavigationLink(getInitialHeaderNavigationHash());
   requestHeaderNavigationScrollUpdate();
 }
@@ -75,15 +79,20 @@ function isMobileMenuOpen() {
 function refreshMobileMenuLabel() {
   const menuButton = document.querySelector(".site-header__menu-toggle");
   const labels = getMobileMenuLabels();
+
   if (!menuButton) return;
+
   menuButton.setAttribute("aria-label", isMobileMenuOpen() ? labels.close : labels.open);
 }
 
 /* Set the open or closed state of the mobile menu. */
 function setMobileMenuState(isOpen) {
   const menuButton = document.querySelector(".site-header__menu-toggle");
+
   document.body.classList.toggle("mobile-menu-open", isOpen);
+
   if (menuButton) menuButton.setAttribute("aria-expanded", String(isOpen));
+
   refreshMobileMenuLabel();
 }
 
@@ -107,6 +116,22 @@ function handleMobileMenuKeydown(event) {
   if (event.key === "Escape") closeMobileMenu();
 }
 
+/* Check if a click happened outside the responsive menu and burger button. */
+function isMobileMenuOutsideClick(event, mobileMenu, menuButton) {
+  if (!isMobileMenuOpen()) return false;
+  if (!(event.target instanceof Element)) return false;
+
+  const clickedInsideMenu = mobileMenu.contains(event.target);
+  const clickedMenuButton = menuButton.contains(event.target);
+
+  return !clickedInsideMenu && !clickedMenuButton;
+}
+
+/* Close the responsive menu when clicking outside. */
+function handleMobileMenuOutsideClick(event, mobileMenu, menuButton) {
+  if (isMobileMenuOutsideClick(event, mobileMenu, menuButton)) closeMobileMenu();
+}
+
 /* Close the mobile menu after a menu link click. */
 function registerMobileMenuLinks(mobileMenu) {
   mobileMenu.querySelectorAll("a").forEach((link) => {
@@ -118,12 +143,17 @@ function registerMobileMenuLinks(mobileMenu) {
 function initializeMobileHeaderMenu() {
   const menuButton = document.querySelector(".site-header__menu-toggle");
   const mobileMenu = document.getElementById("siteHeaderMobileMenu");
+
   if (!menuButton || !mobileMenu) return;
+
   refreshMobileMenuLabel();
+
   menuButton.addEventListener("click", toggleMobileMenu);
   registerMobileMenuLinks(mobileMenu);
+
   window.addEventListener("resize", handleMobileMenuResize);
   document.addEventListener("keydown", handleMobileMenuKeydown);
+  document.addEventListener("click", (event) => handleMobileMenuOutsideClick(event, mobileMenu, menuButton));
 }
 
 const navigationApplyPageLanguage = applyPageLanguage;
