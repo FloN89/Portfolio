@@ -349,8 +349,183 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1180px) {
+  .hero {
+    padding-bottom: 82px;
+  }
+
+  .hero__inner {
+    min-height: 790px;
+    padding-top: 108px;
+    padding-bottom: 146px;
+  }
+
+  .hero__center {
+    max-width: 780px;
+    transform: translateY(-26px);
+  }
+
+  .hero__title {
+    font-size: clamp(78px, 9.4vw, 112px);
+  }
+
+  .hero__role {
+    font-size: clamp(21px, 2.7vw, 31px);
+  }
+
+  .hero__actions {
+    gap: 34px;
+  }
+
+  .hero__left-rail .hero__rail-line {
+    height: 184px;
+  }
+
+  .hero__right-rail .hero__rail-line {
+    height: 156px;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero__inner {
+    min-height: 760px;
+    padding: 110px 56px 142px;
+  }
+
+  .hero__left-rail {
+    left: 56px;
+  }
+
+  .hero__right-rail {
+    right: 56px;
+  }
+
+  .hero__title {
+    font-size: clamp(72px, 10vw, 96px);
+  }
+
+  .hero__actions {
+    gap: 26px;
+    margin-top: 38px;
+  }
+
+  .hero__rail-label {
+    display: none;
+  }
+
   .hero__social-link--email {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-top: -104px;
+    padding-bottom: 68px;
+  }
+
+  .hero__inner {
+    width: 100%;
+    min-height: max(840px, 100svh);
+    padding: 104px 14px 110px;
+    align-items: center;
+  }
+
+  .hero__center {
+    max-width: 100%;
+    transform: translateY(28px);
+  }
+
+  .hero__role {
+    margin-bottom: 16px;
+    font-size: clamp(20px, 6vw, 24px);
+    letter-spacing: 0.08em;
+  }
+
+  .hero__title {
+    font-size: clamp(42px, 13.4vw, 58px);
+    line-height: 0.95;
+    letter-spacing: -0.075em;
+    white-space: nowrap;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    gap: clamp(16px, 5.8vw, 24px);
+    margin-top: 36px;
+  }
+
+  .hero__button {
+    width: min(152px, calc((100vw - 64px) / 2));
+    min-width: 0;
+    height: 47px;
+    padding: 0 16px;
+    font-size: 15px;
+  }
+
+  .hero__left-rail,
+  .hero__right-rail {
+    display: flex;
+    bottom: 0;
+  }
+
+  .hero__left-rail {
+    left: 14px;
+  }
+
+  .hero__right-rail {
+    right: 14px;
+  }
+
+  .hero__arrow,
+  .hero__arrow-bg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero__left-rail .hero__rail-line {
+    height: 224px;
+    margin-top: 24px;
+  }
+
+  .hero__right-rail .hero__rail-line {
+    height: 112px;
+    margin-top: 26px;
+  }
+
+  .hero__socials {
+    gap: 12px;
+  }
+
+  .hero__social-link {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero__ticker-wrap {
+    bottom: 32px;
+  }
+
+  .hero__ticker {
+    padding: 13px 0;
+  }
+
+  .hero__ticker-track {
+    gap: 34px;
+  }
+
+  .hero__ticker-item {
+    font-size: clamp(18px, 5.3vw, 22px);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero__title {
+    font-size: 42px;
+  }
+
+  .hero__button {
+    width: calc((100vw - 56px) / 2);
+    font-size: 14px;
   }
 }

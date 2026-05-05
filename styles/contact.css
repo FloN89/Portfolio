@@ -284,3 +284,125 @@
   transform: translateY(-2px);
   outline: none;
 }
+
+.contact-form__status {
+  margin: 28px 0 -22px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+  color: rgba(241, 241, 237, 0.86);
+}
+
+.contact-form__status[hidden] {
+  display: none;
+}
+
+.contact-form__status.is-success {
+  color: var(--accent);
+}
+
+.contact-form__status.is-error {
+  color: #ff7b7b;
+}
+
+.contact-form__submit:disabled,
+.contact-form__submit.is-loading {
+  cursor: wait;
+  opacity: 0.62;
+  transform: none;
+}
+
+@media (max-width: 1180px) {
+  .contact-section {
+    padding-bottom: var(--responsive-section-gap);
+  }
+
+  .contact-shell {
+    width: min(1248px, calc(100% - var(--responsive-gutter)));
+    max-width: 920px;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .contact-title {
+    max-width: 100%;
+  }
+
+  .contact-form {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding-bottom: 92px;
+  }
+
+  .contact-shell {
+    width: calc(100% - var(--responsive-gutter));
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-copy {
+    padding-top: 0;
+  }
+
+  .contact-eyebrow {
+    margin-bottom: 18px;
+    font-size: 18px;
+  }
+
+  .contact-title {
+    max-width: 100%;
+    margin-bottom: 30px;
+    font-size: clamp(44px, 15vw, 58px);
+    line-height: 0.9;
+  }
+
+  .contact-subtitle {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .contact-text {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .contact-form {
+    max-width: none;
+  }
+
+  .contact-form__field {
+    min-height: 0;
+    padding: 29px 0;
+  }
+
+  .contact-form__label {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .contact-form__input,
+  .contact-form__textarea {
+    font-size: 15px;
+  }
+
+  .contact-form__privacy {
+    padding: 36px 0 0;
+  }
+
+  .contact-checkbox {
+    grid-template-columns: 18px 1fr;
+    gap: 14px;
+  }
+
+  .contact-form__submit {
+    align-self: center;
+    min-width: 138px;
+    height: 48px;
+    margin-top: 42px;
+  }
+}

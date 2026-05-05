@@ -188,3 +188,252 @@
 .site-header__link:focus-visible {
   outline-offset: 10px;
 }
+
+.site-header__menu-toggle {
+  display: none;
+}
+
+@media (max-width: 1320px) {
+  .site-header__inner,
+  .site-header__left,
+  .site-header__nav {
+    gap: 22px;
+  }
+
+  .site-header__link,
+  .site-header__link::before {
+    width: 102px;
+  }
+
+  .site-header__logo,
+  .site-header__logo-image {
+    width: 140px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .site-header__inner {
+    min-height: 74px;
+  }
+
+  .site-header__lang-button,
+  .site-header__lang-switch {
+    width: 76px;
+  }
+
+  .site-header__nav {
+    gap: 16px;
+  }
+
+  .site-header__link,
+  .site-header__link::before {
+    width: 92px;
+  }
+
+  .site-header__link {
+    min-height: 40px;
+  }
+
+  .site-header__link::before {
+    height: 20px;
+  }
+
+  .site-header__logo,
+  .site-header__logo-image {
+    width: 126px;
+  }
+
+  .site-header__logo {
+    height: 50px;
+  }
+}
+
+@media (max-width: 980px) {
+  .site-header__inner,
+  .site-header__left {
+    gap: 18px;
+  }
+
+  .site-header__nav {
+    gap: 12px;
+  }
+
+  .site-header__link,
+  .site-header__link::before {
+    width: 82px;
+  }
+
+  .site-header__link-hover {
+    top: 100%;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-header__inner {
+    position: relative;
+    width: calc(100% - var(--responsive-gutter));
+    min-height: 104px;
+    padding: 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .site-header__logo {
+    order: 1;
+    width: 54px;
+    height: 58px;
+    margin: 0;
+    overflow: hidden;
+    justify-content: flex-start;
+  }
+
+  .site-header__logo-image {
+    left: 0;
+    right: auto;
+    width: 132px;
+    max-width: none;
+  }
+
+  .site-header__menu-toggle {
+    order: 2;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: transparent;
+  }
+
+  .site-header__menu-toggle span {
+    width: 34px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--accent);
+    transition: transform 0.24s ease, opacity 0.24s ease;
+  }
+
+  body.mobile-menu-open .site-header__menu-toggle span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  body.mobile-menu-open .site-header__menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.mobile-menu-open .site-header__menu-toggle span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .site-header__left {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: 1001;
+    width: 176px;
+    min-height: 220px;
+    padding: 32px 0 22px;
+    border: 1px solid rgba(57, 232, 212, 0.88);
+    border-radius: 0 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(57, 232, 212, 0.18), transparent 54%),
+      linear-gradient(180deg, rgba(13, 31, 29, 0.98), rgba(23, 24, 24, 0.98));
+    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.46);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.24s ease, transform 0.24s ease;
+  }
+
+  body.mobile-menu-open .site-header__left {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .site-header__nav {
+    order: 1;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .site-header__link {
+    width: auto;
+    min-height: 18px;
+    justify-content: center;
+  }
+
+  .site-header__link::before {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none !important;
+    transform: none;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    line-height: 1;
+    color: #ffffff;
+  }
+
+  .site-header__link[href="#about"]::before {
+    content: "About me";
+  }
+
+  .site-header__link[href="#skills"]::before {
+    content: "Skills";
+  }
+
+  .site-header__link[href="#projects"]::before {
+    content: "Projects";
+  }
+
+  html[lang="de"] .site-header__link[href="#about"]::before {
+    content: "Über mich";
+  }
+
+  html[lang="de"] .site-header__link[href="#skills"]::before {
+    content: "Skills";
+  }
+
+  html[lang="de"] .site-header__link[href="#projects"]::before {
+    content: "Projekte";
+  }
+
+  .site-header__link:hover::before,
+  .site-header__link:focus-visible::before,
+  .site-header__link.is-active::before {
+    color: var(--accent);
+    transform: none;
+  }
+
+  .site-header__link-hover {
+    display: none;
+  }
+
+  .site-header__lang-button {
+    order: 2;
+  }
+
+  .site-header__lang-button,
+  .site-header__lang-switch {
+    width: 64px;
+  }
+}

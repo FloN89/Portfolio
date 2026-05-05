@@ -29,25 +29,26 @@
   width: 100%;
   margin-left: 0;
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: center;
   gap: 42px;
 }
 
 .reference-card {
   position: relative;
-  flex: 0 0 360px;
-  min-height: 276px;
-  padding: 40px 34px 28px;
+  flex: 0 1 330px;
+  min-height: 0;
+  padding: 34px 30px 26px;
   border-radius: 30px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease, flex-basis 0.35s ease;
 }
 
 .reference-card--active {
-  flex-basis: 634px;
+  flex: 1 1 560px;
+  max-width: 560px;
   border: 1px solid rgba(57, 232, 212, 0.82);
   background: linear-gradient(
     180deg,
@@ -60,6 +61,8 @@
 }
 
 .reference-card--side {
+  flex: 0 1 300px;
+  max-width: 300px;
   border: 1px solid rgba(57, 232, 212, 0.42);
   background: linear-gradient(
     90deg,
@@ -67,15 +70,15 @@
     rgba(8, 14, 16, 0.98) 100%
   );
   opacity: 0.58;
-  transform: translateY(12px);
+  transform: translateY(10px);
 }
 
 .reference-card__quote {
   position: absolute;
-  top: -6px;
-  left: 22px;
+  top: -10px;
+  left: 20px;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 136px;
+  font-size: 118px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.96);
   pointer-events: none;
@@ -88,10 +91,10 @@
 .reference-card__text {
   position: relative;
   z-index: 1;
-  margin: 22px 0 34px;
+  margin: 18px 0 28px;
   font-family: "Inter", sans-serif;
-  font-size: 17px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.48;
   color: rgba(255, 255, 255, 0.94);
 }
 
@@ -101,19 +104,19 @@
   margin-top: auto;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .reference-card__line {
   flex: 1;
-  max-width: 340px;
+  max-width: 280px;
   height: 1px;
   background: rgba(255, 255, 255, 0.62);
 }
 
 .reference-card__author {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.94);
   text-align: right;
@@ -205,4 +208,153 @@
   outline: 1px solid rgba(57, 232, 212, 0.88);
   outline-offset: 6px;
   border-radius: 999px;
+}
+
+@media (max-width: 1320px) {
+  .reference-card {
+    padding: 38px 30px 28px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .references-section {
+    padding-bottom: var(--responsive-section-gap);
+  }
+
+  .references-shell {
+    width: min(1440px, calc(100% - var(--responsive-gutter)));
+    max-width: 1000px;
+  }
+
+  .reference-card--side {
+    flex-basis: clamp(180px, 22vw, 250px);
+  }
+
+  .reference-card--active {
+    flex-basis: clamp(420px, 48vw, 520px);
+    max-width: 520px;
+  }
+
+  .reference-card__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 980px) {
+  .references-stage {
+    gap: 0;
+  }
+
+  .reference-card--side {
+    display: none;
+  }
+
+  .reference-card--active {
+    flex: 1 1 100%;
+    max-width: 620px;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .references-section {
+    padding-bottom: 88px;
+  }
+
+  .references-shell {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .references-eyebrow {
+    width: calc(100% - var(--responsive-gutter));
+    margin: 0 auto 30px;
+    font-size: clamp(24px, 7.2vw, 30px);
+    line-height: 1.25;
+  }
+
+  .references-stage {
+    width: max-content;
+    margin-left: 50%;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    overflow: visible;
+    transform: translateX(-50%);
+  }
+
+  .reference-card--side {
+    flex: 0 0 clamp(46px, 11vw, 62px);
+    min-height: 220px;
+    padding: 0;
+    display: flex;
+    opacity: 1;
+    border: 1px solid rgba(57, 232, 212, 0.55);
+    border-radius: 30px;
+    background: linear-gradient(180deg, rgba(31, 84, 77, 0.96), rgba(24, 72, 67, 0.96));
+    transform: none;
+  }
+
+  .reference-card--side > * {
+    opacity: 0;
+  }
+
+  .reference-card--active {
+    flex: 0 1 clamp(286px, 78vw, 350px);
+    max-width: clamp(286px, 78vw, 350px);
+    min-height: 0;
+  }
+
+  .reference-card {
+    padding: 42px 30px 26px;
+    border-radius: 30px;
+  }
+
+  .reference-card__quote {
+    top: -16px;
+    left: 18px;
+    font-size: 112px;
+  }
+
+  .reference-card__text {
+    margin: 0 0 30px;
+    font-size: 15.5px;
+    line-height: 1.38;
+  }
+
+  .reference-card__line {
+    max-width: 92px;
+  }
+
+  .reference-card__author {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .references-controls {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .reference-card {
+    padding: 38px 24px 24px;
+  }
+
+  .reference-card--active {
+    flex-basis: clamp(270px, 78vw, 310px);
+    max-width: clamp(270px, 78vw, 310px);
+  }
+}
+
+@media (max-width: 360px) {
+  .reference-card {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .reference-card--active {
+    flex-basis: calc(100vw - 74px);
+    max-width: calc(100vw - 74px);
+  }
 }
