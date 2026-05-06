@@ -142,7 +142,7 @@ const referencesData = [
 
 const languageSwitchImages = {
   en: {
-    default: "/assets/imgs/Header/Language_switch.png",
+    default: "/assets/imgs/Header/Language _switch.png",
     hover: "/assets/imgs/Header/Property 1=Default hover.png"
   },
   de: {
