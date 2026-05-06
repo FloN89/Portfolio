@@ -60,10 +60,10 @@ const projectsData = [
     title: { en: "Join", de: "Join" },
     stack: ["CSS", "HTML", "Firebase", "JavaScript"],
     githubUrl: "https://github.com/FloN89/Join.git",
-    liveUrl: "",
+    liveUrl: "https://join.florian-narr.de/",
     preview: {
       type: "image",
-      src: "assets/imgs/projects/Rectangle 30.png",
+      src: "/assets/imgs/projects/Rectangle 30.png",
       alt: { en: "Join project preview", de: "Join Projektvorschau" }
     },
     overlayQuestion: {
@@ -80,10 +80,10 @@ const projectsData = [
     title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     stack: ["HTML", "CSS", "JavaScript"],
     githubUrl: "https://github.com/FloN89/El-Pollo-Loco.git",
-    liveUrl: "",
+    liveUrl: "https://el-pollo-loco.florian-narr.de/",
     preview: {
       type: "image",
-      src: "assets/imgs/projects/El Pollo.png",
+      src: "/assets/imgs/projects/El Pollo.png",
       alt: { en: "El Pollo Loco project preview", de: "El Pollo Loco Projektvorschau" }
     },
     overlayQuestion: {
@@ -142,12 +142,12 @@ const referencesData = [
 
 const languageSwitchImages = {
   en: {
-    default: "assets/imgs/header/3. Language switch.png",
-    hover: "assets/imgs/Header/Property 1=Default hover.png"
+    default: "/assets/imgs/header/3. Language switch.png",
+    hover: "/assets/imgs/Header/Property 1=Default hover.png"
   },
   de: {
-    default: "assets/imgs/Header/Property 1=Deutsch.png",
-    hover: "assets/imgs/Header/Property 1=Deutsch hover.png"
+    default: "/assets/imgs/Header/Property 1=Deutsch.png",
+    hover: "/assets/imgs/Header/Property 1=Deutsch hover.png"
   }
 };
 
