@@ -325,7 +325,7 @@
   }
 
   .site-header__logo-image--default {
-    content: url("../assets/imgs/Header/logo responsive.png");
+    content: url("../assets/imgs/Header/logo_responsive.png");
   }
 
   .site-header__logo-image--hover {
