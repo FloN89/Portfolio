@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Florian Narr</title>
+
+  <link rel="icon" type="image/png" href="../assets/imgs/Header/logo responsive.png" />
+
+  <link rel="preload" href="../Karla-Regular.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="../Karla-Bold.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="../FiraCode-Bold.ttf" as="font" type="font/ttf" crossorigin />
+
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+  <link rel="stylesheet" href="../styles/legal.css" />
+
+  <script src="../scripts/privacy.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__left" id="siteHeaderMobileMenu">
+        <button
+          class="site-header__lang-button"
+          type="button"
+          aria-label="Switch language to German"
+          aria-pressed="false"
+        >
+          <img
+            src="../assets/imgs/header/3. Language switch.png"
+            alt="Language switch"
+            class="site-header__lang-switch"
+          />
+        </button>
+
+        <nav class="site-header__nav" aria-label="Main navigation">
+          <a href="#about" class="site-header__link" aria-label="About me">
+            <img
+              class="site-header__link-hover"
+              src="../assets/imgs/Header/radio_button_unchecked.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
+
+          <a href="#skills" class="site-header__link" aria-label="Skills">
+            <img
+              class="site-header__link-hover"
+              src="../assets/imgs/Header/radio_button_unchecked.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
+
+          <a href="#projects" class="site-header__link" aria-label="Projects">
+            <img
+              class="site-header__link-hover"
+              src="../assets/imgs/Header/radio_button_unchecked.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </a>
+        </nav>
+      </div>
+
+      <a href="../index.html#hero" class="site-header__logo" aria-label="Florian Narr homepage">
+        <picture>
+          <img
+            src="../assets/imgs/Header/Logo Portfolio.png"
+            alt="Florian Narr Logo"
+            class="site-header__logo-image site-header__logo-image--default"
+          />
+          <img
+            src="../assets/imgs/Header/logo portfolio hover.png"
+            alt="Florian Narr Logo"
+            class="site-header__logo-image site-header__logo-image--hover"
+          />
+        </picture>
+      </a>
+
+      <button
+        class="site-header__menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="siteHeaderMobileMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="legal-page">
+    <a href="../index.html#contact" class="legal-page__back" aria-label="Back to homepage">←</a>
+
+    <section class="legal-notice" aria-labelledby="privacyNoticeTitle">
+      <h1 class="legal-notice__title" id="privacyNoticeTitle">Privacy Policy</h1>
+
+      <div class="legal-notice__content" id="privacyNoticeContent">
+        <section class="legal-notice__block">
+          <h2>1. Controller</h2>
+          <p>The controller responsible for data processing on this website is:</p>
+          <ul>
+            <li>Florian Narr</li>
+            <li>Grafenwandstrasse 8</li>
+            <li>83088 Kiefersfelden</li>
+            <li>Germany</li>
+            <li>Email: <a href="mailto:f.narr@gmx.de">f.narr@gmx.de</a></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__left">
+        <a href="../index.html#hero" class="site-footer__brand" aria-label="Back to homepage">
+          <img
+            src="../assets/imgs/Header/Logo Portfolio.png"
+            alt="Florian Narr Logo"
+            class="site-footer__logo-image site-footer__logo-image--default"
+          />
+          <img
+            src="../assets/imgs/Header/logo portfolio hover.png"
+            alt="Florian Narr Logo"
+            class="site-footer__logo-image site-footer__logo-image--hover"
+          />
+        </a>
+
+        <div class="site-footer__meta">
+          <span>Web Developer</span>
+          <span>Rosenheim Germany</span>
+        </div>
+      </div>
+
+      <div class="site-footer__center">
+        <span>© Florian Narr 2026</span>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="#about">About me</a>
+        <a href="#skills">Skill Set</a>
+        <a href="#projects">Projects</a>
+        <a href="./legal.html">Legal Notice</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

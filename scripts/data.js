@@ -59,7 +59,7 @@ const projectsData = [
     identifier: "join",
     title: { en: "Join", de: "Join" },
     stack: ["CSS", "HTML", "Firebase", "JavaScript"],
-    githubUrl: "https://github.com/FloN89",
+    githubUrl: "https://github.com/FloN89/Join.git",
     liveUrl: "",
     preview: {
       type: "image",
@@ -79,7 +79,7 @@ const projectsData = [
     identifier: "el-pollo-loco",
     title: { en: "El Pollo Loco", de: "El Pollo Loco" },
     stack: ["HTML", "CSS", "JavaScript"],
-    githubUrl: "https://github.com/FloN89",
+    githubUrl: "https://github.com/FloN89/El-Pollo-Loco.git",
     liveUrl: "",
     preview: {
       type: "image",
@@ -99,7 +99,7 @@ const projectsData = [
     identifier: "memory-game",
     title: { en: "Memory", de: "Memory" },
     stack: ["Angular", "Firebase", "TypeScript"],
-    githubUrl: "https://github.com/FloN89",
+    githubUrl: "",
     liveUrl: "",
     preview: {
       type: "text",
@@ -227,7 +227,7 @@ const pageTranslations = {
         "youremail@email.com",
         "Hello Florian, I am interested in..."
       ],
-      privacy: 'I&apos;ve read the <a href="#" class="contact-checkbox__privacy-link" aria-label="Privacy policy"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="privacy policy" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> and agree to the processing of my data as outlined.',
+      privacy: 'I&apos;ve read the <a href="/html/privacy.html#en" class="contact-checkbox__privacy-link" aria-label="Privacy policy"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="privacy policy" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> and agree to the processing of my data as outlined.',
       button: "Say Hello ;)",
       errors: {
         name: "Oops! it seems your name is missing",
@@ -319,7 +319,7 @@ const pageTranslations = {
         "deineemail@email.com",
         "Hallo Florian, ich interessiere mich für..."
       ],
-      privacy: 'Ich habe die <a href="#" class="contact-checkbox__privacy-link" aria-label="Datenschutzerklärung"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="Datenschutzerklärung" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
+      privacy: 'Ich habe die <a href="/html/privacy.html#de" class="contact-checkbox__privacy-link" aria-label="Datenschutzerklärung"><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--default" src="assets/imgs/contact form/privacy policy.png" alt="Datenschutzerklärung" /><img class="contact-checkbox__privacy-img contact-checkbox__privacy-img--hover" src="assets/imgs/contact form/privacy policy-1.png" alt="" aria-hidden="true" /></a> gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
       button: "Absenden ;)",
       errors: {
         name: "Oops! Dein Name fehlt.",

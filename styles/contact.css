@@ -406,3 +406,35 @@
     margin-top: 42px;
   }
 }
+
+.contact-form__input:-webkit-autofill,
+.contact-form__textarea:-webkit-autofill,
+.contact-form__input:-webkit-autofill:hover,
+.contact-form__textarea:-webkit-autofill:hover,
+.contact-form__input:-webkit-autofill:focus,
+.contact-form__textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(14, 24, 23, 0.98) inset;
+  -webkit-text-fill-color: #ffffff;
+  caret-color: #ffffff;
+  border-color: var(--accent);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.contact-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+  transform: none;
+}
+
+.contact-form__submit:disabled:hover,
+.contact-form__submit:disabled:focus-visible {
+  color: rgba(241, 241, 237, 0.78);
+  border-color: rgba(241, 241, 237, 0.68);
+  transform: none;
+}
+
+.contact-form__submit.is-loading {
+  cursor: wait;
+  opacity: 0.62;
+  transform: none;
+}

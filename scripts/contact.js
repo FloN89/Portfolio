@@ -14,6 +14,9 @@ const contactStatusMessages = {
 
 let contactStatusElement = null;
 let currentContactStatusState = null;
+let contactFormElement = null;
+let contactSubmitButton = null;
+let contactFormIsSubmitting = false;
 
 /* Return localized validation messages for the contact form. */
 function getContactErrorMessages() {
@@ -132,6 +135,32 @@ function isValidEmailAddress(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+/* Return the trimmed value of a contact control. */
+function getContactControlValue(control) {
+  return String(control.input.value || "").trim();
+}
+
+/* Check a control without showing an error. */
+function isContactControlValid(control) {
+  if (control.errorKey === "privacy") return control.input.checked;
+
+  const value = getContactControlValue(control);
+  if (!value) return false;
+  if (control.errorKey === "email") return isValidEmailAddress(value);
+  return true;
+}
+
+/* Check if every contact form control is valid. */
+function isContactFormValid() {
+  return contactValidationControls.length > 0 && contactValidationControls.every(isContactControlValid);
+}
+
+/* Enable the submit button only when all form fields are valid. */
+function updateContactSubmitButtonState() {
+  if (!contactSubmitButton) return;
+  contactSubmitButton.disabled = contactFormIsSubmitting || !isContactFormValid();
+}
+
 /* Return the required-message text for one validation control. */
 function getRequiredContactMessage(control, messages) {
   if (control.errorKey === "email") return messages.emailRequired;
@@ -164,7 +193,7 @@ function showInvalidContactEmail(control, messages) {
 /* Validate one standard contact form field. */
 function validateContactField(control) {
   const messages = getContactErrorMessages();
-  const value = control.input.value.trim();
+  const value = getContactControlValue(control);
   if (!value) return showEmptyContactField(control, messages);
   if (hasInvalidContactEmail(control, value)) return showInvalidContactEmail(control, messages);
   hideContactError(control);
@@ -188,6 +217,13 @@ function validateContactControl(control) {
   return validateContactField(control);
 }
 
+/* Validate a single control and update the submit button. */
+function validateContactControlAndRefresh(control) {
+  const isValid = validateContactControl(control);
+  updateContactSubmitButtonState();
+  return isValid;
+}
+
 /* Focus the first invalid contact form control. */
 function focusFirstInvalidControl(validationResults) {
   const invalidControl = contactValidationControls.find((control, index) => !validationResults[index]);
@@ -198,6 +234,7 @@ function focusFirstInvalidControl(validationResults) {
 /* Validate the whole contact form before submit. */
 function validateContactForm() {
   const validationResults = contactValidationControls.map(validateContactControl);
+  updateContactSubmitButtonState();
   if (focusFirstInvalidControl(validationResults)) return false;
   return true;
 }
@@ -215,9 +252,10 @@ function getContactFormPayload(form) {
 /* Toggle the loading state of the submit button. */
 function setContactFormPendingState(form, isPending) {
   const submitButton = form.querySelector(".contact-form__submit");
+  contactFormIsSubmitting = isPending;
   if (!submitButton) return;
-  submitButton.disabled = isPending;
   submitButton.classList.toggle("is-loading", isPending);
+  updateContactSubmitButtonState();
 }
 
 /* Create fetch options for the contact form request. */
@@ -258,6 +296,7 @@ function handleContactSubmitSuccess(form) {
   form.reset();
   contactValidationControls.forEach(hideContactError);
   updateContactStatus("success");
+  updateContactSubmitButtonState();
 }
 
 /* Send the form and update the status state. */
@@ -288,6 +327,7 @@ function refreshContactValidationMessages() {
   contactValidationControls.forEach((control) => {
     if (!control.errorElement.hidden) validateContactControl(control);
   });
+  updateContactSubmitButtonState();
 }
 
 /* Create every validation control for the contact form. */
@@ -305,16 +345,23 @@ function validateVisibleContactError(control) {
   if (!control.errorElement.hidden) validateContactControl(control);
 }
 
-/* Reset status and validate a changed contact control. */
-function handleContactControlChange(control) {
+/* Reset status, refresh the submit button and keep visible errors current while typing. */
+function handleContactControlInput(control) {
   updateContactStatus(null);
   validateVisibleContactError(control);
+  updateContactSubmitButtonState();
 }
 
-/* Register input or change handling for one contact control. */
+/* Validate a field when the user leaves it. */
+function handleContactControlBlur(control) {
+  validateContactControlAndRefresh(control);
+}
+
+/* Register blur and input/change handling for one contact control. */
 function registerContactControlEvent(control) {
-  const eventName = control.errorKey === "privacy" ? "change" : "input";
-  control.input.addEventListener(eventName, () => handleContactControlChange(control));
+  const liveEventName = control.errorKey === "privacy" ? "change" : "input";
+  control.input.addEventListener(liveEventName, () => handleContactControlInput(control));
+  control.input.addEventListener("blur", () => handleContactControlBlur(control));
 }
 
 /* Register all events used by the contact form. */
@@ -334,11 +381,14 @@ function prepareContactFormElement(form) {
 function initializeContactValidation() {
   const form = document.querySelector(".contact-form");
   if (!form) return;
+  contactFormElement = form;
+  contactSubmitButton = form.querySelector(".contact-form__submit");
   prepareContactFormElement(form);
   contactStatusElement = createContactStatusElement(form);
   const controls = createContactValidationControls();
   contactValidationControls.push(...controls);
   registerContactFormEvents(form, controls);
+  updateContactSubmitButtonState();
 }
 
 const contactApplyPageLanguage = applyPageLanguage;

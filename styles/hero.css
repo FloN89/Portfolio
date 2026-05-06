@@ -541,3 +541,28 @@
     font-size: clamp(18px, 5.3vw, 22px);
   }
 }
+
+.hero__inner {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+@media (max-width: 1180px) {
+  .hero__inner {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero__inner {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__inner {
+    min-height: 100svh;
+  }
+}
