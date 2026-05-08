@@ -10,6 +10,7 @@ body.overlay-is-open {
   align-items: center;
   justify-content: center;
   padding: 48px 24px;
+  font-family: "Inter", sans-serif;
 }
 
 .project-overlay.is-open {
@@ -226,7 +227,7 @@ body.overlay-is-open {
 .project-overlay__preview-image {
   width: 100%;
   height: 100%;
-  
+  object-fit: cover;
 }
 
 .project-overlay__preview-text {

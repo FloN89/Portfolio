@@ -41,7 +41,7 @@
   position: relative;
   min-height: 0;
   border-radius: 24px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   transition:
@@ -92,6 +92,7 @@
   font-weight: 700;
   color: rgba(255, 255, 255, 0.98);
   pointer-events: none;
+  z-index: 2;
 }
 
 .reference-card--side .reference-card__quote {

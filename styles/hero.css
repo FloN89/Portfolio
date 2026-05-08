@@ -411,7 +411,7 @@
   .hero__inner {
     width: 100%;
     min-height: max(840px, 100svh);
-    padding: 104px 14px 110px;
+    padding: 0px 10px 160px;
     align-items: center;
   }
 

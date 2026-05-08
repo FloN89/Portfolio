@@ -1,4 +1,12 @@
 const headerNavigationSectionIds = ["about", "skills", "projects"];
+const navigationScrollTargetSelectors = {
+  hero: "#hero",
+  about: ".about__title",
+  skills: ".skills-title",
+  projects: ".projects-title",
+  references: ".references-eyebrow",
+  contact: ".contact-title"
+};
 let headerNavigationScrollFrame = null;
 
 /* Return all hash links in the header navigation. */
@@ -38,10 +46,80 @@ function requestHeaderNavigationScrollUpdate() {
   headerNavigationScrollFrame = window.requestAnimationFrame(updateActiveHeaderNavigationFromScroll);
 }
 
-/* Update the active header link immediately after a navigation click. */
-function handleHeaderNavigationClick(event) {
-  const link = event.target.closest('.site-header__link[href^="#"]');
-  if (link) setActiveHeaderNavigationLink(link.getAttribute("href"));
+/* Return the hash from one internal anchor link. */
+function getInternalHashFromLink(link) {
+  const href = link.getAttribute("href") || "";
+  if (!href.startsWith("#") || href === "#") return "";
+  return href;
+}
+
+/* Return the precise headline target for one section hash. */
+function getNavigationScrollTarget(hash) {
+  const hashId = hash.replace("#", "");
+  const preferredSelector = navigationScrollTargetSelectors[hashId];
+  if (preferredSelector) return document.querySelector(preferredSelector);
+  return document.getElementById(hashId);
+}
+
+/* Return the current fixed-header offset for headline jumps. */
+function getNavigationHeaderOffset() {
+  const header = document.querySelector(".site-header");
+  if (!header) return 18;
+  return Math.ceil(header.getBoundingClientRect().height) + 18;
+}
+
+/* Respect reduced-motion preferences for programmatic scrolling. */
+function getNavigationScrollBehavior(behavior) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return "auto";
+  return behavior;
+}
+
+/* Return the page Y coordinate for one section headline. */
+function getNavigationScrollTop(target, hash) {
+  if (hash === "#hero") return 0;
+  return Math.max(0, window.scrollY + target.getBoundingClientRect().top - getNavigationHeaderOffset());
+}
+
+/* Scroll one internal hash link directly to its visible headline. */
+function scrollToNavigationHashTarget(hash, behavior = "smooth") {
+  const target = getNavigationScrollTarget(hash);
+  if (!target) return false;
+
+  window.scrollTo({
+    top: getNavigationScrollTop(target, hash),
+    behavior: getNavigationScrollBehavior(behavior)
+  });
+
+  if (headerNavigationSectionIds.includes(hash.replace("#", ""))) {
+    setActiveHeaderNavigationLink(hash);
+  }
+
+  return true;
+}
+
+/* Store the new hash without using the browser's default jump position. */
+function updateAddressHash(hash) {
+  if (window.location.hash === hash) return;
+  window.history.pushState(null, "", hash);
+}
+
+/* Handle every internal hash link with the same precise headline scrolling. */
+function handleInternalHashNavigationClick(event) {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link) return;
+
+  const hash = getInternalHashFromLink(link);
+  if (!hash || !getNavigationScrollTarget(hash)) return;
+
+  event.preventDefault();
+  updateAddressHash(hash);
+  scrollToNavigationHashTarget(hash);
+}
+
+/* Correct an already opened URL hash to the headline position after render. */
+function scrollToInitialNavigationHash() {
+  if (!window.location.hash) return;
+  window.requestAnimationFrame(() => scrollToNavigationHashTarget(window.location.hash, "auto"));
 }
 
 /* Return the initial hash for the active header navigation state. */
@@ -51,17 +129,18 @@ function getInitialHeaderNavigationHash() {
   return getCurrentHeaderNavigationHash();
 }
 
-/* Prepare active-state handling for the header navigation. */
+/* Prepare active-state handling and precise internal hash scrolling. */
 function initializeHeaderNavigation() {
   const nav = document.querySelector(".site-header__nav");
-  if (!nav) return;
 
-  nav.addEventListener("click", handleHeaderNavigationClick);
+  document.addEventListener("click", handleInternalHashNavigationClick);
   window.addEventListener("scroll", requestHeaderNavigationScrollUpdate, { passive: true });
   window.addEventListener("resize", requestHeaderNavigationScrollUpdate);
 
-  setActiveHeaderNavigationLink(getInitialHeaderNavigationHash());
+  if (nav) setActiveHeaderNavigationLink(getInitialHeaderNavigationHash());
+
   requestHeaderNavigationScrollUpdate();
+  scrollToInitialNavigationHash();
 }
 
 /* Return localized accessibility labels for the mobile menu button. */
