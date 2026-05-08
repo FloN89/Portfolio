@@ -63,15 +63,20 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
+  width: 100vw;
+  min-width: 100%;
   pointer-events: none;
 }
 
 body::before {
   z-index: -2;
   opacity: 0.96;
-  background:
-    url("./assets/imgs/12. Skill set Background.png") center top / cover no-repeat fixed,
+  background-image:
+    url("./assets/imgs/12. Skill set Background.png"),
     linear-gradient(180deg, #08100f 0%, #121313 44%, #121313 100%);
+  background-position: center top, center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
 }
 
 body::after {
@@ -121,6 +126,7 @@ footer,
 main {
   position: relative;
   z-index: 1;
+  background: transparent;
 }
 
 section,
@@ -225,9 +231,12 @@ body.cursor-shadow-visible .cursor-shadow {
   }
 
   body::before {
-    background:
-      url("./assets/imgs/12. Skill set Background.png") center top / cover no-repeat fixed,
+    background-image:
+      url("./assets/imgs/12. Skill set Background.png"),
       linear-gradient(180deg, #08100f 0%, #161818 35%, #191919 100%);
+    background-position: center top, center;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
   }
 
   body::after {
