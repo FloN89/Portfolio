@@ -259,17 +259,21 @@
 
 .hero__ticker-wrap {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
+  right: auto;
   bottom: 28px;
   z-index: 2;
-  overflow: hidden;
-  transform: rotate(-2.7deg);
-  transform-origin: center;
+
+  width: 100vw;
+  margin-left: -50vw;
+
+  overflow: visible;
+  transform: none;
 }
 
 .hero__ticker {
-  width: 100%;
+  width: calc(100% + 220px);
+  margin-left: -110px;
   padding: 14px 0;
   overflow: hidden;
   background: rgba(225, 232, 230, 0.14);
@@ -277,6 +281,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+
+  transform: rotate(-3.2deg);
+  transform-origin: center;
+  will-change: transform;
 }
 
 .hero__ticker-track {
@@ -509,13 +517,22 @@
   }
 
   .hero__ticker-wrap {
-    bottom: 32px;
-    transform: rotate(-2.7deg);
-  }
+  left: 50%;
+  right: auto;
+  bottom: 32px;
 
-  .hero__ticker {
-    padding: 13px 0;
-  }
+  width: 100vw;
+  margin-left: -50vw;
+
+  transform: none;
+}
+
+.hero__ticker {
+  width: calc(100% + 160px);
+  margin-left: -80px;
+  padding: 13px 0;
+  transform: rotate(-3.2deg);
+}
 
   .hero__ticker-track {
     gap: 34px;
