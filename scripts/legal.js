@@ -1,6 +1,6 @@
 const languageSwitchImages = {
   en: {
-    default: "/assets/imgs/header/3. Language switch.png",
+    default: "/assets/imgs/Header/Language_switch.png",
     hover: "/assets/imgs/Header/Property 1=Default hover.png"
   },
   de: {
