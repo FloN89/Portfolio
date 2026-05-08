@@ -284,9 +284,17 @@
 
 @media (max-width: 768px) {
   .site-header {
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background:
+      linear-gradient(180deg, rgba(7, 13, 13, 0.94) 0%, rgba(7, 13, 13, 0.82) 72%, rgba(7, 13, 13, 0.68) 100%);
+    border-bottom: 1px solid rgba(57, 232, 212, 0.12);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(18px) saturate(125%);
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
+  }
+
+  body.mobile-menu-open .site-header {
+    background:
+      linear-gradient(180deg, rgba(7, 13, 13, 0.98) 0%, rgba(7, 13, 13, 0.9) 100%);
   }
 
   .site-header__inner {
@@ -395,10 +403,12 @@
     gap: 28px;
 
     background:
-      radial-gradient(circle at 100% 0%, rgba(57, 232, 212, 0.2), transparent 52%),
-      linear-gradient(105deg, rgba(28, 29, 29, 0.98) 0%, rgba(25, 27, 27, 0.98) 43%, rgba(5, 66, 56, 0.98) 100%);
+      radial-gradient(circle at 100% 0%, rgba(57, 232, 212, 0.22), transparent 52%),
+      linear-gradient(105deg, rgba(18, 23, 23, 0.94) 0%, rgba(16, 20, 20, 0.92) 43%, rgba(5, 66, 56, 0.9) 100%);
+    backdrop-filter: blur(18px) saturate(125%);
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
 
-    box-shadow: none;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
     opacity: 0;
     pointer-events: none;
     overflow: visible;

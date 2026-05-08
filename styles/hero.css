@@ -27,9 +27,12 @@
 
 .hero__inner::before {
   opacity: 0.98;
-  background:
-    linear-gradient(180deg, rgba(4, 8, 10, 0.08) 0%, rgba(4, 8, 10, 0.48) 78%, rgba(18, 19, 19, 0.98) 100%),
-    url("../assets/imgs/12. Skill set Background.png") center top / cover no-repeat;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 8, 10, 0.06) 0%,
+    rgba(4, 8, 10, 0.34) 68%,
+    rgba(18, 19, 19, 0.74) 100%
+  );
 }
 
 .hero__inner::after {

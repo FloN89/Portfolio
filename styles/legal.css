@@ -99,8 +99,17 @@
 }
 
 @media (max-width: 768px) {
+  body:has(.legal-page) .site-header {
+    background:
+      linear-gradient(180deg, rgba(7, 13, 13, 0.96) 0%, rgba(7, 13, 13, 0.86) 100%);
+    border-bottom: 1px solid rgba(57, 232, 212, 0.12);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(18px) saturate(125%);
+    -webkit-backdrop-filter: blur(18px) saturate(125%);
+  }
+
   .legal-page {
-    padding: 58px 8px 42px;
+    padding: 112px 8px 42px;
   }
 
   .legal-page__back {

@@ -22,8 +22,6 @@
   font-display: swap;
 }
 
-
-
 :root {
   --background-main: #0f1111;
   --background-panel: #132422;
@@ -44,28 +42,44 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 76px;
+  scrollbar-gutter: stable;
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
   font-family: "Inter", sans-serif;
   color: var(--text-main);
-  background:
-    radial-gradient(940px 460px at 88% 0%, rgba(57, 232, 212, 0.12), transparent 46%),
-    linear-gradient(180deg, #08100f 0%, #121313 24%, #121313 100%);
+  background: #0b1110;
 }
 
-body::before {
+body::before,
+body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
   pointer-events: none;
-  opacity: 0.9;
+}
+
+body::before {
+  z-index: -2;
+  opacity: 0.96;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, transparent 24%),
+    url("./assets/imgs/12. Skill set Background.png") center top / cover no-repeat fixed,
+    linear-gradient(180deg, #08100f 0%, #121313 44%, #121313 100%);
+}
+
+body::after {
+  z-index: -1;
+  opacity: 0.98;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.1) 24%, rgba(18, 19, 19, 0.86) 100%),
+    radial-gradient(940px 460px at 88% 0%, rgba(57, 232, 212, 0.13), transparent 46%),
     radial-gradient(720px 380px at 78% 5%, rgba(57, 232, 212, 0.09), transparent 62%);
 }
 
@@ -107,6 +121,29 @@ footer,
 main {
   position: relative;
   z-index: 1;
+}
+
+section,
+[id] {
+  scroll-margin-top: 96px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(8, 16, 15, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(8, 16, 15, 0.9);
+  border-radius: 999px;
+  background: rgba(57, 232, 212, 0.42);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 232, 212, 0.64);
 }
 
 .cursor-shadow {
@@ -185,14 +222,44 @@ body.cursor-shadow-visible .cursor-shadow {
 
   body {
     overflow-x: hidden;
+  }
+
+  body::before {
     background:
-      radial-gradient(620px 360px at 86% 0%, rgba(57, 232, 212, 0.13), transparent 52%),
+      url("./assets/imgs/12. Skill set Background.png") center top / cover no-repeat fixed,
       linear-gradient(180deg, #08100f 0%, #161818 35%, #191919 100%);
+  }
+
+  body::after {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.12) 30%, rgba(20, 22, 22, 0.9) 100%),
+      radial-gradient(620px 360px at 86% 0%, rgba(57, 232, 212, 0.13), transparent 52%);
+  }
+
+  section,
+  [id] {
+    scroll-margin-top: 118px;
   }
 }
 
 @media (max-width: 360px) {
   :root {
     --responsive-gutter: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

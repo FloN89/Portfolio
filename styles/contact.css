@@ -64,16 +64,19 @@
 }
 
 .contact-form {
+  position: relative;
   width: 100%;
+  padding-bottom: 49px;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
 .contact-form__field {
-  min-height: 131px;
+  position: relative;
+  min-height: 156px;
   margin: 0;
-  padding: 33px 32px 31px;
+  padding: 33px 32px 50px;
   border-top: 1px solid rgba(57, 232, 212, 0.72);
   background: transparent;
 }
@@ -95,16 +98,26 @@
 }
 
 .contact-form__error {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 22px;
   display: block;
-  margin: -5px 0 10px;
+  min-height: 19px;
+  margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
   line-height: 1.35;
   color: #ff7b7b;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
 }
 
 .contact-form__error[hidden] {
-  display: none;
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .contact-form__field.is-invalid .contact-form__label,
@@ -146,8 +159,10 @@
 }
 
 .contact-form__privacy {
+  position: relative;
+  min-height: 118px;
   margin: 0;
-  padding: 44px 4px 0;
+  padding: 44px 4px 48px;
   border-top: 1px solid rgba(57, 232, 212, 0.72);
 }
 
@@ -257,7 +272,10 @@
 }
 
 .contact-form__privacy .contact-form__error {
-  margin: 10px 0 0 30px;
+  left: 30px;
+  right: 0;
+  bottom: 18px;
+  margin: 0;
 }
 
 .contact-form__submit {
@@ -286,16 +304,26 @@
 }
 
 .contact-form__status {
-  margin: 28px 0 -22px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 21px;
+  margin: 0;
   font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
   line-height: 1.45;
   text-align: center;
   color: rgba(241, 241, 237, 0.86);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
 }
 
 .contact-form__status[hidden] {
-  display: none;
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .contact-form__status.is-success {
@@ -373,16 +401,24 @@
 
   .contact-form {
     max-width: none;
+    padding-bottom: 49px;
   }
 
   .contact-form__field {
-    min-height: 0;
-    padding: 29px 0;
+    min-height: 145px;
+    padding: 29px 0 50px;
   }
 
   .contact-form__label {
     font-size: 20px;
     line-height: 1.25;
+  }
+
+  .contact-form__error {
+    left: 0;
+    right: 0;
+    bottom: 22px;
+    font-size: 13px;
   }
 
   .contact-form__input,
@@ -391,7 +427,14 @@
   }
 
   .contact-form__privacy {
-    padding: 36px 0 0;
+    min-height: 126px;
+    padding: 36px 0 50px;
+  }
+
+  .contact-form__privacy .contact-form__error {
+    left: 32px;
+    right: 0;
+    bottom: 18px;
   }
 
   .contact-checkbox {

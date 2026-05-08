@@ -95,25 +95,6 @@ const projectsData = [
       de: "Zweidimensionales Browser-Game mit objektorientiertem JavaScript, Kollisionslogik und responsivem Canvas-Handling."
     }
   },
-  {
-    identifier: "memory-game",
-    title: { en: "Memory", de: "Memory" },
-    stack: ["Angular", "Firebase", "TypeScript"],
-    githubUrl: "",
-    liveUrl: "",
-    preview: {
-      type: "text",
-      text: { en: "Stay tuned", de: "Stay tuned" }
-    },
-    overlayQuestion: {
-      en: "What is this project about?",
-      de: "Worum geht es in diesem Projekt?"
-    },
-    description: {
-      en: "Classic memory game implemented in Angular with a Firebase backend, featuring user authentication and real-time score tracking.",
-      de: "Klassisches Memory-Spiel in Angular mit Firebase-Backend, Nutzer-Authentifizierung und Echtzeit-Score-Tracking."
-    }
-  }
 ];
 
 const referencesData = [
@@ -142,7 +123,7 @@ const referencesData = [
 
 const languageSwitchImages = {
   en: {
-    default: "/assets/imgs/Header/Language _switch.png",
+    default: "/assets/imgs/Header/Language_switch.png",
     hover: "/assets/imgs/Header/Property 1=Default hover.png"
   },
   de: {
