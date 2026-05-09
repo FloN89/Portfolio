@@ -11,18 +11,7 @@ const skillsData = [
     icon: "assets/imgs/Skills/Property 1=JavaScript.png",
     names: { en: "JavaScript", de: "JavaScript" }
   },
-  {
-    icon: "assets/imgs/Skills/Property 1=Material Design.png",
-    names: { en: "Material Design", de: "Material Design" }
-  },
-  {
-    icon: "assets/imgs/Skills/Property 1=TypeScript.png",
-    names: { en: "TypeScript", de: "TypeScript" }
-  },
-  {
-    icon: "assets/imgs/Skills/Property 1=Angular.png",
-    names: { en: "Angular", de: "Angular" }
-  },
+  
   {
     icon: "assets/imgs/Skills/Property 1=Firebase.png",
     names: { en: "Firebase", de: "Firebase" }
