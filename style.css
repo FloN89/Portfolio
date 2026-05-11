@@ -43,7 +43,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 76px;
-  scrollbar-gutter: stable;
 }
 
 body {
@@ -250,6 +249,8 @@ body.cursor-shadow-visible .cursor-shadow {
   [id] {
     scroll-margin-top: 118px;
   }
+
+  
 }
 
 @media (max-width: 360px) {

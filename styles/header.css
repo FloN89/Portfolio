@@ -2,8 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
   background: linear-gradient(
     180deg,
     rgba(8, 11, 12, 0.7) 0%,
@@ -23,6 +26,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 28px;
+  box-sizing: border-box;
 }
 
 .site-header__left,
@@ -286,6 +290,8 @@
 
 @media (max-width: 768px) {
   .site-header {
+    width: 100%;
+    max-width: 100%;
     background:
       linear-gradient(180deg, rgba(7, 13, 13, 0.94) 0%, rgba(7, 13, 13, 0.82) 72%, rgba(7, 13, 13, 0.68) 100%);
     border-bottom: 1px solid rgba(57, 232, 212, 0.12);
@@ -301,12 +307,15 @@
 
   .site-header__inner {
     position: relative;
-    width: calc(100% - var(--responsive-gutter));
+    width: 100%;
+    max-width: 100%;
     min-height: 104px;
-    padding: 0;
+    margin: 0;
+    padding: 0 14px;
     flex-wrap: nowrap;
     justify-content: space-between;
     gap: 0;
+    box-sizing: border-box;
   }
 
   .site-header__logo {
@@ -381,13 +390,13 @@
   .site-header__left {
     position: fixed !important;
     top: 59px !important;
-    left: 50vw !important;
-    right: auto !important;
+    left: 0 !important;
+    right: 0 !important;
     z-index: 1002;
 
-    width: 238px !important;
-    min-width: 238px !important;
-    max-width: 238px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
 
     height: 252px !important;
     min-height: 252px !important;
@@ -395,7 +404,9 @@
 
     padding: 42px 0 37px;
     border: 1px solid var(--accent);
-    border-radius: 30px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0 0 30px 30px;
     box-sizing: border-box;
 
     display: flex;
@@ -415,7 +426,7 @@
     pointer-events: none;
     overflow: visible;
 
-    transform: translate3d(-50%, -8px, 0) !important;
+    transform: translate3d(0, -8px, 0) !important;
     transform-origin: top center;
     transition: opacity 0.24s ease, transform 0.24s ease;
     contain: layout paint style;
@@ -424,7 +435,7 @@
   body.mobile-menu-open .site-header__left {
     opacity: 1;
     pointer-events: auto;
-    transform: translate3d(-50%, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
   }
 
   .site-header__nav {
@@ -525,8 +536,8 @@
   }
 
   body.is-language-switching.mobile-menu-open .site-header__left {
-    left: 50vw !important;
-    right: auto !important;
-    transform: translate3d(-50%, 0, 0) !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translate3d(0, 0, 0) !important;
   }
 }
