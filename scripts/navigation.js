@@ -1,9 +1,9 @@
 const headerNavigationSectionIds = ["about", "skills", "projects"];
 const navigationScrollTargetSelectors = {
   hero: "#hero",
-  about: ".about__title",
-  skills: ".skills-title",
-  projects: ".projects-title",
+  about: ".about__image-frame",
+  skills: ".skills-eyebrow",
+  projects: ".projects-eyebrow",
   references: ".references-eyebrow",
   contact: ".contact-title"
 };
