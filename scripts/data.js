@@ -186,7 +186,7 @@ const pageTranslations = {
       title: "Let&apos;s work together",
       subtitle: "Got a problem to solve?",
       text: "I'm looking for a Frontend Developer role where I can turn ideas into responsive, user-friendly web applications. Let's talk about how I can support your project with clean code, thoughtful interfaces and a structured approach.",
-      smallText: 'Need a Frontend Developer? <a href="mailto:f.narr@gmx.de">Let&apos;s talk!</a>',
+      smallText: 'Need a Frontend Developer? <a href="#contactForm">Let&apos;s talk!</a>',
       labels: [
         "What&apos;s your name?",
         "What&apos;s your email?",
@@ -278,7 +278,7 @@ const pageTranslations = {
       title: "Lass uns zusammen&shy;arbeiten",
       subtitle: "Hast du ein Problem zu lösen?",
       text: "Ich suche eine Position als Frontend-Entwickler, in der ich Ideen in responsive, benutzerfreundliche Webanwendungen umsetzen kann. Lass uns darüber sprechen, wie ich dein Projekt mit sauberem Code, durchdachten Oberflächen und einer strukturierten Arbeitsweise unterstützen kann.",
-      smallText: 'Brauchst du einen Frontend Entwickler? <a href="mailto:f.narr@gmx.de">Lass uns sprechen!</a>',
+      smallText: 'Brauchst du einen Frontend Entwickler? <a href="#contactForm">Lass uns sprechen!</a>',
       labels: [
         "Wie heißt du?",
         "Wie lautet deine E-Mail?",

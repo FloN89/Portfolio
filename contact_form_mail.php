@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=utf-8");
 
 
-$siteEmail = "f.narr@gmx.de";
+$siteEmail = "kontakt@florian-narr.de";
 
 switch ($_SERVER['REQUEST_METHOD']) {
 

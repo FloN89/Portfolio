@@ -114,6 +114,7 @@ function handleInternalHashNavigationClick(event) {
   event.preventDefault();
   updateAddressHash(hash);
   scrollToNavigationHashTarget(hash);
+  if (hash === "#contactForm") document.getElementById("contactName")?.focus({ preventScroll: true });
 }
 
 /* Correct an already opened URL hash to the headline position after render. */
