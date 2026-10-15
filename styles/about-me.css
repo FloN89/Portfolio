@@ -7,7 +7,7 @@
 .about__inner {
   width: min(1440px, calc(100% - 96px));
   display: grid;
-  grid-template-columns: 570px 570px;
+  grid-template-columns: repeat(2, minmax(0, 570px));
   align-items: start;
   justify-content: center;
   gap: 96px;
@@ -15,12 +15,14 @@
 
 .about__media {
   position: relative;
+  min-width: 0;
 }
 
 .about__image-frame {
   position: relative;
-  width: 570px;
-  height: 600px;
+  width: 100%;
+  max-width: 570px;
+  aspect-ratio: 19 / 20;
   overflow: visible;
   border-radius: 34px;
   background: transparent;
@@ -63,6 +65,7 @@
 
 .about__content {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -76,7 +79,8 @@
 }
 
 .about__card {
-  width: 570px;
+  width: 100%;
+  max-width: 570px;
   min-height: 496px;
   padding: 34px 32px 30px;
   border: 1px solid rgba(57, 232, 212, 0.85);

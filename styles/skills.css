@@ -6,13 +6,14 @@
   width: min(1440px, calc(100% - 126px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 520px 1fr;
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
   align-items: start;
   gap: 120px;
 }
 
 .skills-left {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 18px;
 }
@@ -26,7 +27,8 @@
 }
 
 .skills-card {
-  width: 520px;
+  width: 100%;
+  max-width: 520px;
   min-height: 506px;
   padding: 38px 32px 30px;
   border: 1px solid rgba(57, 232, 212, 0.82);
@@ -149,12 +151,13 @@
 }
 
 .skills-right {
+  min-width: 0;
   padding-top: 68px;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 118px);
+  grid-template-columns: repeat(4, minmax(0, 118px));
   justify-content: space-between;
   gap: 44px 46px;
 }
@@ -341,6 +344,10 @@
 }
 
 @media (max-width: 1320px) {
+  .skills-wrapper {
+    gap: clamp(40px, 5vw, 66px);
+  }
+
   .skills-grid {
     grid-template-columns: repeat(4, minmax(92px, 118px));
     gap: 42px 34px;

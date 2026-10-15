@@ -2,12 +2,13 @@
   width: min(1248px, calc(100% - 126px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 470px 1fr;
+  grid-template-columns: 470px minmax(0, 1fr);
   align-items: start;
   gap: 160px;
 }
 
 .contact-copy {
+  min-width: 0;
   padding-top: 4px;
 }
 
@@ -29,6 +30,8 @@
   font-weight: 600;
   letter-spacing: -0.08em;
   color: var(--accent);
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .contact-subtitle {
@@ -61,6 +64,7 @@
 
 .contact-form {
   position: relative;
+  min-width: 0;
   width: 100%;
   padding-bottom: 49px;
   display: flex;
@@ -347,7 +351,7 @@
   .contact-shell {
     width: min(1248px, calc(100% - var(--responsive-gutter)));
     max-width: 920px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 56px;
   }
 
@@ -363,7 +367,7 @@
 @media (max-width: 768px) {
   .contact-shell {
     width: calc(100% - var(--responsive-gutter));
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
 
