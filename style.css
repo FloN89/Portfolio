@@ -229,11 +229,6 @@ body.cursor-shadow-visible .cursor-shadow {
     scroll-padding-top: 104px;
   }
 
-  body {
-    overflow-x: hidden;
-    overflow-x: clip;
-  }
-
   /* Keep off-screen entrance animations within the mobile viewport. */
   [data-aos="fade-left"]:not(.aos-animate),
   [data-aos="fade-right"]:not(.aos-animate) {
