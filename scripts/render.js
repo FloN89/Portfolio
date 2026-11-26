@@ -6,6 +6,7 @@ const skillHoverIconMarkup = {
 const technologyIconPaths = {
   HTML: "assets/imgs/Skills/Property 1=HTML.png",
   CSS: "assets/imgs/Skills/Property 1=CSS.png",
+  SCSS: "assets/imgs/Skills/scss.svg",
   JavaScript: "assets/imgs/Skills/Property 1=JavaScript.png",
   Angular: "assets/imgs/Skills/Property 1=Angular.png",
   TypeScript: "assets/imgs/Skills/Property 1=TypeScript.png",
@@ -153,9 +154,12 @@ function createOverlayPreviewMarkup(project) {
   return `<span class="project-overlay__preview-text">${readTranslatedText(project.preview.text)}</span>`;
 }
 
-/* Update one overlay link while keeping a safe fallback URL. */
+/* Show available project links and hide links without a destination. */
 function updateOverlayLink(linkElement, url) {
-  if (linkElement) linkElement.href = url || "#";
+  if (!linkElement) return;
+  linkElement.hidden = !url;
+  if (url) linkElement.href = url;
+  else linkElement.removeAttribute("href");
 }
 
 /* Return the project-specific overlay question or the default translation. */

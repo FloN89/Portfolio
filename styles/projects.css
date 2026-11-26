@@ -74,13 +74,15 @@
 }
 
 .project-row__title {
+  min-width: 0;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-family: "IBM Plex Mono", monospace;
   font-size: 26px;
-  line-height: 1;
+  line-height: 1.15;
   font-weight: 700;
+  overflow-wrap: anywhere;
   color: #ffffff;
 }
 

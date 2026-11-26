@@ -110,6 +110,7 @@ body.overlay-is-open {
   font-weight: 700;
   letter-spacing: -0.06em;
   color: #ffffff;
+  overflow-wrap: anywhere;
 }
 
 .project-overlay__question {
@@ -181,6 +182,10 @@ body.overlay-is-open {
 }
 
 .project-overlay__button span {
+  display: none;
+}
+
+.project-overlay__button[hidden] {
   display: none;
 }
 

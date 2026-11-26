@@ -284,6 +284,7 @@
   position: relative;
   z-index: 1;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 18px;
@@ -549,6 +550,8 @@
 
   .skill-growth-overlay {
     display: block;
+    left: auto;
+    right: 0;
     bottom: calc(100% + 10px);
     width: 188px;
     min-height: 112px;
@@ -556,20 +559,27 @@
     border-radius: 14px;
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, 10px) scale(0.96);
+    transform: translate(0, 10px) scale(0.96);
+    transform-origin: bottom right;
+  }
+
+  .skill-growth-overlay::after {
+    left: auto;
+    right: 34px;
+    transform: translateX(50%) rotate(45deg);
   }
 
   .skill-item--growth-mindset:hover .skill-growth-overlay,
   .skill-item--growth-mindset:focus-visible .skill-growth-overlay {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, 10px) scale(0.96);
+    transform: translate(0, 10px) scale(0.96);
   }
 
   .skill-item--growth-mindset.is-growth-overlay-open .skill-growth-overlay {
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(0, 0) scale(1);
   }
 }
 

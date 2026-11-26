@@ -11,10 +11,25 @@ const skillsData = [
     icon: "assets/imgs/Skills/Property 1=JavaScript.png",
     names: { en: "JavaScript", de: "JavaScript" }
   },
-  
+  {
+    icon: "assets/imgs/Skills/Property 1=TypeScript.png",
+    names: { en: "TypeScript", de: "TypeScript" }
+  },
+  {
+    icon: "assets/imgs/Skills/Property 1=Angular.png",
+    names: { en: "Angular", de: "Angular" }
+  },
+  {
+    icon: "assets/imgs/Skills/python.png",
+    names: { en: "Python", de: "Python" }
+  },
   {
     icon: "assets/imgs/Skills/Property 1=Firebase.png",
     names: { en: "Firebase", de: "Firebase" }
+  },
+  {
+    icon: "assets/imgs/Skills/Property 1=Supabase.png",
+    names: { en: "Supabase", de: "Supabase" }
   },
   {
     icon: "assets/imgs/Skills/Property 1=Git.png",
@@ -33,12 +48,11 @@ const skillsData = [
     names: { en: "Growth mindset", de: "Growth Mindset" },
     modifier: "growth-mindset",
     hoverHeadline: {
-      en: "I have a special interest in learning",
-      de: "Ich habe besonderes Interesse daran, zu lernen"
+      en: "I keep expanding my knowledge of",
+      de: "Ich vertiefe kontinuierlich meine Kenntnisse in"
     },
     hoverSkills: [
-      { label: "Python", icon: "python" },
-      { label: "TypeScript", icon: "typescript" }
+      { label: "Django", shortLabel: "Dj" }
     ]
   }
 ];
@@ -82,6 +96,60 @@ const projectsData = [
     description: {
       en: "Two-dimensional browser game with object oriented JavaScript, collision logic and responsive canvas handling.",
       de: "Zweidimensionales Browser-Game mit objektorientiertem JavaScript, Kollisionslogik und responsivem Canvas-Handling."
+    }
+  },
+  {
+    identifier: "reinigung-prutting",
+    title: { en: "Reinigung Prutting", de: "Reinigung Prutting" },
+    stack: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://reinigung-prutting.de/",
+    preview: {
+      type: "image",
+      src: "/assets/imgs/projects/reinigung-prutting.png",
+      alt: {
+        en: "Website preview of MB building cleaning and caretaker services in Prutting",
+        de: "Website-Vorschau von MB Gebäudereinigung und Hausmeisterservice in Prutting"
+      }
+    },
+    description: {
+      en: "Responsive business website for MB building cleaning and caretaker services in Prutting. Presents services, the team and customer reviews, with a contact form for enquiries.",
+      de: "Responsive Unternehmenswebsite für MB Gebäudereinigung und Hausmeisterservice in Prutting. Präsentiert Leistungen, das Team und Kundenbewertungen sowie ein Kontaktformular für Anfragen."
+    }
+  },
+  {
+    identifier: "florian-narr-websolution",
+    title: { en: "Florian Narr Websolution", de: "Florian Narr Websolution" },
+    stack: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://florian-narr-websolution.de/",
+    preview: {
+      type: "image",
+      src: "/assets/imgs/projects/florian-narr-websolution.png",
+      alt: {
+        en: "Florian Narr Websolution preview with web services and a portrait",
+        de: "Vorschau von Florian Narr Websolution mit Webdienstleistungen und Porträt"
+      }
+    },
+    description: {
+      en: "Bilingual business website for my web design and software services. Presents services, pricing and projects, with personal support in German and English and a contact form for enquiries.",
+      de: "Zweisprachige Unternehmenswebsite für meine Webdesign- und Softwaredienstleistungen. Präsentiert Leistungen, Preise und Projekte mit persönlichem Support auf Deutsch und Englisch sowie einem Kontaktformular für Anfragen."
+    }
+  },
+  {
+    identifier: "memory",
+    title: { en: "Memory", de: "Memory" },
+    stack: ["HTML", "SCSS", "TypeScript"],
+    liveUrl: "https://memory.florian-narr.de/",
+    preview: {
+      type: "image",
+      src: "/assets/imgs/projects/memory.png",
+      alt: {
+        en: "Memory game illustration with a grid of face-down cards and coding motifs",
+        de: "Memory-Spielillustration mit einem Raster aus verdeckten Karten und Programmiermotiven"
+      }
+    },
+    description: {
+      en: "Interactive browser-based memory game. Flip cards, find matching pairs and collect points while training your memory.",
+      de: "Interaktives Memory-Spiel im Browser. Decke Karten auf, finde passende Paare und sammle Punkte, während du dein Gedächtnis trainierst."
     }
   },
 ];
